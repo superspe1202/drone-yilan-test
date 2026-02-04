@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>無人機農噴預約系統 (專業版)</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
+    <!-- Leaflet Draw CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+    
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="header">
+                <h1><i class="fa-solid fa-paper-plane"></i> 智慧農噴接單</h1>
+            </div>
+            
+            <div class="control-panel">
+                <div class="input-group">
+                    <label>每分地工錢 (元)</label>
+                    <input type="number" id="pricePerFen" value="300">
+                </div>
+                
+                <div class="stats-card">
+                    <div class="stat-item">
+                        <span class="label">預估面積</span>
+                        <span class="value" id="areaDisplay">0 分</span>
+                        <span class="sub-value" id="areaSubDisplay">(0 坪)</span>
+                    </div>
+                    <div class="stat-item highlight">
+                        <span class="label">預估費用</span>
+                        <span class="value price" id="priceDisplay">$0</span>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="locateBtn" class="btn secondary"><i class="fa-solid fa-location-crosshairs"></i> 我的位置</button>
+                    <button id="clearBtn" class="btn danger"><i class="fa-solid fa-trash"></i> 清除重畫</button>
+                </div>
+
+                <hr>
+                
+                <div class="form-section">
+                    <h3>預約資料</h3>
+                    <input type="text" placeholder="聯絡人姓名">
+                    <input type="tel" placeholder="聯絡電話">
+                    <input type="date">
+                    <button class="btn primary big-btn">送出預約單</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Map -->
+        <div id="map"></div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+    <!-- Leaflet Draw JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+    <!-- Geometry Util (for Area) -->
+    <script src="https://unpkg.com/leaflet-geometryutil"></script>
+    <!-- OSM to GeoJSON (Fixed Version) -->
+    <script src="https://unpkg.com/osmtogeojson@2.2.12/osmtogeojson.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+:root {
+    --primary-color: #2ecc71;
+    --secondary-color: #3498db;
+    --dark-bg: #2c3e50;
+    --light-text: #ecf0f1;
+    --card-bg: rgba(255, 255, 255, 0.95);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif;
+    overflow: hidden; /* Prevent scroll on mobile */
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Map takes full space */
+#map {
+    flex: 1;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 350px;
+    background: var(--card-bg);
+    box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+
+.header {
+    background: var(--dark-bg);
+    color: var(--light-text);
+    padding: 15px 20px;
+    text-align: center;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.control-panel {
+    padding: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    box-sizing: border-box; /* Fix padding issue */
+}
+
+.stats-card {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--primary-color);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.stat-item:last-child {
+    margin-bottom: 0;
+}
+
+.stat-item .label {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.stat-item .value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.stat-item .sub-value {
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.stat-item.highlight .value {
+    color: #e74c3c;
+    font-size: 2rem;
+}
+
+.action-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn.primary { background: var(--primary-color); color: white; }
+.btn.secondary { background: var(--secondary-color); color: white; }
+.btn.danger { background: #e74c3c; color: white; }
+
+.btn:hover { opacity: 0.9; transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+.big-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.form-section input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+
+    #map {
+        height: 55vh; /* Map takes top half */
+        order: 1;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: 45vh; /* Controls take bottom half */
+        order: 2;
+        border-radius: 20px 20px 0 0;
+        box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+    }
+    
+    .header {
+        display: none; /* Save space on mobile */
+    }
+}
