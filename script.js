@@ -12,18 +12,24 @@ var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
 });
 
 // 2. Add Taiwan NLSC Layers
-// 官方地籍圖 WMS
-var wmsCadastral = L.tileLayer.wms('https://maps.nlsc.gov.tw/S_Maps/wms', {
-    layers: 'LANDSECT,MB5000', 
-    format: 'image/png',
-    transparent: true,
-    version: '1.1.1',
-    attribution: '© NLSC WMS',
-    maxZoom: 22,
-    opacity: 0.8
+// 官方段界 (黃線)
+var landSect = L.tileLayer('https://wmts.nlsc.gov.tw/wmts/LANDSECT2/default/GoogleMapsCompatible/{z}/{y}/{x}', {
+    opacity: 0.8,
+    maxZoom: 20,
+    zIndex: 50,
+    attribution: '段籍圖'
 });
 
-// 農業部農地圖層 (ALRIS) - 補回這個變數！
+// 591 地籍圖層 (Vercel Serverless Proxy)
+var cadastral591 = L.tileLayer('/api/proxy?z={z}&x={x}&y={y}', {
+    opacity: 1.0,
+    maxZoom: 22,       
+    maxNativeZoom: 20, 
+    zIndex: 100,
+    attribution: '591地籍圖'
+});
+
+// 農業部農地圖層 (ALRIS)
 var landUse = L.tileLayer('https://wmts.nlsc.gov.tw/wmts/LUIMAP/default/GoogleMapsCompatible/{z}/{y}/{x}', {
     opacity: 0.6,
     maxZoom: 20,
@@ -33,20 +39,21 @@ var landUse = L.tileLayer('https://wmts.nlsc.gov.tw/wmts/LUIMAP/default/GoogleMa
 // 3. OSM Data Layer
 var osmLayers = new L.FeatureGroup();
 
-// Add layers to map
-googleSat.addTo(map);
-wmsCadastral.addTo(map);
-landUse.addTo(map);
+// Add layers (預設開啟 白底OSM + 591紅線)
+// 這樣紅線會最明顯！
+osm.addTo(map); 
+landSect.addTo(map); 
+cadastral591.addTo(map);
 osmLayers.addTo(map);
 
-// Layer Control
 var baseMaps = {
-    "衛星地圖": googleSat,
-    "OpenStreetMap": osm
+    "一般地圖 (白底)": osm,
+    "衛星地圖": googleSat
 };
 
 var overlayMaps = {
-    "官方地籍圖 (WMS)": wmsCadastral,
+    "591 地籍紅線 (最強!)": cadastral591,
+    "官方段界 (黃線)": landSect,
     "農地分布": landUse,
     "自動農地框 (OSM)": osmLayers
 };
@@ -70,6 +77,7 @@ osmBtn.addTo(map);
 
 function loadOSMData() {
     var bounds = map.getBounds();
+    // Query for farmland in current view
     var query = `
         [out:json];
         (
@@ -83,7 +91,6 @@ function loadOSMData() {
         out skel qt;
     `;
     
-    // Show feedback
     var btnLink = osmBtn.getContainer().querySelector('a');
     btnLink.innerHTML = '⏳';
 

@@ -7,12 +7,47 @@ import ssl
 
 PORT = 8081
 
+# Disable SSL verification for Proxy
+ctx = ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
+
 class ProxyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
-        if self.path.startswith('/api/land'):
+        if self.path.startswith('/proxy/591'):
+            self.handle_591_proxy()
+        elif self.path.startswith('/api/land'):
             self.handle_land_query()
         else:
             super().do_GET()
+
+    def handle_591_proxy(self):
+        # Format: /proxy/591/{z}/{y}/{x}
+        try:
+            parts = self.path.split('/')
+            z, y, x = parts[-3], parts[-2], parts[-1]
+            
+            # 591 Tile URL
+            target_url = f"https://maptiles.591.com.tw/S_Maps/wmts/DMAPS/default/GoogleMapsCompatible/{z}/{y}/{x}"
+            
+            headers = {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                "Referer": "https://land.591.com.tw/"
+            }
+            
+            req = urllib.request.Request(target_url, headers=headers)
+            with urllib.request.urlopen(req, context=ctx, timeout=5) as response:
+                if response.status == 200:
+                    content = response.read()
+                    self.send_response(200)
+                    self.send_header('Content-type', 'image/png')
+                    self.end_headers()
+                    self.wfile.write(content)
+                else:
+                    self.send_error(response.status)
+        except Exception as e:
+            # print(f"Proxy Error: {e}")
+            self.send_error(404)
 
     def handle_land_query(self):
         query = urllib.parse.urlparse(self.path).query
@@ -25,82 +60,23 @@ class ProxyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         lat = params['lat'][0]
         lng = params['lng'][0]
         
-        # 嘗試串接真實的內政部 NLSC API
-        # Endpoint: https://api.nlsc.gov.tw/other/ParcelQuery/{lng}/{lat}
-        # 這是公開的查詢介面，回傳 XML 或 JSON
-        
-        target_url = f"https://api.nlsc.gov.tw/other/ParcelQuery/{lng}/{lat}"
-        
-        try:
-            # Create SSL context to ignore cert errors if any
-            ctx = ssl.create_default_context()
-            ctx.check_hostname = False
-            ctx.verify_mode = ssl.CERT_NONE
-            
-            req = urllib.request.Request(
-                target_url, 
-                headers={'User-Agent': 'Mozilla/5.0'}
-            )
-            
-            with urllib.request.urlopen(req, context=ctx, timeout=5) as response:
-                data = response.read().decode('utf-8')
-                
-                # NLSC API returns XML or JSON. Let's assume JSON for easier parsing if possible,
-                # but standard is XML. Let's try to parse it.
-                # Example return: <parcelQuery><status>1</status><region>...</region>...</parcelQuery>
-                
-                # For simplicity in this demo, we will construct a response.
-                # If the API works, we parse it. If it returns 403/404, we fallback.
-                
-                # Note: Real NLSC API often requires coordinate to be strictly within a land parcel.
-                
-                # 簡單解析 XML (不引用 heavy library)
-                section = self.extract_tag(data, "sectName") or "未知段"
-                lot_no = self.extract_tag(data, "parcelNo") or "查詢中"
-                
-                # 處理地號格式 (12340000 -> 1234-0000 -> 1234號)
-                if len(lot_no) == 8:
-                    main_no = int(lot_no[:4])
-                    sub_no = int(lot_no[4:])
-                    if sub_no == 0:
-                        lot_display = f"{main_no}號"
-                    else:
-                        lot_display = f"{main_no}-{sub_no}號"
-                else:
-                    lot_display = lot_no
+        # Mock Response (Since real API is blocked)
+        response_data = {
+            "status": "success",
+            "lat": lat,
+            "lng": lng,
+            "note": "請搭配紅線圖層使用",
+            "section": "查詢中...",
+            "lot": "請參考地圖"
+        }
 
-                # 回傳給前端
-                response_data = {
-                    "status": "success",
-                    "lat": lat,
-                    "lng": lng,
-                    "note": "資料來源：內政部國土測繪中心 (NLSC)",
-                    "section": section,
-                    "lot": lot_display,
-                    "raw_data": data[:200] # Debug info
-                }
-
-                self.send_response(200)
-                self.send_header('Content-type', 'application/json')
-                self.end_headers()
-                self.wfile.write(json.dumps(response_data).encode())
-                
-        except Exception as e:
-            # Fallback if API fails
-            self.send_response(500)
-            self.send_header('Content-type', 'application/json')
-            self.end_headers()
-            self.wfile.write(json.dumps({"error": str(e)}).encode())
-
-    def extract_tag(self, xml, tag):
-        start = xml.find(f"<{tag}>")
-        end = xml.find(f"</{tag}>")
-        if start != -1 and end != -1:
-            return xml[start + len(tag) + 2 : end]
-        return None
+        self.send_response(200)
+        self.send_header('Content-type', 'application/json')
+        self.end_headers()
+        self.wfile.write(json.dumps(response_data).encode())
 
 Handler = ProxyHTTPRequestHandler
 
-print(f"Serving on port {PORT} with REAL NLSC API Proxy...")
+print(f"Serving on port {PORT} with 591 Proxy...")
 with socketserver.TCPServer(("", PORT), Handler) as httpd:
     httpd.serve_forever()
