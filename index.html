@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>冬山鄉八仙段 - 頂點拼接實測 V23.0</title>
+    <title>冬山鄉八仙段 - 頂點拼接完成版 V24.0</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         body { margin: 0; padding: 0; font-family: 'Microsoft JhengHei', sans-serif; }
@@ -13,30 +13,24 @@
             background: rgba(255, 255, 255, 0.98); padding: 20px; border-radius: 15px;
             z-index: 1000; box-shadow: 0 15px 40px rgba(0,0,0,0.4); border: 3px solid #3498db;
         }
-        .result-box { background: #3498db; padding: 20px; border-radius: 12px; margin-top: 15px; text-align: center; color: white; }
-        .value { font-size: 3rem; font-weight: 900; display: block; line-height: 1; }
+        .result-box { background: #3498db; padding: 15px; border-radius: 12px; margin-top: 15px; text-align: center; color: white; }
+        .value { font-size: 2.5rem; font-weight: 900; display: block; }
         .unit { font-size: 1.5rem; font-weight: bold; }
-        .corner-dot {
-            background: #e74c3c;
-            border: 1px solid white;
-            border-radius: 50%;
-            width: 8px;
-            height: 8px;
-            box-shadow: 0 0 5px rgba(231, 76, 60, 0.8);
-        }
+        .parcel-label { font-size: 10px; color: #7f8c8d; }
     </style>
 </head>
 <body>
     <div class="info-panel">
-        <h2 style="margin:0; color: #2c3e50; text-align: center;">頂點拼接實測</h2>
-        <p style="color: #7f8c8d; margin: 0 0 15px 0; text-align: center; font-size: 14px;">已讀取四周圍角點位置</p>
+        <h2 style="margin:0; color: #2c3e50; text-align: center;">頂點拼接成果</h2>
+        <p style="color: #7f8c8d; margin: 0 0 10px 0; text-align: center; font-size: 12px;">已讀取四周圍角點並拼接</p>
         <div class="result-box">
             <span id="area-val" class="value">0.00</span>
             <span class="unit">分地</span>
+            <div id="ping-val" style="font-size: 16px;">0 坪</div>
         </div>
         <p style="margin-top:15px; font-size:12px; color:#2c3e50; font-weight:bold;">
-            ✅ 紅色圓點：攔截到的真實角點<br>
-            ✅ 藍色框線：由頂點拼接而成的土地
+            ✅ 藍框區域：真實角點拼接結果<br>
+            ✅ 點選地塊：自動計算面積
         </p>
     </div>
     <div id="map"></div>
@@ -44,39 +38,38 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-geometryutil"></script>
     <script>
-        // 定位到攔截到的角點區域
-        var map = L.map('map', {zoomControl: false}).setView([24.6171, 121.6952], 19);
+        var map = L.map('map', {zoomControl: false}).setView([24.633, 121.751], 18);
         
-        // OSM Base
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '© OpenStreetMap'
-        }).addTo(map);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
         var vectorLayer = L.geoJSON(null, {
-            style: { color: "#3498db", weight: 4, fillOpacity: 0.2 },
+            style: { color: "#3498db", weight: 3, fillOpacity: 0.3 },
             onEachFeature: function(feature, layer) {
-                // 自動計算面積
-                var latlngs = layer.getLatLngs()[0];
-                if (Array.isArray(latlngs[0])) latlngs = latlngs[0];
-                var sqm = Math.abs(L.GeometryUtil.geodesicArea(latlngs));
-                document.getElementById('area-val').innerText = (sqm * 0.00103102).toFixed(2);
-                
-                // 在每個角點畫一個小紅點
-                latlngs.forEach(ll => {
-                    L.marker(ll, {
-                        icon: L.divIcon({ className: 'corner-dot', iconSize: [8, 8], iconAnchor: [4, 4] }),
-                        interactive: false
-                    }).addTo(map);
+                layer.on('click', function(e) {
+                    L.DomEvent.stopPropagation(e);
+                    vectorLayer.eachLayer(l => vectorLayer.resetStyle(l));
+                    layer.setStyle({ color: "#e74c3c", weight: 5, fillOpacity: 0.5 });
+                    
+                    var latlngs = layer.getLatLngs()[0];
+                    if (Array.isArray(latlngs[0])) latlngs = latlngs[0];
+                    
+                    var sqm = Math.abs(L.GeometryUtil.geodesicArea(latlngs));
+                    document.getElementById('area-val').innerText = (sqm * 0.00103102).toFixed(2);
+                    document.getElementById('ping-val').innerText = Math.floor(sqm * 0.3025) + " 坪";
+                    
+                    layer.bindPopup(`<b>地號: ${feature.properties.land_number}</b><br>面積: ${sqm.toFixed(1)} m²`).openPopup();
                 });
             }
         }).addTo(map);
 
-        // 載入從 591 封包攔截到的真實頂點
-        fetch('real_yilan_vertices.json')
+        fetch('stitched_basian.json')
             .then(r => r.json())
             .then(data => {
                 vectorLayer.addData(data);
+                if (data.features.length > 0) {
+                    // Fit map to data
+                    map.fitBounds(vectorLayer.getBounds());
+                }
             });
     </script>
 </body>
