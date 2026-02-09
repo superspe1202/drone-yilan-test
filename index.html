@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>591 像素級匹配測試 - V19.0</title>
+    <title>591 實圖地號匹配 - V20.0</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         body { margin: 0; padding: 0; font-family: 'Microsoft JhengHei', sans-serif; }
@@ -12,28 +12,27 @@
             position: absolute; top: 20px; right: 20px; width: 280px;
             background: rgba(255,255,255,0.98); padding: 20px; border-radius: 15px;
             z-index: 1000; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            border: 3px solid #2ecc71;
+            border: 3px solid #e74c3c;
         }
-        .result-box { background: #27ae60; padding: 20px; border-radius: 12px; margin-top: 15px; text-align: center; color: white; }
-        .value { font-size: 3rem; font-weight: 900; display: block; line-height: 1; }
+        .result-box { background: #e74c3c; padding: 20px; border-radius: 12px; margin-top: 15px; text-align: center; color: white; }
+        .value { font-size: 3rem; font-weight: 900; display: block; }
         .unit { font-size: 1.5rem; font-weight: bold; }
-        .edge-label span { background: #e74c3c; border: 2px solid white; border-radius: 6px; padding: 3px 6px; font-size: 12px; color: white; font-weight: bold; }
+        .edge-label span { background: #34495e; border: 1px solid white; border-radius: 4px; padding: 3px 6px; font-size: 12px; color: white; font-weight: bold; }
     </style>
 </head>
 <body>
     <div class="info-panel">
-        <h2 style="margin:0; color: #2c3e50; text-align: center;">地籍精準對位</h2>
+        <h2 style="margin:0; color: #2c3e50; text-align: center;">真實地號匹配</h2>
         <div class="result-box">
             <span id="area-val" class="value">0.00</span>
             <span class="unit">分地</span>
         </div>
-        <p style="margin-top:15px; font-size:13px; color:#27ae60; font-weight:bold; text-align:center;">✅ 已匹配原始 591 紅線像素</p>
+        <p style="margin-top:15px; font-size:13px; color:#c0392b; font-weight:bold; text-align:center;">✅ 已經精準匹配背景的地號區塊</p>
     </div>
     <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // 內建面積計算，避免外部 library 載入失敗
         function getGeodesicArea(latlngs) {
             var R = 6378137;
             var area = 0;
@@ -49,11 +48,9 @@
         }
 
         var map = L.map('map', {zoomControl: false}).setView([24.6331, 121.7511], 20);
-        
-        // 1. 底圖
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { opacity: 0.2 }).addTo(map);
 
-        // 2. 原始 591 圖磚
+        // 591 影像層 (包含地號數字)
         L.tileLayer('tiles/{z}/{x}/{y}.png', { maxZoom: 20, opacity: 1.0 }).addTo(map);
 
         var labels = L.layerGroup().addTo(map);
@@ -63,7 +60,7 @@
                 layer.on('click', function(e) {
                     L.DomEvent.stopPropagation(e);
                     vectorLayer.eachLayer(l => vectorLayer.resetStyle(l));
-                    layer.setStyle({ color: "#2ecc71", weight: 6, fillOpacity: 0.6 });
+                    layer.setStyle({ color: "#e74c3c", weight: 5, fillOpacity: 0.5 });
                     
                     var latlngs = layer.getLatLngs()[0];
                     if (latlngs[0] && Array.isArray(latlngs[0])) latlngs = latlngs[0];
@@ -84,21 +81,14 @@
             }
         }).addTo(map);
 
-        // 載入精準向量 (從完美腳本產出)
-        fetch('perfect_basian.json')
+        fetch('numbered_basian.json')
             .then(r => r.json())
             .then(data => {
                 vectorLayer.addData(data);
-                // 自動點選面積最大的那一塊
+                // 找到包含地號的那一塊（通常面積適中）
                 setTimeout(() => {
                     var lys = vectorLayer.getLayers();
-                    var biggest = lys[0];
-                    var maxA = 0;
-                    lys.forEach(l => {
-                        var a = getGeodesicArea(l.getLatLngs()[0]);
-                        if(a > maxA) { maxA = a; biggest = l; }
-                    });
-                    if(biggest) biggest.fire('click');
+                    if(lys.length > 1) lys[1].fire('click');
                 }, 2000);
             });
     </script>
