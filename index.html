@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>591 像素完美對齊 - V21.0</title>
+    <title>591 像素完美對齊 - V22.0</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         body { margin: 0; padding: 0; font-family: 'Microsoft JhengHei', sans-serif; }
@@ -57,22 +57,32 @@
 
         var labels = L.layerGroup().addTo(map);
         var vectorLayer = L.geoJSON(null, {
-            // 使用極細的邊框，讓視覺焦點在填滿區域
-            style: { color: "#2ecc71", weight: 1, fillOpacity: 0.5 },
+            // 預設樣式：透明
+            style: { color: "transparent", weight: 0, fillOpacity: 0 },
             onEachFeature: function(feature, layer) {
-                var latlngs = layer.getLatLngs()[0];
-                var sqm = getGeodesicArea(latlngs);
-                document.getElementById('area-val').innerText = (sqm * 0.00103102).toFixed(2);
-                
-                labels.clearLayers();
-                for(var i=0; i<latlngs.length; i+=Math.floor(latlngs.length/4)) { // 僅顯示 4 邊長避免雜亂
-                    var p1 = latlngs[i], p2 = latlngs[(i+1)%latlngs.length];
-                    var d = map.distance(p1, p2);
-                    if(d > 5) {
-                        var mid = L.latLng((p1.lat+p2.lat)/2, (p1.lng+p2.lng)/2);
-                        L.marker(mid, {icon: L.divIcon({className: 'edge-label', html: `<span>${d.toFixed(1)}m</span>`})}).addTo(labels);
+                layer.on('click', function(e) {
+                    L.DomEvent.stopPropagation(e);
+                    vectorLayer.eachLayer(l => vectorLayer.resetStyle(l));
+                    
+                    // 選中樣式：鮮紅色，無邊框以確認貼合度
+                    layer.setStyle({ color: "transparent", weight: 0, fillOpacity: 0.5, fillColor: "#ff0000" });
+                    
+                    var latlngs = layer.getLatLngs()[0];
+                    if (latlngs[0] && Array.isArray(latlngs[0])) latlngs = latlngs[0];
+                    
+                    var sqm = getGeodesicArea(latlngs);
+                    document.getElementById('area-val').innerText = (sqm * 0.00103102).toFixed(2);
+                    
+                    labels.clearLayers();
+                    for(var i=0; i<latlngs.length; i++) {
+                        var p1 = latlngs[i], p2 = latlngs[(i+1)%latlngs.length];
+                        var d = map.distance(p1, p2);
+                        if(d > 2) {
+                            var mid = L.latLng((p1.lat+p2.lat)/2, (p1.lng+p2.lng)/2);
+                            L.marker(mid, {icon: L.divIcon({className: 'edge-label', html: `<span>${d.toFixed(1)}m</span>`, iconAnchor:[25,10]})}).addTo(labels);
+                        }
                     }
-                }
+                });
             }
         }).addTo(map);
 
