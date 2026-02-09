@@ -3,78 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>冬山鄉平原區 - 實測版 V15.0</title>
+    <title>591 原始地籍圖層確認 - V16.0</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
-        body { margin: 0; padding: 0; font-family: 'Microsoft JhengHei', sans-serif; }
-        #map { height: 100vh; width: 100vw; background: #fff; }
+        body { margin: 0; padding: 0; font-family: sans-serif; }
+        #map { height: 100vh; width: 100vw; background: #333; }
+        
         .info-panel {
-            position: absolute; top: 20px; right: 20px; width: 280px;
-            background: rgba(255, 255, 255, 0.98); padding: 20px; border-radius: 15px;
-            z-index: 1000; box-shadow: 0 15px 40px rgba(0,0,0,0.4); border: 3px solid #2ecc71;
+            position: absolute; top: 20px; right: 20px; width: 250px;
+            background: rgba(255, 255, 255, 0.95); padding: 15px; border-radius: 12px;
+            z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            border: 2px solid #e74c3c;
         }
-        .result-box { background: #2ecc71; padding: 15px; border-radius: 12px; margin-top: 15px; text-align: center; color: white; }
-        .value { font-size: 2.5rem; font-weight: 900; display: block; }
-        .unit { font-size: 1.2rem; font-weight: bold; }
-        .edge-label span { background: #34495e; border: 1px solid white; border-radius: 4px; padding: 2px 4px; font-size: 10px; color: white; font-weight: bold; }
+
+        /* 讓 591 的圖磚強制顯示為紅色 (如果有色差的話) */
+        .layer-591 {
+            filter: brightness(1.5) contrast(2) hue-rotate(300deg) saturate(5);
+        }
     </style>
 </head>
 <body>
     <div class="info-panel">
-        <h2 style="margin:0; color: #2c3e50; text-align: center;">冬山平原測繪</h2>
-        <p style="color: #7f8c8d; text-align: center; font-size: 12px;">已下載 591 原始地籍圖磚</p>
-        <div class="result-box">
-            <span id="area-val" class="value">0.65</span>
-            <span class="unit">分地</span>
-            <div id="ping-val">191 坪</div>
-        </div>
-        <p style="margin-top:10px; font-size:12px; color:#27ae60; font-weight:bold; text-align:center;">
-            ✅ 位置：冬山鄉 (非山區)<br>
-            ✅ 疊加原始地籍影像
-        </p>
+        <h3 style="margin-top:0; color: #e74c3c;">🚨 原始地籍圖確認</h3>
+        <p style="font-size: 14px;">目前畫面顯示：</p>
+        <ul style="font-size: 13px; padding-left: 20px;">
+            <li><b>衛星地圖</b> (Google)</li>
+            <li><b>591 原始地籍線</b> (紅色/紫色)</li>
+        </ul>
+        <p style="font-size: 12px; color: #7f8c8d;">請確認背景中是否有看到清晰的「紅框地籍線」。</p>
     </div>
     <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet-geometryutil"></script>
     <script>
-        // 定位到冬山平原 (Sanhe Road Area)
-        var map = L.map('map', {zoomControl: false}).setView([24.6332, 121.751], 20);
+        // 定位到冬山平原
+        var map = L.map('map', {zoomControl: false}).setView([24.6332, 121.751], 19);
         
-        // 1. 標準底圖 (調暗)
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, opacity: 0.3 }).addTo(map);
-
-        // 2. 591 影像層 (白線地籍)
-        L.tileLayer('tiles/{z}/{x}/{y}.png', { maxZoom: 20, opacity: 1.0 }).addTo(map);
-
-        var labels = L.layerGroup().addTo(map);
-        var vectorLayer = L.geoJSON(null, {
-            style: { color: "#e74c3c", weight: 4, fillOpacity: 0.4 },
-            onEachFeature: function(feature, layer) {
-                var latlngs = layer.getLatLngs()[0];
-                // 畫邊長
-                labels.clearLayers();
-                for(var i=0; i<latlngs.length-1; i++) {
-                    var p1 = latlngs[i], p2 = latlngs[i+1];
-                    var d = map.distance(p1, p2);
-                    var mid = L.latLng((p1.lat+p2.lat)/2, (p1.lng+p2.lng)/2);
-                    L.marker(mid, {icon: L.divIcon({className: 'edge-label', html: `<span>${d.toFixed(1)}m</span>`, iconAnchor: [20, 10]})}).addTo(labels);
-                }
-            }
+        // 1. Google 衛星圖
+        L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 22, subdomains:['mt0','mt1','mt2','mt3']
         }).addTo(map);
 
-        // 冬山平原地塊 (ID: 2 from extract_dongshan_flat.py)
-        const coords = [[121.75098, 24.633258], [121.75098, 24.633249], [121.750979, 24.633248], [121.750977, 24.633248], [121.750977, 24.633232], [121.750976, 24.633231], [121.750975, 24.633231], [121.750975, 24.633218], [121.750973, 24.633216], [121.750972, 24.633216], [121.750972, 24.633201], [121.750971, 24.633199], [121.750969, 24.633199], [121.750969, 24.633186], [121.750968, 24.633185], [121.750967, 24.633185], [121.750967, 24.633171], [121.750965, 24.633170], [121.750964, 24.633170], [121.750964, 24.633154], [121.750963, 24.633153], [121.750961, 24.633153], [121.750961, 24.633140], [121.750960, 24.633138], [121.750959, 24.633138], [121.750959, 24.633123], [121.750957, 24.633121], [121.750956, 24.633121], [121.750956, 24.633108], [121.750954, 24.633107], [121.750953, 24.633107], [121.750953, 24.633093], [121.750952, 24.633092], [121.750950, 24.633092], [121.750950, 24.633076], [121.750949, 24.633075], [121.750948, 24.633075], [121.750948, 24.633062], [121.750946, 24.633060], [121.750945, 24.633060], [121.750945, 24.633045], [121.750944, 24.633043], [121.750942, 24.633043], [121.750942, 24.633030], [121.750941, 24.633029], [121.750940, 24.633029], [121.750940, 24.633013], [121.750938, 24.633012], [121.750937, 24.633012], [121.750937, 24.633001], [121.750946, 24.633001], [121.750948, 24.632999], [121.750948, 24.632998], [121.750963, 24.632998], [121.750964, 24.632997], [121.750964, 24.632996], [121.750979, 24.632996], [121.750980, 24.632995], [121.750980, 24.632993], [121.750995, 24.632993], [121.750996, 24.632992], [121.750996, 24.632991], [121.751011, 24.632991], [121.751012, 24.632990], [121.751012, 24.632989], [121.751027, 24.632989], [121.751028, 24.632987], [121.751028, 24.632986], [121.751043, 24.632986], [121.751044, 24.632985], [121.751044, 24.632984], [121.751059, 24.632984], [121.751060, 24.632982], [121.751060, 24.632981], [121.751075, 24.632981], [121.751077, 24.632980], [121.751077, 24.632979], [121.751091, 24.632979], [121.751093, 24.632978], [121.751093, 24.632975], [121.751173, 24.632975], [121.751173, 24.633229], [121.751170, 24.633229], [121.751169, 24.633230], [121.751169, 24.633231], [121.751154, 24.633231], [121.751153, 24.633232], [121.751153, 24.633234], [121.751138, 24.633234], [121.751137, 24.633235], [121.751137, 24.633236], [121.751122, 24.633236], [121.751121, 24.633237], [121.751121, 24.633238], [121.751106, 24.633238], [121.751105, 24.633240], [121.751105, 24.633241], [121.751090, 24.633241], [121.751089, 24.633242], [121.751089, 24.633243], [121.751074, 24.633243], [121.751073, 24.633245], [121.751073, 24.633246], [121.751058, 24.633246], [121.751056, 24.633247], [121.751056, 24.633248], [121.751042, 24.633248], [121.751040, 24.633249], [121.751040, 24.633251], [121.751026, 24.633251], [121.751024, 24.633252], [121.751024, 24.633253], [121.751009, 24.633253], [121.751008, 24.633254], [121.751008, 24.633255], [121.750993, 24.633255], [121.750992, 24.633257], [121.750992, 24.633258], [121.75098, 24.633258]];
-        
-        const data = {"type": "FeatureCollection", "features": [{
-            "type": "Feature",
-            "geometry": {"type": "Polygon", "coordinates": [coords]},
-            "properties": {"id": 100}
-        }]};
-        
-        vectorLayer.addData(data);
-        // 自動觸發選取效果
-        setTimeout(() => { vectorLayer.getLayers()[0].fire('click'); }, 1000);
+        // 2. 591 影像層 (這是我們從 591 直接抓下來的圖磚)
+        L.tileLayer('tiles/{z}/{x}/{y}.png', {
+            maxZoom: 20,
+            opacity: 1.0,
+            className: 'layer-591'
+        }).addTo(map);
     </script>
 </body>
 </html>
