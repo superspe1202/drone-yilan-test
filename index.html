@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>591 影像精準對齊測試 V11.0</title>
+    <title>591 影像實測 V12.0</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         body { margin: 0; padding: 0; font-family: 'Microsoft JhengHei', sans-serif; }
@@ -11,9 +11,9 @@
         .info-panel {
             position: absolute; top: 20px; right: 20px; width: 280px;
             background: rgba(255, 255, 255, 0.98); padding: 20px; border-radius: 15px;
-            z-index: 1000; box-shadow: 0 15px 40px rgba(0,0,0,0.4); border: 3px solid #e67e22;
+            z-index: 1000; box-shadow: 0 15px 40px rgba(0,0,0,0.4); border: 3px solid #3498db;
         }
-        .result-box { background: #e67e22; padding: 15px; border-radius: 12px; margin-top: 15px; text-align: center; color: white; }
+        .result-box { background: #3498db; padding: 15px; border-radius: 12px; margin-top: 15px; text-align: center; color: white; }
         .value { font-size: 2.5rem; font-weight: 900; display: block; }
         .unit { font-size: 1.2rem; font-weight: bold; }
         .edge-label span { background: #2c3e50; border: 1px solid white; border-radius: 4px; padding: 2px 4px; font-size: 10px; color: white; font-weight: bold; }
@@ -21,32 +21,35 @@
 </head>
 <body>
     <div class="info-panel">
-        <h2 style="margin:0; color: #2c3e50; text-align: center;">591 實圖對齊測試</h2>
-        <p style="color: #7f8c8d; text-align: center; font-size: 12px;">疊加原始 591 地籍圖磚</p>
+        <h2 style="margin:0; color: #2c3e50; text-align: center;">591 實圖匹配</h2>
+        <p style="color: #7f8c8d; text-align: center; font-size: 12px;">疊加 591 原始地籍圖磚</p>
         <div class="result-box">
             <span id="area-val" class="value">0.00</span>
             <span class="unit">分地</span>
             <div id="ping-val">0 坪</div>
         </div>
-        <p style="margin-top:10px; font-size:12px; color:#d35400; font-weight:bold;">
-            ✅ 已疊加 591 原始圖片 (透明度 0.8)<br>
-            ✅ 紅框為我點擊後生成的向量
-        </p>
     </div>
     <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet-geometryutil"></script>
     <script>
-        var map = L.map('map', {zoomControl: false}).setView([24.66325, 121.751], 20);
-        
-        // 1. OSM Base
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+        function calcArea(latlngs) {
+            var R = 6378137;
+            var area = 0;
+            if (latlngs.length > 2) {
+                for (var i = 0; i < latlngs.length; i++) {
+                    var p1 = latlngs[i];
+                    var p2 = latlngs[(i + 1) % latlngs.length];
+                    area += (p2.lng - p1.lng) * (2 + Math.sin(p1.lat * Math.PI / 180) + Math.sin(p2.lat * Math.PI / 180));
+                }
+                area = Math.abs(area * R * R / 2);
+            }
+            return area;
+        }
 
-        // 2. 591 Image Tiles (疊加在上面)
-        L.tileLayer('tiles/{z}/{x}/{y}.png', {
-            maxZoom: 20, opacity: 0.8
-        }).addTo(map);
+        var map = L.map('map', {zoomControl: false}).setView([24.66325, 121.751], 20);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+        L.tileLayer('tiles/{z}/{x}/{y}.png', { maxZoom: 20, opacity: 0.9 }).addTo(map);
 
         var labels = L.layerGroup().addTo(map);
         var vectorLayer = L.geoJSON(null, {
@@ -58,7 +61,7 @@
                     layer.setStyle({ color: "#2ecc71", weight: 6, fillOpacity: 0.6 });
                     
                     var latlngs = layer.getLatLngs()[0];
-                    var sqm = Math.abs(L.GeometryUtil.geodesicArea(latlngs));
+                    var sqm = calcArea(latlngs);
                     document.getElementById('area-val').innerText = (sqm * 0.00103102).toFixed(2);
                     document.getElementById('ping-val').innerText = Math.floor(sqm * 0.3025) + " 坪";
                     
@@ -73,17 +76,12 @@
             }
         }).addTo(map);
 
-        // 載入兩個範例地塊
         const data = {"type": "FeatureCollection", "features": [
             {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[121.751018, 24.663363], [121.751126, 24.663360], [121.751148, 24.663243], [121.751018, 24.663363]]]}, "properties": {"id": 1}},
             {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[121.750942, 24.663309], [121.750975, 24.663258], [121.750972, 24.663243], [121.751148, 24.663243], [121.751126, 24.663360], [121.751121, 24.663353], [121.750942, 24.663309]]]}, "properties": {"id": 2}}
         ]};
         vectorLayer.addData(data);
-
-        // 自動模擬點擊第二塊
-        setTimeout(() => {
-            vectorLayer.getLayers()[1].fire('click');
-        }, 1500);
+        setTimeout(() => { vectorLayer.getLayers()[1].fire('click'); }, 1500);
     </script>
 </body>
 </html>
