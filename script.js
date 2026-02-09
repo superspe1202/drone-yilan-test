@@ -1,5 +1,5 @@
 // Center on Yilan Dongshan Basian Section (冬山鄉八仙段)
-var map = L.map('map').setView([24.6354, 121.7858], 19);
+var map = L.map('map').setView([24.6185, 121.7510], 18);
 
 // 1. Base Layers
 var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OSM' });
