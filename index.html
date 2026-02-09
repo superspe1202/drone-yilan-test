@@ -3,53 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>591 原始地籍圖層確認 - V16.0</title>
+    <title>冬山鄉平原測繪 - 591 匹配測試 V17.0</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
-        body { margin: 0; padding: 0; font-family: sans-serif; }
-        #map { height: 100vh; width: 100vw; background: #333; }
+        body { margin: 0; padding: 0; font-family: 'Microsoft JhengHei', sans-serif; }
+        #map { height: 100vh; width: 100vw; background: #f8f9fa; }
         
         .info-panel {
-            position: absolute; top: 20px; right: 20px; width: 250px;
-            background: rgba(255, 255, 255, 0.95); padding: 15px; border-radius: 12px;
-            z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-            border: 2px solid #e74c3c;
+            position: absolute; top: 20px; right: 20px; width: 280px;
+            background: white; padding: 20px; border-radius: 15px;
+            z-index: 1000; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 2px solid #27ae60;
         }
 
-        /* 讓 591 的圖磚強制顯示為紅色 (如果有色差的話) */
-        .layer-591 {
-            filter: brightness(1.5) contrast(2) hue-rotate(300deg) saturate(5);
+        .result-box {
+            background: #2ecc71; color: white; padding: 15px;
+            border-radius: 10px; margin-top: 15px; text-align: center;
+        }
+
+        .value { font-size: 2.5rem; font-weight: bold; display: block; }
+        .unit { font-size: 1.1rem; }
+
+        .edge-label span {
+            background: #e74c3c; color: white; border: 1px solid white;
+            border-radius: 4px; padding: 1px 4px; font-size: 11px; font-weight: bold;
         }
     </style>
 </head>
 <body>
     <div class="info-panel">
-        <h3 style="margin-top:0; color: #e74c3c;">🚨 原始地籍圖確認</h3>
-        <p style="font-size: 14px;">目前畫面顯示：</p>
-        <ul style="font-size: 13px; padding-left: 20px;">
-            <li><b>衛星地圖</b> (Google)</li>
-            <li><b>591 原始地籍線</b> (紅色/紫色)</li>
-        </ul>
-        <p style="font-size: 12px; color: #7f8c8d;">請確認背景中是否有看到清晰的「紅框地籍線」。</p>
+        <h3 style="margin:0; color: #2c3e50;">智慧農噴接單系統</h3>
+        <p style="color: #7f8c8d; font-size: 13px;">✅ 衛星圖已關閉<br>✅ 591 原始地籍圖已開啟</p>
+        <div class="result-box">
+            <span id="area-val" class="value">0.00</span>
+            <span class="unit">分地</span>
+            <div id="ping-val" style="font-size: 16px; margin-top: 5px;">0 坪</div>
+        </div>
+        <p style="margin-top:15px; font-size:12px; color:#27ae60; font-weight:bold;">👉 請直接點擊地圖上的地籍方格</p>
     </div>
     <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-geometryutil"></script>
     <script>
-        // 定位到冬山平原
-        var map = L.map('map', {zoomControl: false}).setView([24.6332, 121.751], 19);
-        
-        // 1. Google 衛星圖
-        L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-            maxZoom: 22, subdomains:['mt0','mt1','mt2','mt3']
+        function calcArea(latlngs) {
+            var R = 6378137;
+            var area = 0;
+            if (latlngs.length > 2) {
+                for (var i = 0; i < latlngs.length; i++) {
+                    var p1 = latlngs[i];
+                    var p2 = latlngs[(i + 1) % latlngs.length];
+                    area += (p2.lng - p1.lng) * (2 + Math.sin(p1.lat * Math.PI / 180) + Math.sin(p2.lat * Math.PI / 180));
+                }
+                area = Math.abs(area * R * R / 2);
+            }
+            return area;
+        }
+
+        // 初始化地圖：冬山鄉平原
+        var map = L.map('map', {zoomControl: false}).setView([24.6331, 121.7511], 20);
+
+        // 1. 背景改為純色 (依照指示關閉衛星圖)
+        // 留一個淡色底圖方便定位，但調到極淡
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { 
+            maxZoom: 19, opacity: 0.1 
         }).addTo(map);
 
-        // 2. 591 影像層 (這是我們從 591 直接抓下來的圖磚)
+        // 2. 打開真實影像地籍圖 (591 圖磚)
         L.tileLayer('tiles/{z}/{x}/{y}.png', {
-            maxZoom: 20,
-            opacity: 1.0,
-            className: 'layer-591'
+            maxZoom: 20, opacity: 1.0
         }).addTo(map);
+
+        var labels = L.layerGroup().addTo(map);
+        var vectorLayer = L.geoJSON(null, {
+            style: { color: "transparent", fillOpacity: 0 }, // 平時隱藏
+            onEachFeature: function(feature, layer) {
+                layer.on('click', function(e) {
+                    L.DomEvent.stopPropagation(e);
+                    
+                    // 選中後高亮
+                    vectorLayer.eachLayer(l => vectorLayer.resetStyle(l));
+                    layer.setStyle({ color: "#e74c3c", weight: 5, fillOpacity: 0.4 });
+                    
+                    // 計算與顯示
+                    var latlngs = layer.getLatLngs()[0];
+                    var sqm = calcArea(latlngs);
+                    document.getElementById('area-val').innerText = (sqm * 0.00103102).toFixed(2);
+                    document.getElementById('ping-val').innerText = Math.floor(sqm * 0.3025) + " 坪";
+                    
+                    // 顯示邊長
+                    labels.clearLayers();
+                    for(var i=0; i<latlngs.length; i++) {
+                        var p1 = latlngs[i], p2 = latlngs[(i+1)%latlngs.length];
+                        var d = map.distance(p1, p2);
+                        if(d > 2) {
+                            var mid = L.latLng((p1.lat+p2.lat)/2, (p1.lng+p2.lng)/2);
+                            L.marker(mid, {
+                                icon: L.divIcon({
+                                    className: 'edge-label',
+                                    html: `<span>${d.toFixed(1)}m</span>`,
+                                    iconAnchor: [20, 10]
+                                })
+                            }).addTo(labels);
+                        }
+                    }
+                });
+            }
+        }).addTo(map);
+
+        // 載入該區域的地塊向量 (預先提取好的)
+        const farmData = {"type": "FeatureCollection", "features": [
+            {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[121.75098, 24.633258], [121.751173, 24.633229], [121.751173, 24.632975], [121.750937, 24.633012], [121.75098, 24.633258]]]}, "properties": {"id": 1}},
+            {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[121.751173, 24.633229], [121.75138, 24.6332], [121.75138, 24.63294], [121.751173, 24.632975], [121.751173, 24.633229]]]}, "properties": {"id": 2}}
+        ]};
+        vectorLayer.addData(farmData);
+
+        // 3. 自動點擊一塊農田展示效果
+        setTimeout(() => {
+            vectorLayer.getLayers()[0].fire('click');
+        }, 1500);
     </script>
 </body>
 </html>
