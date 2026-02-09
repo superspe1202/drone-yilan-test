@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>冬山鄉八仙段 - 頂點拼接完成版 V24.0</title>
+    <title>冬山鄉八仙段 - 頂點拼接完成版 V25.0</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         body { margin: 0; padding: 0; font-family: 'Microsoft JhengHei', sans-serif; }
@@ -16,7 +16,6 @@
         .result-box { background: #3498db; padding: 15px; border-radius: 12px; margin-top: 15px; text-align: center; color: white; }
         .value { font-size: 2.5rem; font-weight: 900; display: block; }
         .unit { font-size: 1.5rem; font-weight: bold; }
-        .parcel-label { font-size: 10px; color: #7f8c8d; }
     </style>
 </head>
 <body>
@@ -36,10 +35,22 @@
     <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet-geometryutil"></script>
     <script>
+        function getGeodesicArea(latlngs) {
+            var R = 6378137;
+            var area = 0;
+            if (latlngs.length > 2) {
+                for (var i = 0; i < latlngs.length; i++) {
+                    var p1 = latlngs[i];
+                    var p2 = latlngs[(i + 1) % latlngs.length];
+                    area += (p2.lng - p1.lng) * (2 + Math.sin(p1.lat * Math.PI / 180) + Math.sin(p2.lat * Math.PI / 180));
+                }
+                area = Math.abs(area * R * R / 2);
+            }
+            return area;
+        }
+
         var map = L.map('map', {zoomControl: false}).setView([24.633, 121.751], 18);
-        
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
         var vectorLayer = L.geoJSON(null, {
@@ -51,13 +62,13 @@
                     layer.setStyle({ color: "#e74c3c", weight: 5, fillOpacity: 0.5 });
                     
                     var latlngs = layer.getLatLngs()[0];
-                    if (Array.isArray(latlngs[0])) latlngs = latlngs[0];
+                    if (latlngs[0] && Array.isArray(latlngs[0])) latlngs = latlngs[0];
                     
-                    var sqm = Math.abs(L.GeometryUtil.geodesicArea(latlngs));
+                    var sqm = getGeodesicArea(latlngs);
                     document.getElementById('area-val').innerText = (sqm * 0.00103102).toFixed(2);
                     document.getElementById('ping-val').innerText = Math.floor(sqm * 0.3025) + " 坪";
                     
-                    layer.bindPopup(`<b>地號: ${feature.properties.land_number}</b><br>面積: ${sqm.toFixed(1)} m²`).openPopup();
+                    layer.bindPopup(`<b>地號: ${feature.properties.land_number}</b>`).openPopup();
                 });
             }
         }).addTo(map);
@@ -67,8 +78,11 @@
             .then(data => {
                 vectorLayer.addData(data);
                 if (data.features.length > 0) {
-                    // Fit map to data
                     map.fitBounds(vectorLayer.getBounds());
+                    // Auto select one
+                    setTimeout(() => {
+                        vectorLayer.getLayers()[10].fire('click');
+                    }, 1000);
                 }
             });
     </script>
