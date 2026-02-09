@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>冬山鄉八仙段 - 地籍匹配實測 V8.0</title>
+    <title>冬山鄉八仙段 - 591 影像實測 V9.0</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         body { margin: 0; padding: 0; font-family: 'Microsoft JhengHei', sans-serif; }
@@ -11,24 +11,26 @@
         .info-panel {
             position: absolute; top: 20px; right: 20px; width: 280px;
             background: rgba(255, 255, 255, 0.98); padding: 20px; border-radius: 15px;
-            z-index: 1000; box-shadow: 0 15px 40px rgba(0,0,0,0.4); border: 3px solid #e74c3c;
+            z-index: 1000; box-shadow: 0 15px 40px rgba(0,0,0,0.4); border: 3px solid #3498db;
         }
-        .result-box { background: #e74c3c; padding: 20px; border-radius: 12px; margin-top: 15px; text-align: center; color: white; }
+        .result-box { background: #3498db; padding: 20px; border-radius: 12px; margin-top: 15px; text-align: center; color: white; }
         .value { font-size: 3rem; font-weight: 900; display: block; line-height: 1; }
         .unit { font-size: 1.5rem; font-weight: bold; }
-        .edge-label span { background: #e74c3c; border: 2px solid white; border-radius: 6px; padding: 4px 8px; font-size: 12px; color: white; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+        .edge-label span { background: #e67e22; border: 1px solid white; border-radius: 4px; padding: 2px 4px; font-size: 11px; color: white; font-weight: bold; }
     </style>
 </head>
 <body>
     <div class="info-panel">
-        <h2 style="margin:0 0 5px 0; color: #2c3e50; text-align: center;">地籍精準匹配</h2>
+        <h2 style="margin:0 0 5px 0; color: #2c3e50; text-align: center;">591 影像匹配測試</h2>
+        <p style="color: #7f8c8d; margin: 0 0 15px 0; text-align: center; font-size: 14px;">疊加已下載的 591 圖磚</p>
         <div class="result-box">
             <span id="area-val" class="value">0.00</span>
             <span class="unit">分地</span>
             <div style="margin-top: 10px; font-size: 18px;" id="ping-val">0 坪</div>
         </div>
-        <p style="margin-top:15px; font-size:12px; color:#34495e; font-weight:bold; text-align:center;">
-            ✅ 已開啟官方地籍圖線層
+        <p style="margin-top:15px; font-size:12px; color:#2c3e50; font-weight:bold;">
+            ✅ 藍框區域：已下載影像範圍<br>
+            ✅ 點擊田地：自動計算面積
         </p>
     </div>
     <div id="map"></div>
@@ -36,24 +38,25 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-geometryutil"></script>
     <script>
-        var map = L.map('map', {zoomControl: false}).setView([24.6185, 121.7510], 19);
+        var map = L.map('map', {zoomControl: false}).setView([24.6632, 121.7509], 19);
         
         // OSM Base
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
-        // 官方地籍圖線層 (紅線)
-        L.tileLayer('https://wmts.nlsc.gov.tw/wmts/LANDSECT2/default/GoogleMapsCompatible/{z}/{y}/{x}', {
-            maxZoom: 20, opacity: 0.8
+        // 疊加我們下載的 591 影像 (地籍線)
+        L.tileLayer('tiles/{z}/{x}/{y}.png', {
+            maxZoom: 20,
+            opacity: 0.7
         }).addTo(map);
 
         var labels = L.layerGroup().addTo(map);
         var vectorLayer = L.geoJSON(null, {
-            style: { color: "#f1c40f", weight: 3, fillOpacity: 0.1 },
+            style: { color: "#f1c40f", weight: 2, fillOpacity: 0.1, dashArray: '5,5' },
             onEachFeature: function(feature, layer) {
                 layer.on('click', function(e) {
                     L.DomEvent.stopPropagation(e);
                     vectorLayer.eachLayer(l => vectorLayer.resetStyle(l));
-                    layer.setStyle({ color: "#e74c3c", weight: 5, fillOpacity: 0.4 });
+                    layer.setStyle({ color: "#e74c3c", weight: 4, fillOpacity: 0.4, dashArray: '' });
                     
                     var latlngs = layer.getLatLngs()[0];
                     if (Array.isArray(latlngs[0])) latlngs = latlngs[0];
@@ -68,21 +71,24 @@
                         var d = map.distance(p1, p2);
                         if(d > 2) {
                             var mid = L.latLng((p1.lat+p2.lat)/2, (p1.lng+p2.lng)/2);
-                            L.marker(mid, {icon: L.divIcon({className: 'edge-label', html: `<span>${d.toFixed(1)}m</span>`, iconAnchor: [30, 15]})}).addTo(labels);
+                            L.marker(mid, {icon: L.divIcon({className: 'edge-label', html: `<span>${d.toFixed(1)}m</span>`, iconAnchor: [20, 10]})}).addTo(labels);
                         }
                     }
                 });
             }
         }).addTo(map);
 
-        // 載入寬廣區域向量 (剛剛提取的 4 個地塊)
-        const wideData = {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[121.7508316040039, 24.618511855026984], [121.7508316040039, 24.618307029310575], [121.7511735856533, 24.618307029310575], [121.7511735856533, 24.618341166929977], [121.75100058317184, 24.61840944216878], [121.7508316040039, 24.618511855026984]]]}, "properties": {"area": 35380.0}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[121.7508316040039, 24.618617925487268], [121.7508316040039, 24.61852282783322], [121.75099924206734, 24.618420414975017], [121.7511735856533, 24.618349701334825], [121.7511735856533, 24.618538677442228], [121.75111055374146, 24.6185606230547], [121.75112128257751, 24.618594760674103], [121.75110250711441, 24.618598418276182], [121.75112530589104, 24.618595979874794], [121.75111189484596, 24.61856428065678], [121.7511735856533, 24.618542335044307], [121.75111323595047, 24.61856793825886], [121.75113067030907, 24.618597199075488], [121.75111725926399, 24.61856915745955], [121.7511735856533, 24.61854721184708], [121.75117090344429, 24.618594760674103], [121.75100326538086, 24.618604514279646], [121.75098180770874, 24.618617925487268], [121.7508316040039, 24.618617925487268]]]}, "properties": {"area": 31737.5}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[121.7511735856533, 24.618307029310575], [121.7511735856533, 24.61826557629532], [121.7515155673027, 24.61826557629532], [121.7515155673027, 24.618307029310575], [121.7511735856533, 24.618307029310575]]]}, "properties": {"area": 14040.0}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[121.7511735856533, 24.618538677442228], [121.7511735856533, 24.618349701334825], [121.7515155673027, 24.618349701334825], [121.7515155673027, 24.618538677442228], [121.7511735856533, 24.618538677442228]]]}, "properties": {"area": 64000.0}}]};
-        vectorLayer.addData(wideData);
-
-        // 隨機選取一塊 (這裡選第 4 塊大的)
-        setTimeout(() => {
-            vectorLayer.getLayers()[3].fire('click');
-        }, 1500);
+        // 載入該區域的向量
+        fetch('basian_fields_v2.json')
+            .then(r => r.json())
+            .then(data => {
+                vectorLayer.addData(data);
+                // 自動點選第一塊
+                setTimeout(() => {
+                    var lys = vectorLayer.getLayers();
+                    if(lys.length > 0) lys[0].fire('click');
+                }, 2000);
+            });
     </script>
 </body>
 </html>
