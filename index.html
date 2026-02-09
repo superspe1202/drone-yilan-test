@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>冬山鄉八仙段 - 591 影像實測 V9.0</title>
+    <title>冬山鄉八仙段 - 591 影像實測 V10.0</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         body { margin: 0; padding: 0; font-family: 'Microsoft JhengHei', sans-serif; }
@@ -29,8 +29,8 @@
             <div style="margin-top: 10px; font-size: 18px;" id="ping-val">0 坪</div>
         </div>
         <p style="margin-top:15px; font-size:12px; color:#2c3e50; font-weight:bold;">
-            ✅ 藍框區域：已下載影像範圍<br>
-            ✅ 點擊田地：自動計算面積
+            ✅ 疊加已下載的 591 影像<br>
+            ✅ 紅框區域為向量匹配結果
         </p>
     </div>
     <div id="map"></div>
@@ -38,7 +38,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-geometryutil"></script>
     <script>
-        var map = L.map('map', {zoomControl: false}).setView([24.6632, 121.7509], 19);
+        var map = L.map('map', {zoomControl: false}).setView([24.66325, 121.7509], 20);
         
         // OSM Base
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
@@ -46,49 +46,30 @@
         // 疊加我們下載的 591 影像 (地籍線)
         L.tileLayer('tiles/{z}/{x}/{y}.png', {
             maxZoom: 20,
-            opacity: 0.7
+            opacity: 1.0 // FULL OPACITY TO SHOW TILES
         }).addTo(map);
 
         var labels = L.layerGroup().addTo(map);
         var vectorLayer = L.geoJSON(null, {
-            style: { color: "#f1c40f", weight: 2, fillOpacity: 0.1, dashArray: '5,5' },
+            style: { color: "#e74c3c", weight: 4, fillOpacity: 0.5 },
             onEachFeature: function(feature, layer) {
-                layer.on('click', function(e) {
-                    L.DomEvent.stopPropagation(e);
-                    vectorLayer.eachLayer(l => vectorLayer.resetStyle(l));
-                    layer.setStyle({ color: "#e74c3c", weight: 4, fillOpacity: 0.4, dashArray: '' });
-                    
-                    var latlngs = layer.getLatLngs()[0];
-                    if (Array.isArray(latlngs[0])) latlngs = latlngs[0];
-                    
-                    var sqm = Math.abs(L.GeometryUtil.geodesicArea(latlngs));
-                    document.getElementById('area-val').innerText = (sqm * 0.00103102).toFixed(2);
-                    document.getElementById('ping-val').innerText = Math.floor(sqm * 0.3025) + " 坪";
-                    
-                    labels.clearLayers();
-                    for(var i=0; i<latlngs.length; i++) {
-                        var p1 = latlngs[i], p2 = latlngs[(i+1)%latlngs.length];
-                        var d = map.distance(p1, p2);
-                        if(d > 2) {
-                            var mid = L.latLng((p1.lat+p2.lat)/2, (p1.lng+p2.lng)/2);
-                            L.marker(mid, {icon: L.divIcon({className: 'edge-label', html: `<span>${d.toFixed(1)}m</span>`, iconAnchor: [20, 10]})}).addTo(labels);
-                        }
-                    }
-                });
+                var latlngs = layer.getLatLngs()[0];
+                var sqm = Math.abs(L.GeometryUtil.geodesicArea(latlngs));
+                document.getElementById('area-val').innerText = (sqm * 0.00103102).toFixed(2);
+                document.getElementById('ping-val').innerText = Math.floor(sqm * 0.3025) + " 坪";
+                
+                labels.clearLayers();
+                for(var i=0; i<latlngs.length-1; i++) {
+                    var p1 = latlngs[i], p2 = latlngs[i+1];
+                    var d = map.distance(p1, p2);
+                    var mid = L.latLng((p1.lat+p2.lat)/2, (p1.lng+p2.lng)/2);
+                    L.marker(mid, {icon: L.divIcon({className: 'edge-label', html: `<span>${d.toFixed(1)}m</span>`, iconAnchor: [20, 10]})}).addTo(labels);
+                }
             }
         }).addTo(map);
 
-        // 載入該區域的向量
-        fetch('basian_fields_v2.json')
-            .then(r => r.json())
-            .then(data => {
-                vectorLayer.addData(data);
-                // 自動點選第一塊
-                setTimeout(() => {
-                    var lys = vectorLayer.getLayers();
-                    if(lys.length > 0) lys[0].fire('click');
-                }, 2000);
-            });
+        const data = {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[121.75096571445465, 24.663253368213443], [121.7509576678276, 24.66326799335935], [121.75095230340958, 24.663271649645832], [121.7509388923645, 24.663299681175495], [121.75093218684196, 24.663302118699814], [121.75091475248337, 24.66328993107822], [121.75091072916985, 24.66328993107822], [121.75090670585632, 24.663285056029583], [121.7509026825428, 24.663285056029583], [121.7508316040039, 24.663253368213443], [121.7508316040039, 24.663211930263683], [121.7511735856533, 24.663211930263683], [121.7511735856533, 24.663253368213443], [121.75096571445465, 24.663253368213443]]]}, "properties": {"id": 0}}]};
+        vectorLayer.addData(data);
     </script>
 </body>
 </html>
