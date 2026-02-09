@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冬山鄉地籍預覽 - 武淵/八仙段</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body { margin: 0; padding: 0; font-family: 'Microsoft JhengHei', sans-serif; }
+        #map { height: 100vh; width: 100vw; background: #f0f0f0; }
+        .info-panel {
+            position: absolute; top: 10px; right: 10px; width: 260px;
+            background: rgba(255,255,255,0.9); padding: 15px; border-radius: 10px;
+            z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .lot-label {
+            background: transparent; border: none; box-shadow: none;
+            font-size: 10px; color: #555; font-weight: bold; text-align: center;
+        }
+        .edge-label span {
+            background: white; border: 1px solid #e74c3c; border-radius: 3px;
+            padding: 1px 3px; font-size: 10px; color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="info-panel">
+        <h3>地籍即時預覽</h3>
+        <p style="font-size:12px;">✅ 地號文字已標註<br>✅ 全段自動拼接中</p>
+        <div id="stats" style="background:#2ecc71; color:white; padding:10px; border-radius:5px;">
+            地號：<span id="lot-num">-</span><br>
+            面積：<span id="area-val">0.00</span> 分
+        </div>
+    </div>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-geometryutil"></script>
+    <script>
+        var map = L.map('map', {zoomControl: false}).setView([24.6612, 121.8025], 19);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { opacity: 0.3 }).addTo(map);
+
+        var labelsLayer = L.layerGroup().addTo(map);
+        var edgeLayer = L.layerGroup().addTo(map);
+
+        var vectorLayer = L.geoJSON(null, {
+            style: { color: "#3498db", weight: 2, fillOpacity: 0.1 },
+            onEachFeature: function(feature, layer) {
+                // Add Lot Number Label at center
+                var center = layer.getBounds().getCenter();
+                L.marker(center, {
+                    icon: L.divIcon({
+                        className: 'lot-label',
+                        html: feature.properties.land_number,
+                        iconSize: [40, 10]
+                    }),
+                    interactive: false
+                }).addTo(labelsLayer);
+
+                layer.on('click', function(e) {
+                    L.DomEvent.stopPropagation(e);
+                    vectorLayer.eachLayer(l => vectorLayer.resetStyle(l));
+                    layer.setStyle({ color: "#e74c3c", weight: 5, fillOpacity: 0.4 });
+                    
+                    var latlngs = layer.getLatLngs()[0];
+                    if (Array.isArray(latlngs[0])) latlngs = latlngs[0];
+                    var sqm = Math.abs(L.GeometryUtil.geodesicArea(latlngs));
+                    
+                    document.getElementById('lot-num').innerText = feature.properties.land_number;
+                    document.getElementById('area-val').innerText = (sqm * 0.001031).toFixed(2);
+
+                    // Show edges
+                    edgeLayer.clearLayers();
+                    for(var i=0; i<latlngs.length-1; i++){
+                        var p1 = latlngs[i], p2 = latlngs[i+1];
+                        var d = map.distance(p1, p2);
+                        if(d > 2){
+                            var mid = L.latLng((p1.lat+p2.lat)/2, (p1.lng+p2.lng)/2);
+                            L.marker(mid, {icon: L.divIcon({className: 'edge-label', html: `<span>${d.toFixed(1)}m</span>`})}).addTo(edgeLayer);
+                        }
+                    }
+                });
+            }
+        }).addTo(map);
+
+        fetch('wuyuan_stitched.json')
+            .then(r => r.json())
+            .then(data => {
+                vectorLayer.addData(data);
+                if(data.features.length > 0) map.fitBounds(vectorLayer.getBounds());
+            });
+    </script>
+</body>
+</html>
