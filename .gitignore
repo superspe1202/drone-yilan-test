@@ -1,0 +1,7 @@
+vector_tiles/
+tiles/
+*.bin
+*.json
+!basian_crack_test.json
+node_modules/
+.env

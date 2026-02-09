@@ -1,5 +1,5 @@
-// Center on Yilan Dongshan Basian Section
-var map = L.map('map').setView([24.635, 121.785], 17);
+// Center on Yilan Dongshan Basian Section (冬山鄉八仙段)
+var map = L.map('map').setView([24.6354, 121.7858], 19);
 
 // 1. Base Layers
 var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OSM' });
@@ -12,8 +12,8 @@ var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
 // 2. Vector Layer (The Interactive Magic)
 var vectorLayer = L.geoJSON(null, {
     style: {
-        color: "#f1c40f", // Highlight color
-        weight: 2,
+        color: "#f1c40f", // Highlight color (Gold)
+        weight: 3,
         opacity: 0.8,
         fillOpacity: 0.1
     },
@@ -23,44 +23,45 @@ var vectorLayer = L.geoJSON(null, {
             
             // Selection effect
             vectorLayer.eachLayer(l => vectorLayer.resetStyle(l));
-            layer.setStyle({ color: "#e74c3c", weight: 4, fillOpacity: 0.4 });
+            layer.setStyle({ color: "#e74c3c", weight: 5, fillOpacity: 0.4 });
             
             // Area Calculation
-            var areaSqm = L.GeometryUtil.geodesicArea(layer.getLatLngs()[0]);
+            var latlngs = layer.getLatLngs();
+            var areaSqm = L.GeometryUtil.geodesicArea(latlngs[0]);
             updateDisplay(areaSqm);
             
-            // *** NEW: 顯示每一邊的長度 ***
+            // *** 顯示每一邊的長度 ***
             showEdgeLengths(layer);
             
-            layer.bindPopup(`<b>土地資訊</b><br>面積: ${Math.round(areaSqm)} m²`).openPopup();
+            layer.bindPopup(`<b>地塊資訊</b><br>面積: ${Math.round(areaSqm)} m²<br>約 ${ (areaSqm * 0.3025).toFixed(1) } 坪`).openPopup();
         });
     }
 }).addTo(map);
 
-// 5. 邊長顯示邏輯
+// 3. 邊長顯示邏輯
 var edgeLabelGroup = L.layerGroup().addTo(map);
 
 function showEdgeLengths(layer) {
     edgeLabelGroup.clearLayers();
-    var latlngs = layer.getLatLngs()[0];
-    
-    for (var i = 0; i < latlngs.length; i++) {
-        var p1 = latlngs[i];
-        var p2 = latlngs[(i + 1) % latlngs.length]; // 接回起點
+    var latlngs = layer.getLatLngs();
+    if (latlngs.length === 0) return;
+    var rings = latlngs[0]; 
+    if (!Array.isArray(rings[0])) rings = latlngs; // Handle single polygon vs nested arrays
+
+    var pts = rings[0];
+    for (var i = 0; i < pts.length; i++) {
+        var p1 = pts[i];
+        var p2 = pts[(i + 1) % pts.length];
         
-        // 計算距離 (公尺)
         var distance = map.distance(p1, p2);
-        
-        if (distance > 1) { // 忽略太短的碎邊
-            // 計算中點
+        if (distance > 2) {
             var midPoint = L.latLng((p1.lat + p2.lat) / 2, (p1.lng + p2.lng) / 2);
-            
-            // 建立文字標籤
             L.marker(midPoint, {
                 icon: L.divIcon({
                     className: 'edge-label',
                     html: `<span>${distance.toFixed(1)}m</span>`,
-                    iconSize: [40, 20]
+                    iconSize: [50, 20],
+                    iconAnchor: [25, 10]
                 }),
                 interactive: false
             }).addTo(edgeLabelGroup);
@@ -68,57 +69,16 @@ function showEdgeLengths(layer) {
     }
 }
 
-// 3. Dynamic Tile Loader (The Pro Way)
-var loadedTiles = new Set();
+// 4. Load Crack Test Data (Small Area Test)
+fetch('basian_crack_test.json')
+    .then(response => response.json())
+    .then(data => {
+        console.log("載入測試地塊中...");
+        vectorLayer.addData(data);
+    })
+    .catch(err => console.log("載入測試檔失敗:", err));
 
-function lng2tile(lon,zoom) { return (Math.floor((lon+180)/360*Math.pow(2,zoom))); }
-function lat2tile(lat,zoom)  { return (Math.floor((1-Math.log(Math.tan(lat*Math.PI/180) + 1/Math.cos(lat*Math.PI/180))/Math.PI)/2 *Math.pow(2,zoom))); }
-
-function loadVisibleVectors() {
-    var zoom = map.getZoom();
-    // We only have vector data at Zoom 15-20
-    if (zoom < 15 || zoom > 20) return; 
-    
-    var bounds = map.getBounds();
-    // Get visible tile range
-    var minX = lng2tile(bounds.getWest(), zoom);
-    var maxX = lng2tile(bounds.getEast(), zoom);
-    var minY = lat2tile(bounds.getNorth(), zoom);
-    var maxY = lat2tile(bounds.getSouth(), zoom);
-
-    // Limit radius to prevent massive requests
-    for (var x = minX; x <= maxX; x++) {
-        for (var y = minY; y <= maxY; y++) {
-            var tilePath = `${zoom}/${x}/${y}.json`;
-            if (!loadedTiles.has(tilePath)) {
-                loadedTiles.add(tilePath);
-                fetch(`vector_tiles/${tilePath}`)
-                    .then(res => {
-                        if (res.ok) return res.json();
-                        throw new Error('No tile');
-                    })
-                    .then(data => {
-                        vectorLayer.addData(data);
-                    })
-                    .catch(err => { /* Ignore missing tiles */ });
-            }
-        }
-    }
-}
-
-// Trigger on move
-map.on('moveend', loadVisibleVectors);
-loadVisibleVectors(); // Initial load
-
-// UI Controls
-googleSat.addTo(map);
-
-var baseMaps = { "衛星地圖": googleSat, "一般地圖": osm };
-var overlayMaps = { "地籍互動層": vectorLayer };
-L.control.layers(baseMaps, overlayMaps).addTo(map);
-L.control.locate({position: 'topleft'}).addTo(map);
-
-// Manual Draw Tool (Backup)
+// 5. Manual Draw & Controls
 var drawnItems = new L.FeatureGroup().addTo(map);
 new L.Control.Draw({
     draw: { polygon: true, polyline: false, circle: false, rectangle: true, marker: false, circlemarker: false },
@@ -129,8 +89,17 @@ map.on(L.Draw.Event.CREATED, function (e) {
     drawnItems.clearLayers();
     var layer = e.layer;
     drawnItems.addLayer(layer);
-    updateDisplay(L.GeometryUtil.geodesicArea(layer.getLatLngs()[0]));
+    var areaSqm = L.GeometryUtil.geodesicArea(layer.getLatLngs()[0]);
+    updateDisplay(areaSqm);
+    showEdgeLengths(layer);
 });
+
+// Controls
+googleSat.addTo(map);
+var baseMaps = { "衛星地圖": googleSat, "一般地圖": osm };
+var overlayMaps = { "地籍互動層": vectorLayer, "手繪區域": drawnItems };
+L.control.layers(baseMaps, overlayMaps).addTo(map);
+L.control.locate({position: 'topleft'}).addTo(map);
 
 // Price UI Sync
 var pricePerFenInput = document.getElementById('pricePerFen');
@@ -151,4 +120,11 @@ function updateDisplay(sqm) {
 
 document.getElementById('locateBtn').addEventListener('click', function() {
     map.locate({setView: true, maxZoom: 18});
+});
+
+document.getElementById('clearBtn').addEventListener('click', function() {
+    drawnItems.clearLayers();
+    edgeLabelGroup.clearLayers();
+    vectorLayer.eachLayer(l => vectorLayer.resetStyle(l));
+    updateDisplay(0);
 });
