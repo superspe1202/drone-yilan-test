@@ -3,98 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>591 像素完美對齊 - V22.0</title>
+    <title>冬山鄉八仙段 - 頂點拼接實測 V23.0</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         body { margin: 0; padding: 0; font-family: 'Microsoft JhengHei', sans-serif; }
-        #map { height: 100vh; width: 100vw; background: #eee; }
+        #map { height: 100vh; width: 100vw; background: #fff; }
         .info-panel {
             position: absolute; top: 20px; right: 20px; width: 280px;
-            background: white; padding: 15px; border-radius: 12px;
-            z-index: 1000; box-shadow: 0 5px 25px rgba(0,0,0,0.3);
-            border: 3px solid #e74c3c;
+            background: rgba(255, 255, 255, 0.98); padding: 20px; border-radius: 15px;
+            z-index: 1000; box-shadow: 0 15px 40px rgba(0,0,0,0.4); border: 3px solid #3498db;
         }
-        .result-box { background: #e74c3c; padding: 15px; border-radius: 10px; margin-top: 10px; text-align: center; color: white; }
-        .value { font-size: 2.5rem; font-weight: bold; display: block; }
-        .edge-label span { background: #34495e; color: white; border: 1px solid white; border-radius: 4px; padding: 1px 3px; font-size: 9px; }
+        .result-box { background: #3498db; padding: 20px; border-radius: 12px; margin-top: 15px; text-align: center; color: white; }
+        .value { font-size: 3rem; font-weight: 900; display: block; line-height: 1; }
+        .unit { font-size: 1.5rem; font-weight: bold; }
+        .corner-dot {
+            background: #e74c3c;
+            border: 1px solid white;
+            border-radius: 50%;
+            width: 8px;
+            height: 8px;
+            box-shadow: 0 0 5px rgba(231, 76, 60, 0.8);
+        }
     </style>
 </head>
 <body>
     <div class="info-panel">
-        <h3 style="margin:0; text-align:center;">像素完美對位 (Raw)</h3>
+        <h2 style="margin:0; color: #2c3e50; text-align: center;">頂點拼接實測</h2>
+        <p style="color: #7f8c8d; margin: 0 0 15px 0; text-align: center; font-size: 14px;">已讀取四周圍角點位置</p>
         <div class="result-box">
             <span id="area-val" class="value">0.00</span>
             <span class="unit">分地</span>
         </div>
-        <p style="font-size:12px; margin-top:10px; color:#2c3e50;">
-            ✅ <b>無簡化向量</b>：保留每個像素點<br>
-            ✅ <b>中線對齊</b>：向量框精準鎖定線中心<br>
-            ✅ <b>透明度對比</b>：確認邊緣完美咬合
+        <p style="margin-top:15px; font-size:12px; color:#2c3e50; font-weight:bold;">
+            ✅ 紅色圓點：攔截到的真實角點<br>
+            ✅ 藍色框線：由頂點拼接而成的土地
         </p>
     </div>
     <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-geometryutil"></script>
     <script>
-        function getGeodesicArea(latlngs) {
-            var R = 6378137;
-            var area = 0;
-            if (latlngs.length > 2) {
-                for (var i = 0; i < latlngs.length; i++) {
-                    var p1 = latlngs[i];
-                    var p2 = latlngs[(i + 1) % latlngs.length];
-                    area += (p2.lng - p1.lng) * (2 + Math.sin(p1.lat * Math.PI / 180) + Math.sin(p2.lat * Math.PI / 180));
-                }
-                area = Math.abs(area * R * R / 2);
-            }
-            return area;
-        }
-
-        var map = L.map('map', {zoomControl: false}).setView([24.6331, 121.7511], 20);
+        // 定位到攔截到的角點區域
+        var map = L.map('map', {zoomControl: false}).setView([24.6171, 121.6952], 19);
         
-        // 591 原始影像 (底層)
-        L.tileLayer('tiles/{z}/{x}/{y}.png', { maxZoom: 20, opacity: 1.0 }).addTo(map);
+        // OSM Base
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
 
-        var labels = L.layerGroup().addTo(map);
         var vectorLayer = L.geoJSON(null, {
-            // 預設樣式：透明
-            style: { color: "transparent", weight: 0, fillOpacity: 0 },
+            style: { color: "#3498db", weight: 4, fillOpacity: 0.2 },
             onEachFeature: function(feature, layer) {
-                layer.on('click', function(e) {
-                    L.DomEvent.stopPropagation(e);
-                    vectorLayer.eachLayer(l => vectorLayer.resetStyle(l));
-                    
-                    // 選中樣式：鮮紅色，無邊框以確認貼合度
-                    layer.setStyle({ color: "transparent", weight: 0, fillOpacity: 0.5, fillColor: "#ff0000" });
-                    
-                    var latlngs = layer.getLatLngs()[0];
-                    if (latlngs[0] && Array.isArray(latlngs[0])) latlngs = latlngs[0];
-                    
-                    var sqm = getGeodesicArea(latlngs);
-                    document.getElementById('area-val').innerText = (sqm * 0.00103102).toFixed(2);
-                    
-                    labels.clearLayers();
-                    for(var i=0; i<latlngs.length; i++) {
-                        var p1 = latlngs[i], p2 = latlngs[(i+1)%latlngs.length];
-                        var d = map.distance(p1, p2);
-                        if(d > 2) {
-                            var mid = L.latLng((p1.lat+p2.lat)/2, (p1.lng+p2.lng)/2);
-                            L.marker(mid, {icon: L.divIcon({className: 'edge-label', html: `<span>${d.toFixed(1)}m</span>`, iconAnchor:[25,10]})}).addTo(labels);
-                        }
-                    }
+                // 自動計算面積
+                var latlngs = layer.getLatLngs()[0];
+                if (Array.isArray(latlngs[0])) latlngs = latlngs[0];
+                var sqm = Math.abs(L.GeometryUtil.geodesicArea(latlngs));
+                document.getElementById('area-val').innerText = (sqm * 0.00103102).toFixed(2);
+                
+                // 在每個角點畫一個小紅點
+                latlngs.forEach(ll => {
+                    L.marker(ll, {
+                        icon: L.divIcon({ className: 'corner-dot', iconSize: [8, 8], iconAnchor: [4, 4] }),
+                        interactive: false
+                    }).addTo(map);
                 });
             }
         }).addTo(map);
 
-        fetch('perfect_numbered.json')
+        // 載入從 591 封包攔截到的真實頂點
+        fetch('real_yilan_vertices.json')
             .then(r => r.json())
             .then(data => {
                 vectorLayer.addData(data);
-                // 點選地號最明顯的一塊 (第 2 塊)
-                setTimeout(() => {
-                    var lys = vectorLayer.getLayers();
-                    if(lys.length > 1) lys[1].fire('click');
-                }, 1500);
             });
     </script>
 </body>
