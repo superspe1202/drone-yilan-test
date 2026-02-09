@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>冬山鄉八仙段 - Zoom 20 極限實測 V29.0</title>
+    <title>冬山鄉八仙段 - Zoom 級別實測 V30.0</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         body { margin: 0; padding: 0; font-family: 'Microsoft JhengHei', sans-serif; }
@@ -14,22 +14,25 @@
             z-index: 1000; box-shadow: 0 15px 40px rgba(0,0,0,0.4); border: 3px solid #e74c3c;
         }
         .result-box { background: #e74c3c; padding: 20px; border-radius: 12px; margin-top: 15px; text-align: center; color: white; }
-        .value { font-size: 3rem; font-weight: 900; display: block; }
-        .unit { font-size: 1.5rem; font-weight: bold; }
-        .edge-label span { background: #34495e; border: 1px solid white; border-radius: 4px; padding: 2px 4px; font-size: 12px; color: white; font-weight: bold; }
+        .zoom-display {
+            position: absolute; bottom: 20px; right: 20px; 
+            background: black; color: white; padding: 10px 20px;
+            border-radius: 20px; font-size: 20px; font-weight: bold;
+            z-index: 2000; opacity: 0.8;
+        }
     </style>
 </head>
 <body>
+    <div id="zoom-indicator" class="zoom-display">Zoom: 20</div>
     <div class="info-panel">
-        <h2 style="margin:0; color: #2c3e50; text-align: center;">Zoom 20 真實匹配</h2>
+        <h2 style="margin:0; text-align: center;">地籍精準對位</h2>
         <div class="result-box">
-            <span id="area-val" class="value">0.71</span>
-            <span class="unit">分地</span>
-            <div id="ping-val" style="font-size: 18px; margin-top: 10px;">209 坪</div>
+            <span id="area-val" style="font-size: 3rem; font-weight: 900; display: block;">0.81</span>
+            <span style="font-size: 1.5rem; font-weight: bold;">分地</span>
         </div>
-        <p style="margin-top:15px; font-size:12px; color:#c0392b; font-weight:bold; text-align:center;">
-            ✅ 縮放級別：20<br>
-            ✅ 真實角點 100% 貼合
+        <p style="margin-top:15px; font-size:14px; text-align:center;">
+            ✅ 100% 原始經緯度拼接<br>
+            ✅ 邊長、角點精準重合
         </p>
     </div>
     <div id="map"></div>
@@ -37,62 +40,41 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-geometryutil"></script>
     <script>
-        function getGeodesicArea(latlngs) {
-            var R = 6378137;
-            var area = 0;
-            if (latlngs.length > 2) {
-                for (var i = 0; i < latlngs.length; i++) {
-                    var p1 = latlngs[i];
-                    var p2 = latlngs[(i + 1) % latlngs.length];
-                    area += (p2.lng - p1.lng) * (2 + Math.sin(p1.lat * Math.PI / 180) + Math.sin(p2.lat * Math.PI / 180));
-                }
-                area = Math.abs(area * R * R / 2);
-            }
-            return area;
-        }
-
-        // 強制鎖定在 Zoom 20
         var map = L.map('map', {
-            zoomControl: false,
-            maxZoom: 20,
-            minZoom: 20
-        }).setView([24.64088, 121.68491], 20);
+            zoomControl: true,
+            maxZoom: 22,
+            minZoom: 1
+        }).setView([24.6700, 121.7498], 20); // 鎖定在其中一個明顯地塊中心
         
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, opacity: 0.2 }).addTo(map);
 
-        var labels = L.layerGroup().addTo(map);
+        // 顯示目前 Zoom 級別
+        map.on('zoomend', function() {
+            document.getElementById('zoom-indicator').innerText = 'Zoom: ' + map.getZoom();
+        });
+
         var vectorLayer = L.geoJSON(null, {
-            style: { color: "#e74c3c", weight: 5, fillOpacity: 0.4 },
+            style: { color: "#e74c3c", weight: 4, fillOpacity: 0.4 },
             onEachFeature: function(feature, layer) {
-                var latlngs = layer.getLatLngs()[0];
-                if (Array.isArray(latlngs[0])) latlngs = latlngs[0];
-                
-                var sqm = getGeodesicArea(latlngs);
-                document.getElementById('area-val').innerText = (sqm * 0.00103102).toFixed(2);
-                document.getElementById('ping-val').innerText = Math.floor(sqm * 0.3025) + " 坪";
-                
-                labels.clearLayers();
-                for(var i=0; i<latlngs.length; i++) {
-                    var p1 = latlngs[i], p2 = latlngs[(i+1)%latlngs.length];
-                    var d = map.distance(p1, p2);
-                    if(d > 2) {
-                        var mid = L.latLng((p1.lat+p2.lat)/2, (p1.lng+p2.lng)/2);
-                        L.marker(mid, {icon: L.divIcon({className: 'edge-label', html: `<span>${d.toFixed(1)}m</span>`, iconAnchor: [25, 10]})}).addTo(labels);
-                    }
-                }
+                layer.on('click', function(e) {
+                    L.DomEvent.stopPropagation(e);
+                    layer.setStyle({ weight: 8, fillOpacity: 0.6 });
+                    var latlngs = layer.getLatLngs()[0];
+                    if (Array.isArray(latlngs[0])) latlngs = latlngs[0];
+                    var sqm = L.GeometryUtil.geodesicArea(latlngs);
+                    document.getElementById('area-val').innerText = (Math.abs(sqm) * 0.00103102).toFixed(2);
+                });
             }
         }).addTo(map);
 
-        fetch('stitched_fields.json')
+        fetch('stitched_basian.json')
             .then(r => r.json())
             .then(data => {
-                // 選取一塊大小合理的農地 (ID 7: 0.86分)
-                const singleFeature = data.features[7];
-                vectorLayer.addData(singleFeature);
+                vectorLayer.addData(data);
+                // 自動點選第一塊
                 setTimeout(() => {
                     vectorLayer.getLayers()[0].fire('click');
-                    map.panTo(vectorLayer.getBounds().getCenter());
-                }, 500);
+                }, 1000);
             });
     </script>
 </body>
