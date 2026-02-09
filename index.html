@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>冬山鄉八仙段 - Zoom 級別實測 V30.0</title>
+    <title>宜蘭全境地籍預覽 - V32.0</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         body { margin: 0; padding: 0; font-family: 'Microsoft JhengHei', sans-serif; }
@@ -11,9 +11,9 @@
         .info-panel {
             position: absolute; top: 20px; right: 20px; width: 280px;
             background: rgba(255, 255, 255, 0.98); padding: 20px; border-radius: 15px;
-            z-index: 1000; box-shadow: 0 15px 40px rgba(0,0,0,0.4); border: 3px solid #e74c3c;
+            z-index: 1000; box-shadow: 0 15px 40px rgba(0,0,0,0.4); border: 3px solid #2ecc71;
         }
-        .result-box { background: #e74c3c; padding: 20px; border-radius: 12px; margin-top: 15px; text-align: center; color: white; }
+        .result-box { background: #27ae60; padding: 20px; border-radius: 12px; margin-top: 15px; text-align: center; color: white; }
         .zoom-display {
             position: absolute; bottom: 20px; right: 20px; 
             background: black; color: white; padding: 10px 20px;
@@ -23,16 +23,16 @@
     </style>
 </head>
 <body>
-    <div id="zoom-indicator" class="zoom-display">Zoom: 20</div>
+    <div id="zoom-indicator" class="zoom-display">Zoom: 14</div>
     <div class="info-panel">
-        <h2 style="margin:0; text-align: center;">地籍精準對位</h2>
+        <h2 style="margin:0; text-align: center;">宜蘭全境對位</h2>
         <div class="result-box">
-            <span id="area-val" style="font-size: 3rem; font-weight: 900; display: block;">0.81</span>
+            <span id="area-val" style="font-size: 3rem; font-weight: 900; display: block;">0.00</span>
             <span style="font-size: 1.5rem; font-weight: bold;">分地</span>
         </div>
         <p style="margin-top:15px; font-size:14px; text-align:center;">
-            ✅ 100% 原始經緯度拼接<br>
-            ✅ 邊長、角點精準重合
+            ✅ 已載入全宜蘭 12 鄉鎮數據<br>
+            ✅ 包含 130 筆真實頂點資料
         </p>
     </div>
     <div id="map"></div>
@@ -40,41 +40,39 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-geometryutil"></script>
     <script>
-        var map = L.map('map', {
-            zoomControl: true,
-            maxZoom: 22,
-            minZoom: 1
-        }).setView([24.6700, 121.7498], 20); // 鎖定在其中一個明顯地塊中心
+        var map = L.map('map', { zoomControl: true }).setView([24.75, 121.75], 11);
         
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, opacity: 0.2 }).addTo(map);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { opacity: 0.5 }).addTo(map);
 
-        // 顯示目前 Zoom 級別
         map.on('zoomend', function() {
             document.getElementById('zoom-indicator').innerText = 'Zoom: ' + map.getZoom();
         });
 
         var vectorLayer = L.geoJSON(null, {
-            style: { color: "#e74c3c", weight: 4, fillOpacity: 0.4 },
+            style: { color: "#e74c3c", weight: 3, fillOpacity: 0.4 },
             onEachFeature: function(feature, layer) {
                 layer.on('click', function(e) {
                     L.DomEvent.stopPropagation(e);
-                    layer.setStyle({ weight: 8, fillOpacity: 0.6 });
+                    vectorLayer.eachLayer(l => vectorLayer.resetStyle(l));
+                    layer.setStyle({ weight: 6, fillOpacity: 0.7 });
+                    
                     var latlngs = layer.getLatLngs()[0];
                     if (Array.isArray(latlngs[0])) latlngs = latlngs[0];
                     var sqm = L.GeometryUtil.geodesicArea(latlngs);
                     document.getElementById('area-val').innerText = (Math.abs(sqm) * 0.00103102).toFixed(2);
+                    
+                    layer.bindPopup(`<b>地段: ${feature.properties.sect_name}</b><br>地號: ${feature.properties.land_number}<br>鄉鎮: ${feature.properties.town}`).openPopup();
                 });
             }
         }).addTo(map);
 
-        fetch('stitched_basian.json')
+        fetch('yilan_full_stitched.json')
             .then(r => r.json())
             .then(data => {
                 vectorLayer.addData(data);
-                // 自動點選第一塊
-                setTimeout(() => {
-                    vectorLayer.getLayers()[0].fire('click');
-                }, 1000);
+                if (data.features.length > 0) {
+                    map.fitBounds(vectorLayer.getBounds());
+                }
             });
     </script>
 </body>
