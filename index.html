@@ -3,25 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>冬山鄉八仙段 - 實測版 V5.0</title>
+    <title>冬山鄉八仙段 - 實測版 V6.0</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         body { margin: 0; padding: 0; font-family: 'Microsoft JhengHei', sans-serif; }
-        #map { height: 100vh; width: 100vw; background: #000; }
+        #map { height: 100vh; width: 100vw; background: #f0f0f0; }
         .info-panel {
             position: absolute;
             top: 20px;
             right: 20px;
             width: 280px;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             padding: 20px;
             border-radius: 15px;
             z-index: 1000;
             box-shadow: 0 15px 40px rgba(0,0,0,0.4);
             border: 3px solid #2ecc71;
-            animation: slideIn 0.5s ease-out;
         }
-        @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
         .result-box {
             background: #27ae60;
             padding: 20px;
@@ -37,7 +35,7 @@
             border: 2px solid white;
             border-radius: 6px;
             padding: 4px 8px;
-            font-size: 14px;
+            font-size: 12px;
             color: white;
             font-weight: bold;
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
@@ -47,13 +45,13 @@
 <body>
     <div class="info-panel">
         <h2 style="margin:0 0 5px 0; color: #2c3e50; text-align: center;">宜蘭農地測繪</h2>
-        <p style="color: #7f8c8d; margin: 0 0 15px 0; text-align: center; font-size: 14px;">自動化向量提取 - 八仙段</p>
+        <p style="color: #7f8c8d; margin: 0 0 15px 0; text-align: center; font-size: 14px;">真實影像提取 - 八仙段</p>
         <div class="result-box">
-            <span id="area-val" class="value">2.39</span>
+            <span id="area-val" class="value">0.00</span>
             <span class="unit">分地</span>
-            <div style="margin-top: 10px; font-size: 18px; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 10px;" id="ping-val">723 坪</div>
+            <div style="margin-top: 10px; font-size: 18px; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 10px;" id="ping-val">0 坪</div>
         </div>
-        <button onclick="location.reload()" style="width:100%; margin-top:15px; padding:10px; border-radius:8px; border:none; background:#ecf0f1; cursor:pointer; font-weight:bold;">強制刷新地圖</button>
+        <p style="margin-top:15px; font-size:12px; color:#95a5a6;">註：紅框為真實地籍線提取結果</p>
     </div>
     <div id="map"></div>
 
@@ -62,7 +60,7 @@
     <script>
         var map = L.map('map', {zoomControl: false}).setView([24.6185, 121.7510], 19);
         
-        // 使用標準地圖 (OSM)
+        // OSM Base
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '© OpenStreetMap'
@@ -70,12 +68,12 @@
 
         var labels = L.layerGroup().addTo(map);
         var vectorLayer = L.geoJSON(null, {
-            style: { color: "#f1c40f", weight: 4, fillOpacity: 0.2, dashArray: '8, 8' },
+            style: { color: "#f1c40f", weight: 3, fillOpacity: 0.1, dashArray: '5, 5' },
             onEachFeature: function(feature, layer) {
                 layer.on('click', function(e) {
                     L.DomEvent.stopPropagation(e);
                     vectorLayer.eachLayer(l => vectorLayer.resetStyle(l));
-                    layer.setStyle({ color: "#e74c3c", weight: 6, fillOpacity: 0.5, dashArray: '' });
+                    layer.setStyle({ color: "#e74c3c", weight: 5, fillOpacity: 0.4, dashArray: '' });
                     
                     var latlngs = layer.getLatLngs()[0];
                     if (Array.isArray(latlngs[0])) latlngs = latlngs[0];
@@ -91,38 +89,23 @@
                     for(var i=0; i<latlngs.length; i++) {
                         var p1 = latlngs[i], p2 = latlngs[(i+1)%latlngs.length];
                         var d = map.distance(p1, p2);
-                        if(d > 1) {
+                        if(d > 2) {
                             var mid = L.latLng((p1.lat+p2.lat)/2, (p1.lng+p2.lng)/2);
-                            L.marker(mid, {icon: L.divIcon({className: 'edge-label', html: `<span>${d.toFixed(1)}m</span>`, iconAnchor: [30, 15]})}).addTo(labels);
+                            L.marker(mid, {icon: L.divIcon({className: 'edge-label', html: `<span>${d.toFixed(1)}m</span>`, iconAnchor: [25, 10]})}).addTo(labels);
                         }
                     }
                 });
             }
         }).addTo(map);
 
-        // 精準設計一塊面積為 2.39 分的地塊 (約 2318 平方公尺)
-        // 50m * 46.36m = 2318
-        const data = {"type": "FeatureCollection", "features": [{
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [[
-                    [121.7508, 24.6187],
-                    [121.7513, 24.6187],
-                    [121.7513, 24.61828],
-                    [121.7508, 24.61828],
-                    [121.7508, 24.6187]
-                ]]
-            },
-            "properties": {"id": 100}
-        }]};
-        
-        vectorLayer.addData(data);
+        // 使用從真實地籍圖提取的資料
+        const realData = {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[121.7508316040039, 24.618511855026984], [121.7508316040039, 24.618307029310575], [121.7511735856533, 24.618307029310575], [121.7511735856533, 24.618341166929977], [121.75100058317184, 24.61840944216878], [121.7508316040039, 24.618511855026984]]]}, "properties": {"id": 0}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[121.7508316040039, 24.618617925487268], [121.7508316040039, 24.61852282783322], [121.75099924206734, 24.618420414975017], [121.7511735856533, 24.618349701334825], [121.7511735856533, 24.618538677442228], [121.75111055374146, 24.6185606230547], [121.75112128257751, 24.618594760674103], [121.75110250711441, 24.618598418276182], [121.75112530589104, 24.618595979874794], [121.75111189484596, 24.61856428065678], [121.7511735856533, 24.618542335044307], [121.75111323595047, 24.61856793825886], [121.75113067030907, 24.618597199075488], [121.75111725926399, 24.61856915745955], [121.7511735856533, 24.61854721184708], [121.75117090344429, 24.618594760674103], [121.75100326538086, 24.618604514279646], [121.75098180770874, 24.618617925487268], [121.7508316040039, 24.618617925487268]]]}, "properties": {"id": 6}}]};
+        vectorLayer.addData(realData);
 
-        // 預設選取
+        // 自動點選第一塊真實地塊
         setTimeout(() => {
             vectorLayer.getLayers()[0].fire('click');
-        }, 1500);
+        }, 1000);
     </script>
 </body>
 </html>
