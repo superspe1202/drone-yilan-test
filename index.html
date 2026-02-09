@@ -51,25 +51,25 @@
 
         var labels = L.layerGroup().addTo(map);
         var vectorLayer = L.geoJSON(null, {
-            style: { color: "#e74c3c", weight: 4, fillOpacity: 0.5 },
-            onEachFeature: function(feature, layer) {
-                var latlngs = layer.getLatLngs()[0];
-                var sqm = Math.abs(L.GeometryUtil.geodesicArea(latlngs));
-                document.getElementById('area-val').innerText = (sqm * 0.00103102).toFixed(2);
-                document.getElementById('ping-val').innerText = Math.floor(sqm * 0.3025) + " 坪";
-                
-                labels.clearLayers();
-                for(var i=0; i<latlngs.length-1; i++) {
-                    var p1 = latlngs[i], p2 = latlngs[i+1];
-                    var d = map.distance(p1, p2);
-                    var mid = L.latLng((p1.lat+p2.lat)/2, (p1.lng+p2.lng)/2);
-                    L.marker(mid, {icon: L.divIcon({className: 'edge-label', html: `<span>${d.toFixed(1)}m</span>`, iconAnchor: [20, 10]})}).addTo(labels);
-                }
-            }
+            style: { color: "#e74c3c", weight: 4, fillOpacity: 0.5 }
         }).addTo(map);
 
         const data = {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[121.75096571445465, 24.663253368213443], [121.7509576678276, 24.66326799335935], [121.75095230340958, 24.663271649645832], [121.7509388923645, 24.663299681175495], [121.75093218684196, 24.663302118699814], [121.75091475248337, 24.66328993107822], [121.75091072916985, 24.66328993107822], [121.75090670585632, 24.663285056029583], [121.7509026825428, 24.663285056029583], [121.7508316040039, 24.663253368213443], [121.7508316040039, 24.663211930263683], [121.7511735856533, 24.663211930263683], [121.7511735856533, 24.663253368213443], [121.75096571445465, 24.663253368213443]]]}, "properties": {"id": 0}}]};
         vectorLayer.addData(data);
+
+        // Immediate calculation
+        var latlngs = data.features[0].geometry.coordinates[0];
+        var sqm = Math.abs(L.GeometryUtil.geodesicArea(latlngs.map(p => L.latLng(p[1], p[0]))));
+        document.getElementById('area-val').innerText = (sqm * 0.00103102).toFixed(2);
+        document.getElementById('ping-val').innerText = Math.floor(sqm * 0.3025) + " 坪";
+        
+        for(var i=0; i<latlngs.length-1; i++) {
+            var p1 = L.latLng(latlngs[i][1], latlngs[i][0]);
+            var p2 = L.latLng(latlngs[i+1][1], latlngs[i+1][0]);
+            var d = map.distance(p1, p2);
+            var mid = L.latLng((p1.lat+p2.lat)/2, (p1.lng+p2.lng)/2);
+            L.marker(mid, {icon: L.divIcon({className: 'edge-label', html: `<span>${d.toFixed(1)}m</span>`, iconAnchor: [20, 10]})}).addTo(labels);
+        }
     </script>
 </body>
 </html>
