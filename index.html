@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>冬山鄉八仙段 - 實測版 V4.0</title>
+    <title>冬山鄉八仙段 - 實測版 V5.0</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         body { margin: 0; padding: 0; font-family: 'Microsoft JhengHei', sans-serif; }
@@ -62,9 +62,10 @@
     <script>
         var map = L.map('map', {zoomControl: false}).setView([24.6185, 121.7510], 19);
         
-        // 衛星地圖
-        L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-            maxZoom: 22, subdomains:['mt0','mt1','mt2','mt3']
+        // 使用標準地圖 (OSM)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
         }).addTo(map);
 
         var labels = L.layerGroup().addTo(map);
