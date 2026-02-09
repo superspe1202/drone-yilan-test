@@ -3,80 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>無人機農噴預約系統 (專業版)</title>
-    
-    <!-- Leaflet CSS -->
+    <title>八仙段精準測試 - 宜蘭</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
-    <!-- Leaflet Draw CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
-    
-    <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { margin: 0; padding: 0; font-family: sans-serif; overflow: hidden; }
+        #map { height: 100vh; width: 100vw; background: #eee; }
+        .sidebar { position: absolute; bottom: 20px; left: 20px; width: 200px; background: rgba(255,255,255,0.9); padding: 15px; border-radius: 10px; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .edge-label span { background: white; border: 1px solid #e74c3c; border-radius: 4px; padding: 2px 4px; font-size: 11px; color: #e74c3c; font-weight: bold; white-space: nowrap; box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+    </style>
 </head>
 <body>
-
-    <div class="app-container">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <div class="header">
-                <h1><i class="fa-solid fa-paper-plane"></i> 智慧農噴接單</h1>
-            </div>
-            
-            <div class="control-panel">
-                <div class="input-group">
-                    <label>每分地工錢 (元)</label>
-                    <input type="number" id="pricePerFen" value="300">
-                </div>
-                
-                <div class="stats-card">
-                    <div class="stat-item">
-                        <span class="label">預估面積</span>
-                        <span class="value" id="areaDisplay">0 分</span>
-                        <span class="sub-value" id="areaSubDisplay">(0 坪)</span>
-                    </div>
-                    <div class="stat-item highlight">
-                        <span class="label">預估費用</span>
-                        <span class="value price" id="priceDisplay">$0</span>
-                    </div>
-                </div>
-
-                <div class="action-buttons">
-                    <button id="locateBtn" class="btn secondary"><i class="fa-solid fa-location-crosshairs"></i> 我的位置</button>
-                    <button id="clearBtn" class="btn danger"><i class="fa-solid fa-trash"></i> 清除重畫</button>
-                </div>
-
-                <hr>
-                
-                <div class="form-section">
-                    <h3>預約資料</h3>
-                    <input type="text" placeholder="聯絡人姓名">
-                    <input type="tel" placeholder="聯絡電話">
-                    <input type="date">
-                    <button class="btn primary big-btn">送出預約單</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Map -->
-        <div id="map"></div>
+    <div class="sidebar">
+        <h3>地塊試算</h3>
+        <div>面積: <b id="area">0</b> 分</div>
+        <div>約 <span id="ping">0</span> 坪</div>
+        <div style="margin-top:10px; color: #777; font-size: 12px;">👆 點擊黃框地塊</div>
     </div>
+    <div id="map"></div>
 
-    <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
-    <!-- Leaflet Draw JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
-    <!-- Geometry Util (for Area) -->
     <script src="https://unpkg.com/leaflet-geometryutil"></script>
-    <!-- OSM to GeoJSON (Fixed Version) -->
-    <script src="https://unpkg.com/osmtogeojson@2.2.12/osmtogeojson.js"></script>
+    <script>
+        var map = L.map('map').setView([24.6185, 121.7510], 19);
+        L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 22, subdomains:['mt0','mt1','mt2','mt3']
+        }).addTo(map);
 
-    <!-- Magic Wand Tool (Optional for test)
-    <script src="magic_wand.js"></script>
-    -->
-    
-    <script src="script.js"></script>
+        var edgeLabels = L.layerGroup().addTo(map);
+        var vectorLayer = L.geoJSON(null, {
+            style: { color: "#f1c40f", weight: 3, fillOpacity: 0.1 },
+            onEachFeature: function(feature, layer) {
+                layer.on('click', function(e) {
+                    L.DomEvent.stopPropagation(e);
+                    vectorLayer.eachLayer(l => vectorLayer.resetStyle(l));
+                    layer.setStyle({ color: "#e74c3c", weight: 5, fillOpacity: 0.4 });
+                    
+                    var latlngs = layer.getLatLngs()[0];
+                    if (Array.isArray(latlngs[0])) latlngs = latlngs[0];
+                    
+                    var sqm = L.GeometryUtil.geodesicArea(latlngs);
+                    document.getElementById('area').innerText = (sqm * 0.001031).toFixed(2);
+                    document.getElementById('ping').innerText = Math.floor(sqm * 0.3025);
+                    
+                    edgeLabels.clearLayers();
+                    for(var i=0; i<latlngs.length; i++) {
+                        var p1 = latlngs[i], p2 = latlngs[(i+1)%latlngs.length];
+                        var d = map.distance(p1, p2);
+                        if(d > 1) {
+                            var mid = L.latLng((p1.lat+p2.lat)/2, (p1.lng+p2.lng)/2);
+                            L.marker(mid, {icon: L.divIcon({className: 'edge-label', html: `<span>${d.toFixed(1)}m</span>`, iconSize: [50, 20]})}).addTo(edgeLabels);
+                        }
+                    }
+                });
+            }
+        }).addTo(map);
+
+        const data = {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[121.7508316040039, 24.618511855026984], [121.7508316040039, 24.618307029310575], [121.7511735856533, 24.618307029310575], [121.7511735856533, 24.618341166929977], [121.75100058317184, 24.61840944216878], [121.7508316040039, 24.618511855026984]]]}, "properties": {"id": 0, "area_m2": 2316, "lengths": [22.8, 34.6, 3.8, 19.1, 20.5]}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[121.7508316040039, 24.618617925487268], [121.7508316040039, 24.61852282783322], [121.75099924206734, 24.618420414975017], [121.7511735856533, 24.618349701334825], [121.7511735856533, 24.618538677442228], [121.75111055374146, 24.6185606230547], [121.75112128257751, 24.618594760674103], [121.75110250711441, 24.618598418276182], [121.75112530589104, 24.618595979874794], [121.75111189484596, 24.61856428065678], [121.7511735856533, 24.618542335044307], [121.75111323595047, 24.61856793825886], [121.75113067030907, 24.618597199075488], [121.75111725926399, 24.61856915745955], [121.7511735856533, 24.61854721184708], [121.75117090344429, 24.618594760674103], [121.75100326538086, 24.618604514279646], [121.75098180770874, 24.618617925487268], [121.7508316040039, 24.618617925487268]]]}, "properties": {"id": 6, "area_m2": 3722, "lengths": [10.6, 20.4, 19.3, 21.0, 6.8, 3.9, 1.9, 2.3, 3.8, 6.7, 6.7, 3.7, 3.4, 6.2, 5.3, 17.0, 2.6, 15.2]}}]};
+        vectorLayer.addData(data);
+    </script>
 </body>
 </html>
