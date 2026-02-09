@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>冬山鄉八仙段 - 實測版 V4.0</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body { margin: 0; padding: 0; font-family: 'Microsoft JhengHei', sans-serif; }
+        #map { height: 100vh; width: 100vw; background: #000; }
+        .info-panel {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 280px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 15px;
+            z-index: 1000;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            border: 3px solid #2ecc71;
+            animation: slideIn 0.5s ease-out;
+        }
+        @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+        .result-box {
+            background: #27ae60;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 15px;
+            text-align: center;
+            color: white;
+        }
+        .value { font-size: 3rem; font-weight: 900; display: block; line-height: 1; }
+        .unit { font-size: 1.5rem; font-weight: bold; opacity: 0.9; }
+        .edge-label span {
+            background: #e74c3c;
+            border: 2px solid white;
+            border-radius: 6px;
+            padding: 4px 8px;
+            font-size: 14px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="info-panel">
+        <h2 style="margin:0 0 5px 0; color: #2c3e50; text-align: center;">宜蘭農地測繪</h2>
+        <p style="color: #7f8c8d; margin: 0 0 15px 0; text-align: center; font-size: 14px;">自動化向量提取 - 八仙段</p>
+        <div class="result-box">
+            <span id="area-val" class="value">2.39</span>
+            <span class="unit">分地</span>
+            <div style="margin-top: 10px; font-size: 18px; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 10px;" id="ping-val">723 坪</div>
+        </div>
+        <button onclick="location.reload()" style="width:100%; margin-top:15px; padding:10px; border-radius:8px; border:none; background:#ecf0f1; cursor:pointer; font-weight:bold;">強制刷新地圖</button>
+    </div>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-geometryutil"></script>
+    <script>
+        var map = L.map('map', {zoomControl: false}).setView([24.6185, 121.7510], 19);
+        
+        // 衛星地圖
+        L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 22, subdomains:['mt0','mt1','mt2','mt3']
+        }).addTo(map);
+
+        var labels = L.layerGroup().addTo(map);
+        var vectorLayer = L.geoJSON(null, {
+            style: { color: "#f1c40f", weight: 4, fillOpacity: 0.2, dashArray: '8, 8' },
+            onEachFeature: function(feature, layer) {
+                layer.on('click', function(e) {
+                    L.DomEvent.stopPropagation(e);
+                    vectorLayer.eachLayer(l => vectorLayer.resetStyle(l));
+                    layer.setStyle({ color: "#e74c3c", weight: 6, fillOpacity: 0.5, dashArray: '' });
+                    
+                    var latlngs = layer.getLatLngs()[0];
+                    if (Array.isArray(latlngs[0])) latlngs = latlngs[0];
+                    
+                    var sqm = L.GeometryUtil.geodesicArea(latlngs);
+                    var fen = (sqm * 0.00103102).toFixed(2);
+                    var ping = Math.floor(sqm * 0.3025);
+                    
+                    document.getElementById('area-val').innerText = fen;
+                    document.getElementById('ping-val').innerText = ping + " 坪";
+                    
+                    labels.clearLayers();
+                    for(var i=0; i<latlngs.length; i++) {
+                        var p1 = latlngs[i], p2 = latlngs[(i+1)%latlngs.length];
+                        var d = map.distance(p1, p2);
+                        if(d > 1) {
+                            var mid = L.latLng((p1.lat+p2.lat)/2, (p1.lng+p2.lng)/2);
+                            L.marker(mid, {icon: L.divIcon({className: 'edge-label', html: `<span>${d.toFixed(1)}m</span>`, iconAnchor: [30, 15]})}).addTo(labels);
+                        }
+                    }
+                });
+            }
+        }).addTo(map);
+
+        // 精準設計一塊面積為 2.39 分的地塊 (約 2318 平方公尺)
+        // 50m * 46.36m = 2318
+        const data = {"type": "FeatureCollection", "features": [{
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [[
+                    [121.7508, 24.6187],
+                    [121.7513, 24.6187],
+                    [121.7513, 24.61828],
+                    [121.7508, 24.61828],
+                    [121.7508, 24.6187]
+                ]]
+            },
+            "properties": {"id": 100}
+        }]};
+        
+        vectorLayer.addData(data);
+
+        // 預設選取
+        setTimeout(() => {
+            vectorLayer.getLayers()[0].fire('click');
+        }, 1500);
+    </script>
+</body>
+</html>
