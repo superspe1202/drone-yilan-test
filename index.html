@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>宜蘭全境地籍預覽 - V32.0</title>
+    <title>宜蘭全境地籍預覽 - V35.0</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         body { margin: 0; padding: 0; font-family: 'Microsoft JhengHei', sans-serif; }
@@ -80,7 +80,14 @@
             });
 
         var vectorLayer = L.geoJSON(null, {
-            style: { color: "#34495e", weight: 1, fillOpacity: 0.1 },
+            style: function(feature) {
+                return { 
+                    color: "#2c3e50", 
+                    weight: 2, 
+                    fillColor: "#3498db",
+                    fillOpacity: 0.15 
+                };
+            },
             onEachFeature: function(feature, layer) {
                 // Add Land Number Label
                 var center = layer.getBounds().getCenter();
@@ -93,12 +100,33 @@
                     interactive: false
                 }).addTo(labelLayer);
 
+                // Mouse hover - highlight
+                layer.on('mouseover', function(e) {
+                    layer.setStyle({
+                        color: "#e74c3c",
+                        weight: 3,
+                        fillOpacity: 0.25
+                    });
+                });
+                
+                // Mouse out - reset style
+                layer.on('mouseout', function(e) {
+                    vectorLayer.resetStyle(layer);
+                });
+                
+                // Click - select with red border
                 layer.on('click', function(e) {
                     L.DomEvent.stopPropagation(e);
                     vectorLayer.eachLayer(l => vectorLayer.resetStyle(l));
                     dimLayer.clearLayers();
                     
-                    layer.setStyle({ color: "#e74c3c", weight: 3, fillOpacity: 0.3 });
+                    // Selected parcel - red border
+                    layer.setStyle({ 
+                        color: "#e74c3c", 
+                        weight: 4, 
+                        fillColor: "#e74c3c",
+                        fillOpacity: 0.4 
+                    });
                     
                     var latlngs = layer.getLatLngs()[0];
                     if (Array.isArray(latlngs[0])) latlngs = latlngs[0];
@@ -134,10 +162,11 @@
             }
         }).addTo(map);
 
-        fetch('yilan_full_stitched.json')
+        fetch('real_basian_stitched.json')
             .then(r => r.json())
             .then(data => {
                 vectorLayer.addData(data);
+                console.log('Loaded', data.features.length, 'parcels with boundaries');
             });
     </script>
 </body>
