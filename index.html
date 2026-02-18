@@ -82,7 +82,7 @@
         var vectorLayer = L.geoJSON(null, {
             style: function(feature) {
                 return { 
-                    color: "#2c3e50", 
+                    color: "#3498db", 
                     weight: 2, 
                     fillColor: "#3498db",
                     fillOpacity: 0.15 
@@ -100,12 +100,12 @@
                     interactive: false
                 }).addTo(labelLayer);
 
-                // Mouse hover - highlight
+                // Mouse hover - highlight with yellow
                 layer.on('mouseover', function(e) {
                     layer.setStyle({
-                        color: "#e74c3c",
+                        color: "#f39c12",
                         weight: 3,
-                        fillOpacity: 0.25
+                        fillOpacity: 0.3
                     });
                 });
                 
