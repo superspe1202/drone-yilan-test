@@ -162,29 +162,12 @@
             }
         }).addTo(map);
 
+        // Load only real boundaries (557, 564)
         fetch('real_basian_stitched.json')
             .then(r => r.json())
             .then(data => {
                 vectorLayer.addData(data);
                 console.log('Loaded', data.features.length, 'parcels with boundaries');
-            });
-
-        // Load estimated boundaries
-        fetch('baxian_estimated.geojson')
-            .then(r => r.json())
-            .then(data => {
-                L.geoJSON(data, {
-                    style: {
-                        fillColor: '#3498db',
-                        fillOpacity: 0.2,
-                        color: '#2980b9',
-                        weight: 1
-                    },
-                    onEachFeature: function(feature, layer) {
-                        layer.bindPopup(`<b>地號: ${feature.properties.land_number}</b><br>面積: ${feature.properties.area} 坪<br>單價: ${feature.properties.price}<br><i>(估算邊界)</i>`);
-                    }
-                }).addTo(map);
-                console.log('Loaded', data.features.length, 'estimated boundaries');
             });
     </script>
 </body>
