@@ -1,0 +1,6002 @@
+[
+  {
+    "land_number": "05670000",
+    "lat": 24.66239,
+    "lng": 121.781144,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01950000",
+    "lat": 24.663226,
+    "lng": 121.787478,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02680000",
+    "lat": 24.661194,
+    "lng": 121.787243,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04170000",
+    "lat": 24.662643,
+    "lng": 121.782219,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05460000",
+    "lat": 24.663499,
+    "lng": 121.781234,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01990000",
+    "lat": 24.66328,
+    "lng": 121.787343,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02430000",
+    "lat": 24.662302,
+    "lng": 121.786529,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05660000",
+    "lat": 24.662382,
+    "lng": 121.781342,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "11030000",
+    "lat": 24.659427,
+    "lng": 121.780092,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "10910000",
+    "lat": 24.659359,
+    "lng": 121.780182,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "10870000",
+    "lat": 24.659404,
+    "lng": 121.780226,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "10750000",
+    "lat": 24.659209,
+    "lng": 121.78028,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "10830000",
+    "lat": 24.659233,
+    "lng": 121.780178,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05500000",
+    "lat": 24.663434,
+    "lng": 121.780776,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03920000",
+    "lat": 24.662576,
+    "lng": 121.784627,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05240000",
+    "lat": 24.664123,
+    "lng": 121.780745,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05200000",
+    "lat": 24.664131,
+    "lng": 121.780788,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04740000",
+    "lat": 24.659899,
+    "lng": 121.784881,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04340000",
+    "lat": 24.662334,
+    "lng": 121.782222,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03930000",
+    "lat": 24.662566,
+    "lng": 121.784676,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03750000",
+    "lat": 24.662728,
+    "lng": 121.784614,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03240000",
+    "lat": 24.663868,
+    "lng": 121.784263,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03730000",
+    "lat": 24.662751,
+    "lng": 121.784504,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01580000",
+    "lat": 24.664002,
+    "lng": 121.787249,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01520000",
+    "lat": 24.664083,
+    "lng": 121.787191,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "10990000",
+    "lat": 24.659251,
+    "lng": 121.780044,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "11040000",
+    "lat": 24.659473,
+    "lng": 121.780108,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "11020000",
+    "lat": 24.659382,
+    "lng": 121.780084,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "10890000",
+    "lat": 24.65945,
+    "lng": 121.780208,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "10840000",
+    "lat": 24.659276,
+    "lng": 121.78019,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "10710000",
+    "lat": 24.65938,
+    "lng": 121.780329,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "10650000",
+    "lat": 24.659157,
+    "lng": 121.780819,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "10690000",
+    "lat": 24.659475,
+    "lng": 121.78032,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09250000",
+    "lat": 24.659077,
+    "lng": 121.781802,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "07900000",
+    "lat": 24.658748,
+    "lng": 121.785845,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05190000",
+    "lat": 24.664202,
+    "lng": 121.780765,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04580000",
+    "lat": 24.660702,
+    "lng": 121.783379,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04360000",
+    "lat": 24.662346,
+    "lng": 121.782315,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04460000",
+    "lat": 24.660943,
+    "lng": 121.785542,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04330000",
+    "lat": 24.662325,
+    "lng": 121.782176,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04130000",
+    "lat": 24.662581,
+    "lng": 121.782446,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03990000",
+    "lat": 24.662037,
+    "lng": 121.784682,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03950000",
+    "lat": 24.662545,
+    "lng": 121.784772,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03620000",
+    "lat": 24.662804,
+    "lng": 121.784836,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02220000",
+    "lat": 24.663042,
+    "lng": 121.786055,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01940000",
+    "lat": 24.663203,
+    "lng": 121.787521,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01620000",
+    "lat": 24.663908,
+    "lng": 121.787133,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02300000",
+    "lat": 24.66179,
+    "lng": 121.788344,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "11010000",
+    "lat": 24.659338,
+    "lng": 121.780072,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "10950000",
+    "lat": 24.659218,
+    "lng": 121.780121,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "10940000",
+    "lat": 24.659228,
+    "lng": 121.780146,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "10760000",
+    "lat": 24.659126,
+    "lng": 121.780273,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "10740000",
+    "lat": 24.659252,
+    "lng": 121.780291,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "11000000",
+    "lat": 24.659295,
+    "lng": 121.780058,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05280000",
+    "lat": 24.66424,
+    "lng": 121.780597,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02800000",
+    "lat": 24.66087,
+    "lng": 121.786643,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03260000",
+    "lat": 24.663929,
+    "lng": 121.783842,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05840000",
+    "lat": 24.661475,
+    "lng": 121.78086,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05790000",
+    "lat": 24.661045,
+    "lng": 121.781409,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05830000",
+    "lat": 24.661091,
+    "lng": 121.781064,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04320000",
+    "lat": 24.662336,
+    "lng": 121.782129,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04070000",
+    "lat": 24.662424,
+    "lng": 121.783374,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03270000",
+    "lat": 24.663961,
+    "lng": 121.783617,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02930000",
+    "lat": 24.659607,
+    "lng": 121.788469,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02920000",
+    "lat": 24.659592,
+    "lng": 121.788654,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01540000",
+    "lat": 24.664108,
+    "lng": 121.787094,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01530000",
+    "lat": 24.66409,
+    "lng": 121.787163,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01310000",
+    "lat": 24.663966,
+    "lng": 121.788945,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "07890000",
+    "lat": 24.658736,
+    "lng": 121.785997,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05650000",
+    "lat": 24.662366,
+    "lng": 121.781541,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05260000",
+    "lat": 24.664187,
+    "lng": 121.780654,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05160000",
+    "lat": 24.664242,
+    "lng": 121.780737,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04830000",
+    "lat": 24.660012,
+    "lng": 121.783491,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04810000",
+    "lat": 24.659997,
+    "lng": 121.783677,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04230000",
+    "lat": 24.66251,
+    "lng": 121.782179,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04660000",
+    "lat": 24.661231,
+    "lng": 121.782027,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04390000",
+    "lat": 24.662354,
+    "lng": 121.782461,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04300000",
+    "lat": 24.662341,
+    "lng": 121.782022,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04380000",
+    "lat": 24.662351,
+    "lng": 121.782407,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04210000",
+    "lat": 24.662518,
+    "lng": 121.782268,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04180000",
+    "lat": 24.662549,
+    "lng": 121.7824,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04120000",
+    "lat": 24.662576,
+    "lng": 121.782511,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04100000",
+    "lat": 24.662387,
+    "lng": 121.782764,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03960000",
+    "lat": 24.662551,
+    "lng": 121.784822,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03940000",
+    "lat": 24.662555,
+    "lng": 121.784724,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03830000",
+    "lat": 24.662671,
+    "lng": 121.784753,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03820000",
+    "lat": 24.662654,
+    "lng": 121.784802,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03800000",
+    "lat": 24.662683,
+    "lng": 121.784859,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03680000",
+    "lat": 24.662838,
+    "lng": 121.784591,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03740000",
+    "lat": 24.662736,
+    "lng": 121.784565,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03670000",
+    "lat": 24.662835,
+    "lng": 121.784644,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03660000",
+    "lat": 24.662834,
+    "lng": 121.784692,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03140000",
+    "lat": 24.663269,
+    "lng": 121.785241,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02860000",
+    "lat": 24.660376,
+    "lng": 121.785988,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02790000",
+    "lat": 24.660853,
+    "lng": 121.78682,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02720000",
+    "lat": 24.660958,
+    "lng": 121.787367,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02580000",
+    "lat": 24.660529,
+    "lng": 121.788195,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02570000",
+    "lat": 24.660503,
+    "lng": 121.788334,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02340000",
+    "lat": 24.661848,
+    "lng": 121.787625,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01690000",
+    "lat": 24.663959,
+    "lng": 121.787049,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02170000",
+    "lat": 24.662958,
+    "lng": 121.78709,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02060000",
+    "lat": 24.663091,
+    "lng": 121.787348,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02110000",
+    "lat": 24.662994,
+    "lng": 121.787582,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02000000",
+    "lat": 24.663298,
+    "lng": 121.787297,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01720000",
+    "lat": 24.663838,
+    "lng": 121.786953,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01630000",
+    "lat": 24.663887,
+    "lng": 121.787154,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01600000",
+    "lat": 24.663936,
+    "lng": 121.787168,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01570000",
+    "lat": 24.664022,
+    "lng": 121.787173,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01610000",
+    "lat": 24.663955,
+    "lng": 121.787156,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01560000",
+    "lat": 24.664029,
+    "lng": 121.787144,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01490000",
+    "lat": 24.664143,
+    "lng": 121.787213,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01480000",
+    "lat": 24.664151,
+    "lng": 121.787182,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01460000",
+    "lat": 24.664233,
+    "lng": 121.787135,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01430000",
+    "lat": 24.664229,
+    "lng": 121.787246,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01420000",
+    "lat": 24.664209,
+    "lng": 121.787303,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "10810000",
+    "lat": 24.659186,
+    "lng": 121.780187,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "10820000",
+    "lat": 24.65921,
+    "lng": 121.78019,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "11220000",
+    "lat": 24.658026,
+    "lng": 121.781103,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "10920000",
+    "lat": 24.659315,
+    "lng": 121.78017,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09480000",
+    "lat": 24.657993,
+    "lng": 121.781529,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09470000",
+    "lat": 24.65798,
+    "lng": 121.781695,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09460000",
+    "lat": 24.657962,
+    "lng": 121.781911,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "07810000",
+    "lat": 24.658613,
+    "lng": 121.787513,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05170000",
+    "lat": 24.664226,
+    "lng": 121.780782,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04510000",
+    "lat": 24.661023,
+    "lng": 121.784572,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04200000",
+    "lat": 24.662522,
+    "lng": 121.782312,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "06000000",
+    "lat": 24.660293,
+    "lng": 121.780166,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05250000",
+    "lat": 24.664159,
+    "lng": 121.780704,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05210000",
+    "lat": 24.664075,
+    "lng": 121.780789,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05180000",
+    "lat": 24.664205,
+    "lng": 121.780829,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03850000",
+    "lat": 24.662692,
+    "lng": 121.784656,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04840000",
+    "lat": 24.659735,
+    "lng": 121.783292,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04780000",
+    "lat": 24.659947,
+    "lng": 121.784283,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04750000",
+    "lat": 24.659904,
+    "lng": 121.784809,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04670000",
+    "lat": 24.661243,
+    "lng": 121.781873,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03790000",
+    "lat": 24.662693,
+    "lng": 121.78481,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04030000",
+    "lat": 24.66248,
+    "lng": 121.783973,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03840000",
+    "lat": 24.662681,
+    "lng": 121.784705,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03810000",
+    "lat": 24.662644,
+    "lng": 121.784849,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03770000",
+    "lat": 24.662707,
+    "lng": 121.784711,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03610000",
+    "lat": 24.66279,
+    "lng": 121.784885,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03400000",
+    "lat": 24.663453,
+    "lng": 121.783233,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03690000",
+    "lat": 24.662851,
+    "lng": 121.784532,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03640000",
+    "lat": 24.66281,
+    "lng": 121.784788,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03630000",
+    "lat": 24.663024,
+    "lng": 121.784794,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03600000",
+    "lat": 24.662756,
+    "lng": 121.784929,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03480000",
+    "lat": 24.663372,
+    "lng": 121.782072,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03130000",
+    "lat": 24.663221,
+    "lng": 121.785454,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03080000",
+    "lat": 24.659694,
+    "lng": 121.78595,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02520000",
+    "lat": 24.660698,
+    "lng": 121.788736,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02740000",
+    "lat": 24.660788,
+    "lng": 121.78725,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02120000",
+    "lat": 24.662983,
+    "lng": 121.787637,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02140000",
+    "lat": 24.662765,
+    "lng": 121.787264,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01410000",
+    "lat": 24.664246,
+    "lng": 121.787269,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01980000",
+    "lat": 24.663262,
+    "lng": 121.787388,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02100000",
+    "lat": 24.663014,
+    "lng": 121.787535,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02010000",
+    "lat": 24.663338,
+    "lng": 121.787257,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01970000",
+    "lat": 24.663244,
+    "lng": 121.787433,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01680000",
+    "lat": 24.663935,
+    "lng": 121.787092,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01910000",
+    "lat": 24.663111,
+    "lng": 121.787701,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01670000",
+    "lat": 24.66394,
+    "lng": 121.787116,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01550000",
+    "lat": 24.664047,
+    "lng": 121.787075,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01510000",
+    "lat": 24.664065,
+    "lng": 121.787261,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05720000",
+    "lat": 24.662384,
+    "lng": 121.780318,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02760000",
+    "lat": 24.660552,
+    "lng": 121.787143,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "10960000",
+    "lat": 24.659175,
+    "lng": 121.780108,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05780000",
+    "lat": 24.661042,
+    "lng": 121.781613,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04260000",
+    "lat": 24.662497,
+    "lng": 121.782032,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02730000",
+    "lat": 24.660874,
+    "lng": 121.787307,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02710000",
+    "lat": 24.660904,
+    "lng": 121.787234,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02700000",
+    "lat": 24.660963,
+    "lng": 121.787141,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02040000",
+    "lat": 24.663148,
+    "lng": 121.787257,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01730000",
+    "lat": 24.663853,
+    "lng": 121.786853,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03120000",
+    "lat": 24.663163,
+    "lng": 121.785616,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02610000",
+    "lat": 24.660636,
+    "lng": 121.787981,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02620000",
+    "lat": 24.66037,
+    "lng": 121.788006,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02600000",
+    "lat": 24.660997,
+    "lng": 121.788087,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02640000",
+    "lat": 24.660979,
+    "lng": 121.78787,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02650000",
+    "lat": 24.66079,
+    "lng": 121.7876,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02590000",
+    "lat": 24.661021,
+    "lng": 121.788245,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03580000",
+    "lat": 24.662265,
+    "lng": 121.785097,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03890000",
+    "lat": 24.662631,
+    "lng": 121.784481,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03880000",
+    "lat": 24.662728,
+    "lng": 121.784482,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03110000",
+    "lat": 24.663109,
+    "lng": 121.78577,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01930000",
+    "lat": 24.663174,
+    "lng": 121.787573,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "10850000",
+    "lat": 24.659319,
+    "lng": 121.780202,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "10730000",
+    "lat": 24.659294,
+    "lng": 121.780305,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "07810003",
+    "lat": 24.658676,
+    "lng": 121.786731,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "07810001",
+    "lat": 24.658634,
+    "lng": 121.787253,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05950000",
+    "lat": 24.660203,
+    "lng": 121.781238,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05940000",
+    "lat": 24.660183,
+    "lng": 121.781473,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05880000",
+    "lat": 24.661379,
+    "lng": 121.780244,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02030000",
+    "lat": 24.66315,
+    "lng": 121.787198,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01740000",
+    "lat": 24.664231,
+    "lng": 121.786828,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "10800000",
+    "lat": 24.659137,
+    "lng": 121.780179,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04310000",
+    "lat": 24.662338,
+    "lng": 121.782083,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05050000",
+    "lat": 24.664235,
+    "lng": 121.780942,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04370000",
+    "lat": 24.662349,
+    "lng": 121.782361,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02870000",
+    "lat": 24.660455,
+    "lng": 121.785914,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02390000",
+    "lat": 24.662164,
+    "lng": 121.786824,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02370000",
+    "lat": 24.661781,
+    "lng": 121.786974,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02290000",
+    "lat": 24.661775,
+    "lng": 121.788531,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01650000",
+    "lat": 24.663765,
+    "lng": 121.787239,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04270000",
+    "lat": 24.662425,
+    "lng": 121.782252,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04010000",
+    "lat": 24.662781,
+    "lng": 121.784333,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04800000",
+    "lat": 24.659981,
+    "lng": 121.783874,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02210000",
+    "lat": 24.663027,
+    "lng": 121.786239,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02270000",
+    "lat": 24.661744,
+    "lng": 121.788909,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01660000",
+    "lat": 24.663799,
+    "lng": 121.787138,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01380000",
+    "lat": 24.664076,
+    "lng": 121.787572,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02450000",
+    "lat": 24.662059,
+    "lng": 121.786643,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "08830000",
+    "lat": 24.664247,
+    "lng": 121.785688,
+    "area": null,
+    "unit_price": {
+      "value": 1.59,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05800000",
+    "lat": 24.661573,
+    "lng": 121.781288,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03010000",
+    "lat": 24.662769,
+    "lng": 121.789474,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03020000",
+    "lat": 24.662784,
+    "lng": 121.789285,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03030000",
+    "lat": 24.663253,
+    "lng": 121.78922,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03040000",
+    "lat": 24.661652,
+    "lng": 121.78906,
+    "area": null,
+    "unit_price": {
+      "value": 1.17,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03080000",
+    "lat": 24.661728,
+    "lng": 121.789167,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03090000",
+    "lat": 24.661715,
+    "lng": 121.789332,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03290000",
+    "lat": 24.66066,
+    "lng": 121.789241,
+    "area": null,
+    "unit_price": {
+      "value": 1.12,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03280000",
+    "lat": 24.660674,
+    "lng": 121.789066,
+    "area": null,
+    "unit_price": {
+      "value": 1.12,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03300000",
+    "lat": 24.660648,
+    "lng": 121.789384,
+    "area": null,
+    "unit_price": {
+      "value": 1.12,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05610000",
+    "lat": 24.659528,
+    "lng": 121.789497,
+    "area": null,
+    "unit_price": {
+      "value": 1.12,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05630000",
+    "lat": 24.659559,
+    "lng": 121.789108,
+    "area": null,
+    "unit_price": {
+      "value": 1.12,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05620000",
+    "lat": 24.659544,
+    "lng": 121.7893,
+    "area": null,
+    "unit_price": {
+      "value": 1.12,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05640000",
+    "lat": 24.659573,
+    "lng": 121.788943,
+    "area": null,
+    "unit_price": {
+      "value": 1.12,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05670000",
+    "lat": 24.658493,
+    "lng": 121.789004,
+    "area": null,
+    "unit_price": {
+      "value": 1.12,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05660000",
+    "lat": 24.658506,
+    "lng": 121.78884,
+    "area": null,
+    "unit_price": {
+      "value": 1.12,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05680000",
+    "lat": 24.658478,
+    "lng": 121.789191,
+    "area": null,
+    "unit_price": {
+      "value": 1.12,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05690000",
+    "lat": 24.658461,
+    "lng": 121.789392,
+    "area": null,
+    "unit_price": {
+      "value": 1.12,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09090000",
+    "lat": 24.658805,
+    "lng": 121.785128,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09110000",
+    "lat": 24.658851,
+    "lng": 121.784568,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09130000",
+    "lat": 24.658881,
+    "lng": 121.784193,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09120000",
+    "lat": 24.658869,
+    "lng": 121.784341,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09100000",
+    "lat": 24.658827,
+    "lng": 121.784863,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09080000",
+    "lat": 24.658789,
+    "lng": 121.785329,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09140000",
+    "lat": 24.658897,
+    "lng": 121.784002,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09150000",
+    "lat": 24.658916,
+    "lng": 121.783775,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09190000",
+    "lat": 24.658982,
+    "lng": 121.782959,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09280000",
+    "lat": 24.658384,
+    "lng": 121.783438,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09230000",
+    "lat": 24.659042,
+    "lng": 121.782225,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09170000",
+    "lat": 24.658949,
+    "lng": 121.783372,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09160000",
+    "lat": 24.658933,
+    "lng": 121.783569,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09210000",
+    "lat": 24.659012,
+    "lng": 121.782599,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09260000",
+    "lat": 24.65909,
+    "lng": 121.781637,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09270000",
+    "lat": 24.658427,
+    "lng": 121.783442,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09200000",
+    "lat": 24.658996,
+    "lng": 121.782786,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09180000",
+    "lat": 24.658966,
+    "lng": 121.783155,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09240000",
+    "lat": 24.65906,
+    "lng": 121.782008,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09220000",
+    "lat": 24.659026,
+    "lng": 121.782422,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09440000",
+    "lat": 24.658347,
+    "lng": 121.783434,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09450000",
+    "lat": 24.657947,
+    "lng": 121.782089,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "09430000",
+    "lat": 24.657937,
+    "lng": 121.782221,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03170000",
+    "lat": 24.663027,
+    "lng": 121.785161,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03360000",
+    "lat": 24.664175,
+    "lng": 121.782159,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03190000",
+    "lat": 24.663548,
+    "lng": 121.784933,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03500000",
+    "lat": 24.663186,
+    "lng": 121.783129,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03410000",
+    "lat": 24.66333,
+    "lng": 121.783217,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03430000",
+    "lat": 24.663393,
+    "lng": 121.782827,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03310000",
+    "lat": 24.664065,
+    "lng": 121.782894,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03560000",
+    "lat": 24.662148,
+    "lng": 121.785343,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03450000",
+    "lat": 24.663388,
+    "lng": 121.782663,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03550000",
+    "lat": 24.662128,
+    "lng": 121.785486,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03460000",
+    "lat": 24.663384,
+    "lng": 121.782503,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03720000",
+    "lat": 24.662816,
+    "lng": 121.784457,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03470000",
+    "lat": 24.663378,
+    "lng": 121.782294,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03490000",
+    "lat": 24.663213,
+    "lng": 121.782982,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03650000",
+    "lat": 24.66282,
+    "lng": 121.78474,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03540000",
+    "lat": 24.662068,
+    "lng": 121.785655,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03570000",
+    "lat": 24.662182,
+    "lng": 121.785248,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03290000",
+    "lat": 24.664014,
+    "lng": 121.783251,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03530000",
+    "lat": 24.662997,
+    "lng": 121.78503,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03520000",
+    "lat": 24.663091,
+    "lng": 121.783189,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03700000",
+    "lat": 24.663087,
+    "lng": 121.78461,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03710000",
+    "lat": 24.663097,
+    "lng": 121.784514,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03900000",
+    "lat": 24.662606,
+    "lng": 121.784534,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03860000",
+    "lat": 24.662702,
+    "lng": 121.784608,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03760000",
+    "lat": 24.662718,
+    "lng": 121.784663,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03780000",
+    "lat": 24.662697,
+    "lng": 121.78476,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03980000",
+    "lat": 24.662468,
+    "lng": 121.784614,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03970000",
+    "lat": 24.662568,
+    "lng": 121.784888,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04040000",
+    "lat": 24.662449,
+    "lng": 121.783804,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04020000",
+    "lat": 24.662469,
+    "lng": 121.784138,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03870000",
+    "lat": 24.662711,
+    "lng": 121.784559,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03590000",
+    "lat": 24.662062,
+    "lng": 121.784905,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04150000",
+    "lat": 24.662796,
+    "lng": 121.782184,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03910000",
+    "lat": 24.662586,
+    "lng": 121.784579,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04000000",
+    "lat": 24.662113,
+    "lng": 121.78445,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04140000",
+    "lat": 24.662806,
+    "lng": 121.782384,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04160000",
+    "lat": 24.662787,
+    "lng": 121.782076,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04060000",
+    "lat": 24.662461,
+    "lng": 121.783548,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04250000",
+    "lat": 24.662502,
+    "lng": 121.782088,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04050000",
+    "lat": 24.662458,
+    "lng": 121.783648,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04080000",
+    "lat": 24.66241,
+    "lng": 121.783143,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04110000",
+    "lat": 24.662375,
+    "lng": 121.78257,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04090000",
+    "lat": 24.662397,
+    "lng": 121.782935,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04190000",
+    "lat": 24.662526,
+    "lng": 121.782357,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04290000",
+    "lat": 24.662312,
+    "lng": 121.781922,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04240000",
+    "lat": 24.662506,
+    "lng": 121.782135,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04350000",
+    "lat": 24.662343,
+    "lng": 121.782268,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04280000",
+    "lat": 24.662576,
+    "lng": 121.781967,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04410000",
+    "lat": 24.662057,
+    "lng": 121.782105,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04430000",
+    "lat": 24.661685,
+    "lng": 121.78375,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04220000",
+    "lat": 24.662514,
+    "lng": 121.782224,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04400000",
+    "lat": 24.662054,
+    "lng": 121.782305,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04420000",
+    "lat": 24.662075,
+    "lng": 121.781923,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04470000",
+    "lat": 24.660956,
+    "lng": 121.785387,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04440000",
+    "lat": 24.661635,
+    "lng": 121.783746,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04450000",
+    "lat": 24.661588,
+    "lng": 121.783742,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04480000",
+    "lat": 24.660974,
+    "lng": 121.785168,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04490000",
+    "lat": 24.660989,
+    "lng": 121.784978,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04500000",
+    "lat": 24.661007,
+    "lng": 121.784764,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04530000",
+    "lat": 24.661056,
+    "lng": 121.784166,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04540000",
+    "lat": 24.661074,
+    "lng": 121.783949,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04520000",
+    "lat": 24.661037,
+    "lng": 121.784392,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04550000",
+    "lat": 24.661088,
+    "lng": 121.783777,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04600000",
+    "lat": 24.661145,
+    "lng": 121.783072,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04590000",
+    "lat": 24.66113,
+    "lng": 121.783254,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04620000",
+    "lat": 24.66117,
+    "lng": 121.78277,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04570000",
+    "lat": 24.661184,
+    "lng": 121.783428,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04630000",
+    "lat": 24.661184,
+    "lng": 121.782598,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04560000",
+    "lat": 24.661103,
+    "lng": 121.78359,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04610000",
+    "lat": 24.661158,
+    "lng": 121.782915,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04640000",
+    "lat": 24.6612,
+    "lng": 121.782403,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04690000",
+    "lat": 24.660547,
+    "lng": 121.783638,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04650000",
+    "lat": 24.661217,
+    "lng": 121.782192,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04680000",
+    "lat": 24.660598,
+    "lng": 121.783644,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04760000",
+    "lat": 24.659916,
+    "lng": 121.784667,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04710000",
+    "lat": 24.659856,
+    "lng": 121.7854,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04710001",
+    "lat": 24.659875,
+    "lng": 121.785164,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04700000",
+    "lat": 24.660501,
+    "lng": 121.783633,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04770000",
+    "lat": 24.659928,
+    "lng": 121.784524,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04730000",
+    "lat": 24.659891,
+    "lng": 121.784975,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04820000",
+    "lat": 24.659906,
+    "lng": 121.783566,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04790000",
+    "lat": 24.659968,
+    "lng": 121.784037,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04850000",
+    "lat": 24.660243,
+    "lng": 121.783315,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04880000",
+    "lat": 24.659804,
+    "lng": 121.783107,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04870000",
+    "lat": 24.660249,
+    "lng": 121.783038,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04890000",
+    "lat": 24.659612,
+    "lng": 121.783053,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04860000",
+    "lat": 24.660244,
+    "lng": 121.78322,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04920000",
+    "lat": 24.660088,
+    "lng": 121.782569,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04930000",
+    "lat": 24.660097,
+    "lng": 121.782456,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04910000",
+    "lat": 24.660079,
+    "lng": 121.782677,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04900000",
+    "lat": 24.660067,
+    "lng": 121.782825,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04970000",
+    "lat": 24.660127,
+    "lng": 121.782087,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04950000",
+    "lat": 24.660115,
+    "lng": 121.782239,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04980000",
+    "lat": 24.660141,
+    "lng": 121.781914,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04990000",
+    "lat": 24.660156,
+    "lng": 121.781732,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04960000",
+    "lat": 24.66012,
+    "lng": 121.78218,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "04940000",
+    "lat": 24.660107,
+    "lng": 121.782338,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05000000",
+    "lat": 24.662132,
+    "lng": 121.781814,
+    "area": null,
+    "unit_price": {
+      "value": 1.18,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05010000",
+    "lat": 24.664217,
+    "lng": 121.78187,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05070000",
+    "lat": 24.664185,
+    "lng": 121.780867,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05230000",
+    "lat": 24.664077,
+    "lng": 121.780649,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05220000",
+    "lat": 24.664019,
+    "lng": 121.780799,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05400000",
+    "lat": 24.663932,
+    "lng": 121.780539,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05420000",
+    "lat": 24.663379,
+    "lng": 121.781644,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05490000",
+    "lat": 24.663724,
+    "lng": 121.780979,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05380000",
+    "lat": 24.664022,
+    "lng": 121.780548,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05430000",
+    "lat": 24.663198,
+    "lng": 121.781386,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05630000",
+    "lat": 24.662803,
+    "lng": 121.780425,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05410000",
+    "lat": 24.663367,
+    "lng": 121.781822,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05520000",
+    "lat": 24.663455,
+    "lng": 121.780438,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05440000",
+    "lat": 24.663334,
+    "lng": 121.781044,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05600000",
+    "lat": 24.662959,
+    "lng": 121.780439,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05620000",
+    "lat": 24.662842,
+    "lng": 121.780429,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05470000",
+    "lat": 24.663335,
+    "lng": 121.781061,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05480000",
+    "lat": 24.663167,
+    "lng": 121.781029,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05640000",
+    "lat": 24.662348,
+    "lng": 121.781723,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05730000",
+    "lat": 24.66239,
+    "lng": 121.780128,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05530000",
+    "lat": 24.66346,
+    "lng": 121.780221,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05680000",
+    "lat": 24.662381,
+    "lng": 121.780943,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05510000",
+    "lat": 24.663441,
+    "lng": 121.780662,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05690000",
+    "lat": 24.662371,
+    "lng": 121.780758,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05390000",
+    "lat": 24.663976,
+    "lng": 121.780543,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05450000",
+    "lat": 24.663104,
+    "lng": 121.781219,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05930000",
+    "lat": 24.660745,
+    "lng": 121.78072,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05610000",
+    "lat": 24.662908,
+    "lng": 121.780435,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05750000",
+    "lat": 24.661922,
+    "lng": 121.780834,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05710000",
+    "lat": 24.662378,
+    "lng": 121.780532,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05700000",
+    "lat": 24.662377,
+    "lng": 121.780663,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05540000",
+    "lat": 24.663479,
+    "lng": 121.780062,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05980000",
+    "lat": 24.660259,
+    "lng": 121.78057,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05850000",
+    "lat": 24.661341,
+    "lng": 121.780702,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05770000",
+    "lat": 24.661826,
+    "lng": 121.780824,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05820000",
+    "lat": 24.661057,
+    "lng": 121.781281,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05890000",
+    "lat": 24.661397,
+    "lng": 121.780033,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05920000",
+    "lat": 24.660789,
+    "lng": 121.780725,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05860000",
+    "lat": 24.661353,
+    "lng": 121.780559,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05910000",
+    "lat": 24.660839,
+    "lng": 121.78073,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05810000",
+    "lat": 24.661055,
+    "lng": 121.781301,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05870000",
+    "lat": 24.661363,
+    "lng": 121.780436,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05960000",
+    "lat": 24.660221,
+    "lng": 121.781027,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05970000",
+    "lat": 24.66024,
+    "lng": 121.780801,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05990000",
+    "lat": 24.660276,
+    "lng": 121.780363,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "05760000",
+    "lat": 24.661872,
+    "lng": 121.780829,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01790000",
+    "lat": 24.663645,
+    "lng": 121.787586,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01840000",
+    "lat": 24.662818,
+    "lng": 121.788833,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01960000",
+    "lat": 24.66333,
+    "lng": 121.787547,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01750000",
+    "lat": 24.664142,
+    "lng": 121.786752,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01860000",
+    "lat": 24.66285,
+    "lng": 121.788435,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01700007",
+    "lat": 24.664065,
+    "lng": 121.786844,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01820000",
+    "lat": 24.663388,
+    "lng": 121.787561,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02020000",
+    "lat": 24.663392,
+    "lng": 121.78734,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01900000",
+    "lat": 24.662734,
+    "lng": 121.787686,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02190000",
+    "lat": 24.66299,
+    "lng": 121.786703,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01920000",
+    "lat": 24.663143,
+    "lng": 121.787634,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01830000",
+    "lat": 24.662804,
+    "lng": 121.789014,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02070000",
+    "lat": 24.663071,
+    "lng": 121.787395,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02090000",
+    "lat": 24.663033,
+    "lng": 121.787489,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02200000",
+    "lat": 24.663011,
+    "lng": 121.786436,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02050000",
+    "lat": 24.66311,
+    "lng": 121.787301,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02320000",
+    "lat": 24.661822,
+    "lng": 121.78795,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01800000",
+    "lat": 24.663499,
+    "lng": 121.787572,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02240000",
+    "lat": 24.662466,
+    "lng": 121.787463,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02260000",
+    "lat": 24.662367,
+    "lng": 121.787453,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02080000",
+    "lat": 24.663052,
+    "lng": 121.787442,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02380000",
+    "lat": 24.662383,
+    "lng": 121.786756,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02410000",
+    "lat": 24.662227,
+    "lng": 121.786659,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02130000",
+    "lat": 24.662724,
+    "lng": 121.787434,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02350000",
+    "lat": 24.661865,
+    "lng": 121.787418,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02150000",
+    "lat": 24.66278,
+    "lng": 121.787178,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02180000",
+    "lat": 24.662971,
+    "lng": 121.78693,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02310000",
+    "lat": 24.661807,
+    "lng": 121.788127,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02420000",
+    "lat": 24.662272,
+    "lng": 121.78658,
+    "area": null,
+    "unit_price": {
+      "value": 7.21,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02230000",
+    "lat": 24.663052,
+    "lng": 121.785921,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02480000",
+    "lat": 24.661951,
+    "lng": 121.786349,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02160000",
+    "lat": 24.662787,
+    "lng": 121.787154,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02280000",
+    "lat": 24.661759,
+    "lng": 121.788727,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02470000",
+    "lat": 24.661762,
+    "lng": 121.786544,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02360000",
+    "lat": 24.661886,
+    "lng": 121.787162,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02250000",
+    "lat": 24.662414,
+    "lng": 121.787458,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02510000",
+    "lat": 24.661341,
+    "lng": 121.787353,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02460000",
+    "lat": 24.661708,
+    "lng": 121.786759,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02440000",
+    "lat": 24.662305,
+    "lng": 121.786455,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02550000",
+    "lat": 24.66051,
+    "lng": 121.788504,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02330000",
+    "lat": 24.661835,
+    "lng": 121.787792,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02500000",
+    "lat": 24.661988,
+    "lng": 121.785892,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02490000",
+    "lat": 24.661972,
+    "lng": 121.786099,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02690000",
+    "lat": 24.661189,
+    "lng": 121.787072,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02660000",
+    "lat": 24.660602,
+    "lng": 121.787382,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02630000",
+    "lat": 24.660383,
+    "lng": 121.787904,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02530000",
+    "lat": 24.661006,
+    "lng": 121.78848,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02670000",
+    "lat": 24.661153,
+    "lng": 121.787393,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02540000",
+    "lat": 24.66052,
+    "lng": 121.788623,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02770000",
+    "lat": 24.660805,
+    "lng": 121.787057,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02850000",
+    "lat": 24.660349,
+    "lng": 121.786072,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02820000",
+    "lat": 24.660889,
+    "lng": 121.786412,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02830000",
+    "lat": 24.660872,
+    "lng": 121.786224,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02750000",
+    "lat": 24.660527,
+    "lng": 121.787246,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02560000",
+    "lat": 24.661207,
+    "lng": 121.788338,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02780000",
+    "lat": 24.66058,
+    "lng": 121.787008,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02900000",
+    "lat": 24.660256,
+    "lng": 121.787245,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02880000",
+    "lat": 24.660946,
+    "lng": 121.785865,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02890000",
+    "lat": 24.660307,
+    "lng": 121.787251,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02910000",
+    "lat": 24.660208,
+    "lng": 121.787239,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02980000",
+    "lat": 24.659677,
+    "lng": 121.787603,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02950000",
+    "lat": 24.659638,
+    "lng": 121.788085,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03060000",
+    "lat": 24.659778,
+    "lng": 121.786353,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03100000",
+    "lat": 24.661459,
+    "lng": 121.785721,
+    "area": null,
+    "unit_price": {
+      "value": 1.17,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02960000",
+    "lat": 24.65965,
+    "lng": 121.787928,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02840000",
+    "lat": 24.660953,
+    "lng": 121.786097,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03020000",
+    "lat": 24.659721,
+    "lng": 121.787052,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03030000",
+    "lat": 24.659733,
+    "lng": 121.786904,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02970000",
+    "lat": 24.659666,
+    "lng": 121.787741,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02810000",
+    "lat": 24.66088,
+    "lng": 121.78653,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03040000",
+    "lat": 24.659744,
+    "lng": 121.786776,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03220000",
+    "lat": 24.663832,
+    "lng": 121.784653,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03320000",
+    "lat": 24.66409,
+    "lng": 121.782728,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02870001",
+    "lat": 24.660279,
+    "lng": 121.785879,
+    "area": null,
+    "unit_price": {
+      "value": 6.45,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02990000",
+    "lat": 24.659685,
+    "lng": 121.787495,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03010000",
+    "lat": 24.65971,
+    "lng": 121.78719,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03150000",
+    "lat": 24.663316,
+    "lng": 121.785019,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03160000",
+    "lat": 24.663373,
+    "lng": 121.78475,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03050000",
+    "lat": 24.65976,
+    "lng": 121.78658,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03070000",
+    "lat": 24.659707,
+    "lng": 121.786154,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03210000",
+    "lat": 24.6638,
+    "lng": 121.784849,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03230000",
+    "lat": 24.663865,
+    "lng": 121.784458,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03250000",
+    "lat": 24.663901,
+    "lng": 121.784037,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03090000",
+    "lat": 24.659735,
+    "lng": 121.785723,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03200000",
+    "lat": 24.663744,
+    "lng": 121.785188,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03300000",
+    "lat": 24.664042,
+    "lng": 121.783055,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03330000",
+    "lat": 24.664116,
+    "lng": 121.782548,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03280000",
+    "lat": 24.663989,
+    "lng": 121.783421,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03000000",
+    "lat": 24.659698,
+    "lng": 121.787337,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03180000",
+    "lat": 24.663548,
+    "lng": 121.785229,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "02940000",
+    "lat": 24.659622,
+    "lng": 121.788282,
+    "area": null,
+    "unit_price": {
+      "value": 1.16,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03390000",
+    "lat": 24.663415,
+    "lng": 121.78362,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03370000",
+    "lat": 24.663638,
+    "lng": 121.783155,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03510000",
+    "lat": 24.663124,
+    "lng": 121.783159,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03380000",
+    "lat": 24.66348,
+    "lng": 121.783902,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03340000",
+    "lat": 24.664136,
+    "lng": 121.782426,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03420000",
+    "lat": 24.663398,
+    "lng": 121.783026,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03350000",
+    "lat": 24.664148,
+    "lng": 121.782341,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "03440000",
+    "lat": 24.663573,
+    "lng": 121.782985,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "00730000",
+    "lat": 24.663717,
+    "lng": 121.789347,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01390000",
+    "lat": 24.664092,
+    "lng": 121.787375,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01320000",
+    "lat": 24.663982,
+    "lng": 121.788739,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01360000",
+    "lat": 24.664049,
+    "lng": 121.78791,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  },
+  {
+    "land_number": "01340000",
+    "lat": 24.664013,
+    "lng": 121.788356,
+    "area": null,
+    "unit_price": {
+      "value": 1.19,
+      "unit": "萬/坪"
+    },
+    "land_type": 0,
+    "price": null
+  }
+]
