@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>八仙段 無人機農噴報價</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Microsoft JhengHei', sans-serif; display: flex; height: 100vh; }
+        
+        .sidebar {
+            width: 320px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            color: white;
+            overflow-y: auto;
+        }
+        
+        .sidebar h1 { font-size: 18px; margin-bottom: 20px; }
+        
+        .land-card {
+            background: white;
+            color: #333;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .land-card h3 { color: #667eea; margin-bottom: 10px; }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+            background: #f5f5f5;
+            border-radius: 6px;
+            margin: 5px 0;
+        }
+        
+        .info-row .label { color: #666; font-size: 14px; }
+        .info-row .value { font-weight: bold; }
+        
+        .input-group { margin: 10px 0; }
+        .input-group label { display: block; margin-bottom: 5px; color: #666; font-size: 14px; }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        .price-box {
+            background: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        .price-box .label { font-size: 14px; }
+        .price-box .price { font-size: 28px; font-weight: bold; }
+        
+        .btn {
+            width: 100%;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            opacity: 0.8;
+        }
+        
+        .map-container { flex: 1; position: relative; }
+        #map { height: 100%; }
+        
+        .layer-control {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .layer-control h4 { margin: 0 0 10px 0; font-size: 14px; }
+        .layer-control label { display: block; margin: 5px 0; cursor: pointer; font-size: 14px; }
+        
+        .legend {
+            position: absolute;
+            bottom: 20px;
+            right: 10px;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            z-index: 1000;
+            font-size: 12px;
+        }
+        .legend-item { display: flex; align-items: center; gap: 5px; }
+        .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h1>🚁 無人機農噴報價</h1>
+        <div id="sidebar-content">
+            <div class="empty-state">
+                <p>👆 點擊地圖選擇土地</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="map-container">
+        <div id="map"></div>
+        
+        <div class="layer-control">
+            <h4>底圖 (二選一)</h4>
+            <label><input type="radio" name="basemap" value="osm" checked> OSM</label>
+            <label><input type="radio" name="basemap" value="sat"> Google 衛星</label>
+            <hr>
+            <label><input type="checkbox" id="cadas" checked> 591 地籍圖 (最上層)</label>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item"><div class="legend-dot" style="background:#4CAF50"></div> 有坪數</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#ccc"></div> 無坪數</div>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // 資料
+        var centers = [{"lat":24.6639,"lon":121.789734,"land_no":1},{"lat":24.6638,"lon":121.7896,"land_no":2}]; // 簡化
+        var areaMap = {1: 500, 2: 600}; // 簡化
+        
+        var map = L.map('map').setView([24.663, 121.789], 17);
+        
+        var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 22});
+        var satellite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {maxZoom: 22, subdomains: ['mt0','mt1','mt2','mt3']});
+        var wmts = L.tileLayer('https://maptiles.591.com.tw/S_Maps/wmts/DMAPS/default/GoogleMapsCompatible/{z}/{y}/{x}', {
+            maxZoom: 22, minZoom: 10, opacity: 0.9, zIndex: 100
+        });
+        
+        osm.addTo(map);
+        wmts.addTo(map);
+        
+        // 圖層控制
+        document.querySelectorAll('input[name="basemap"]').forEach(function(radio) {
+            radio.onchange = function() {
+                if (this.value === 'osm') {
+                    map.removeLayer(satellite);
+                    osm.addTo(map);
+                } else {
+                    map.removeLayer(osm);
+                    satellite.addTo(map);
+                }
+                if (!map.hasLayer(wmts)) wmts.addTo(map);
+            };
+        });
+        
+        document.getElementById('cadas').onchange = function() {
+            if (this.checked) wmts.addTo(map);
+            else map.removeLayer(wmts);
+        };
+        
+        // 估價功能
+        function showPricing(ln, lat, lng, area) {
+            var content = '';
+            if (!area) {
+                content = '<div class="land-card"><h3>📍 ' + ln + ' 地號</h3><p style="color:#666;">⚠️ 無坪數資料</p></div>';
+            } else {
+                content = '<div class="land-card selected">' +
+                    '<h3>📍 ' + ln + ' 地號</h3>' +
+                    '<div class="info-row"><span class="label">面積</span><span class="value">' + area + ' 坪</span></div>' +
+                    '<div class="info-row"><span class="label">座標</span><span class="value" style="font-size:12px">' + lng.toFixed(4) + ', ' + lat.toFixed(4) + '</span></div>' +
+                    '<div class="input-group"><label>每坪價格 (元)</label><input type="number" id="pricePerPing" value="35" onchange="calc()"></div>' +
+                    '<div class="input-group"><label>地形加成 (%)</label><input type="number" id="terrain" value="0" onchange="calc()"></div>' +
+                    '<div class="price-box"><div class="label">預估費用</div><div class="price" id="total">$' + (area * 35).toLocaleString() + '</div></div>' +
+                    '<button class="btn" onclick="book()">📢 媒合飛手</button></div>';
+            }
+            document.getElementById('sidebar-content').innerHTML = content;
+        }
+        
+        window.calc = function() {
+            var area = window.selectedArea;
+            if (!area) return;
+            var price = parseInt(document.getElementById('pricePerPing').value) || 35;
+            var terrain = parseInt(document.getElementById('terrain').value) || 0;
+            var total = Math.round(area * price * (1 + terrain/100));
+            document.getElementById('total').innerText = '$' + total.toLocaleString();
+        };
+        
+        window.book = function() {
+            alert('📢 已收到您的需求！飛手將盡快與您聯繫！');
+        };
+        
+        // 點擊地圖
+        map.on('click', function(e) {
+            // 這裡應該根據點擊位置找最近的土地
+            // 簡化版本
+            var ln = Math.floor(Math.random() * 100) + 1;
+            var area = areaMap[ln] || null;
+            window.selectedArea = area;
+            showPricing(ln, e.latlng.lat, e.latlng.lng, area);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body { margin: 0; display: flex; height: 100vh; }
+        .sidebar { width: 300px; background: #667eea; padding: 20px; color: white; }
+        .map { flex: 1; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h1>Test Sidebar</h1>
+        <p>有坪數 / 無坪數</p>
+        <input placeholder="姓名">
+        <input placeholder="電話">
+    </div>
+    <div class="map" id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([24.663, 121.789], 17);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{}).addTo(map);
+        L.marker([24.663, 121.789]).addTo(map).bindPopup('Test').openPopup();
+    </script>
+</body>
+</html>
