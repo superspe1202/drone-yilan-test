@@ -75,26 +75,27 @@
             attribution: '© OSM'
         });
         
-        // 使用 OSM（無 CORS 問題）
-        var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '© OSM'
-        });
+        // 使用 ESRI 衛星圖（通過 CORS proxy）
+        const CORS_PROXY = 'https://corsproxy.io/?';
         
-        // ESRI 衛星
-        var esriSat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        var esriSat = L.tileLayer(CORS_PROXY + 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
             maxZoom: 19,
             attribution: '© ESRI'
         });
         
-        var googleSat = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+        var googleSat = L.tileLayer(CORS_PROXY + 'https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0','mt1','mt2','mt3'],
             attribution: '© Google'
         });
         
-        // 預設用 OSM（因為衛星圖有 CORS 限制）
-        osm.addTo(map);
+        esriSat.addTo(map);
+        
+        // OSM 標準地圖
+        var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OSM'
+        });
         
         L.control.layers({
             'ESRI 衛星': esriSat,
@@ -133,7 +134,7 @@
             return cv;
         }
         
-        // 從地圖取得影像 - 使用 Leaflet 的 tilePane
+        // 從地圖取得影像
         function getMapImage() {
             return new Promise((resolve, reject) => {
                 const canvas = document.createElement('canvas');
@@ -151,8 +152,9 @@
                 }
                 
                 let loaded = 0;
+                let failed = 0;
+                
                 tiles.forEach(img => {
-                    // 嘗試從快取或直接載入
                     const imgCopy = new Image();
                     imgCopy.crossOrigin = 'Anonymous';
                     imgCopy.onload = () => {
@@ -161,19 +163,25 @@
                             ctx.drawImage(imgCopy, pos.x, pos.y, 256, 256);
                         }
                         loaded++;
-                        if (loaded === tiles.length) {
-                            resolve({ canvas, ctx });
-                        }
+                        checkDone();
                     };
                     imgCopy.onerror = () => {
-                        loaded++;
-                        if (loaded === tiles.length) {
-                            // 至少有部分載入
-                            resolve({ canvas, ctx });
-                        }
+                        failed++;
+                        checkDone();
                     };
+                    // 使用原始 URL (Leaflet 已處理 CORS)
                     imgCopy.src = img.src;
                 });
+                
+                function checkDone() {
+                    if (loaded + failed >= tiles.length) {
+                        if (loaded > 0) {
+                            resolve({ canvas, ctx });
+                        } else {
+                            reject(new Error('所有圖磚載入失敗'));
+                        }
+                    }
+                }
             });
         }
         
