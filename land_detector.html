@@ -17,9 +17,9 @@
             padding: 15px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            max-width: 300px;
+            max-width: 280px;
         }
-        #controls h3 { margin: 0 0 10px 0; }
+        #controls h3 { margin: 0 0 10px 0; font-size: 16px; }
         #controls button {
             width: 100%;
             padding: 10px;
@@ -34,32 +34,21 @@
         #controls button:disabled { background: #ccc; }
         #controls button.stop { background: #f44336; }
         #status { margin-top: 10px; font-size: 12px; color: #666; }
-        #progress { 
-            width: 100%; 
-            height: 20px; 
-            background: #eee; 
-            border-radius: 4px;
-            overflow: hidden;
-            display: none;
-        }
-        #progress-bar {
-            height: 100%;
-            background: #4CAF50;
-            width: 0%;
-            transition: width 0.3s;
-        }
-        .legend { font-size: 12px; }
+        #result { margin-top: 5px; font-size: 12px; color: #2196F3; }
+        .legend { font-size: 12px; margin-top: 10px; }
         .legend-item { display: flex; align-items: center; margin: 3px 0; }
         .legend-color { width: 20px; height: 10px; margin-right: 5px; }
+        .param { margin: 3px 0; }
+        .param input { width: 50px; }
     </style>
 </head>
 <body>
     <div id="controls">
         <h3>🌾 八仙段土地偵測</h3>
         <button id="detectBtn" onclick="startDetection()">開始偵測</button>
-        <button id="clearBtn" onclick="clearBoundaries()">清除邊界</button>
-        <div id="progress"><div id="progress-bar"></div></div>
-        <div id="status">就緒</div>
+        <button onclick="clearBoundaries()">清除邊界</button>
+        <div id="status">載入中...</div>
+        <div id="result"></div>
         
         <hr>
         <div class="legend">
@@ -67,40 +56,34 @@
                 <div class="legend-color" style="background: #ff0000;"></div>
                 <span>偵測到的邊界</span>
             </div>
-            <div class="legend-item">
-                <div class="legend-color" style="background: #ffff00;"></div>
-                <span>土地中心點</span>
-            </div>
         </div>
         <hr>
-        <small>偵測參數：</small><br>
-        <label>最小面積: <input type="number" id="minArea" value="200" style="width:60px"> px</label><br>
-        <label>Canny 低: <input type="number" id="cannyLow" value="30" style="width:60px"></label><br>
-        <label>Canny 高: <input type="number" id="cannyHigh" value="80" style="width:60px"></label>
+        <div class="param">最小面積: <input type="number" id="minArea" value="100"></div>
+        <div class="param">Canny 低: <input type="number" id="cannyLow" value="25"></div>
+        <div class="param">Canny 高: <input type="number" id="cannyHigh" value="70"></div>
     </div>
     <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://docs.opencv.org/4.8.0/opencv.js" async></script>
-    
     <script>
-        // 地圖初始化
-        var map = L.map('map').setView([24.6615, 121.785], 16);
+        // 地圖初始化 - 八仙段中心
+        var map = L.map('map').setView([24.6615, 121.785], 17);
         
-        // 圖層
+        // 圖層 - 使用 OSM（無 CORS 問題）
+        var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OSM'
+        });
+        
+        // 使用 Google 衛星圖層
         var googleSat = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-            maxZoom: 22,
+            maxZoom: 20,
             subdomains: ['mt0','mt1','mt2','mt3'],
             attribution: '© Google'
         });
         
-        var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OSM'
-        });
-        
         googleSat.addTo(map);
         
-        // 圖層控制
         L.control.layers({
             'Google 衛星': googleSat,
             'OSM 地圖': osm
@@ -108,75 +91,92 @@
         
         // 邊界圖層
         var boundaryLayer = L.geoJSON(null, {
-            style: { color: "#ff0000", weight: 2, fillOpacity: 0.2, fillColor: "#ff0000" }
+            style: { color: "#ff0000", weight: 2, fillOpacity: 0.15, fillColor: "#ff0000" }
         }).addTo(map);
         
-        // 中心點圖層
-        var centerLayer = L.geoJSON(null, {
-            pointToLayer: function(feature, latlng) {
-                return L.circleMarker(latlng, { 
-                    radius: 4, 
-                    fillColor: "#ffff00", 
-                    color: "#000", 
-                    weight: 1,
-                    fillOpacity: 0.8 
-                });
-            }
-        }).addTo(map);
-        
-        var cvReady = false;
         var isDetecting = false;
         
-        // OpenCV 載入完成
-        window.onload = function() {
-            document.getElementById('status').innerText = 'OpenCV 已載入';
-        };
+        // 狀態更新
+        function setStatus(msg) {
+            document.getElementById('status').innerText = msg;
+        }
         
-        window.onerror = function(msg) {
-            console.error('OpenCV載入錯誤:', msg);
-            document.getElementById('status').innerText = 'OpenCV 載入失敗，請刷新';
-        };
+        function setResult(msg) {
+            document.getElementById('result').innerText = msg;
+        }
         
-        // 從 URL 取得 OpenCV
-        var opencvUrl = 'https://docs.opencv.org/4.8.0/opencv.js';
-        var script = document.createElement('script');
-        script.src = opencvUrl;
-        script.onload = function() {
-            cvReady = true;
-            document.getElementById('status').innerText = 'OpenCV 就緒 - 可以開始偵測';
-        };
-        script.onerror = function() {
-            document.getElementById('status').innerText = 'OpenCV 載入失敗';
-        };
-        document.head.appendChild(script);
-        
-        // 從圖磚URL下載圖片
-        async function fetchTileImage(x, y, z) {
-            const url = `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${z}/${y}/${x}`;
-            try {
-                const response = await fetch(url);
-                if (!response.ok) return null;
-                const blob = await response.blob();
-                return await createImageBitmap(blob);
-            } catch (e) {
-                console.error('下載失敗:', x, y, e);
-                return null;
+        // 等待 OpenCV
+        async function waitForOpenCV() {
+            setStatus('等待 OpenCV.js...');
+            let attempts = 0;
+            while (typeof cv === 'undefined' || typeof cv.imread === 'undefined') {
+                await new Promise(r => setTimeout(r, 500));
+                attempts++;
+                if (attempts > 60) {
+                    throw new Error('OpenCV 載入逾時');
+                }
             }
+            setStatus('OpenCV 就緒');
+            return cv;
         }
         
-        // 轉換圖片為 canvas
-        function imageToCanvas(img) {
-            const canvas = document.createElement('canvas');
-            canvas.width = img.width;
-            canvas.height = img.height;
-            const ctx = canvas.getContext('2d');
-            ctx.drawImage(img, 0, 0);
-            return canvas;
+        // 從地圖取得影像
+        function getMapImage() {
+            return new Promise((resolve, reject) => {
+                // 建立一個 hidden canvas
+                const canvas = document.createElement('canvas');
+                const size = map.getSize();
+                canvas.width = size.x;
+                canvas.height = size.y;
+                
+                const ctx = canvas.getContext('2d');
+                
+                // 取得所有圖層的 DOM 元素
+                const tileContainer = map.getPanes().tilePane;
+                
+                // 使用 Leaflet 的方法渲染到 canvas
+                const overlayImage = L.DomUtil.create('canvas', 'leaflet-overlay-image', map.getPanes().overlayPane);
+                overlayImage.width = size.x;
+                overlayImage.height = size.y;
+                
+                // 另一個方法：直接從 tilePane 複製
+                ctx.fillStyle = '#fff';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // 獲取所有 tile 圖片
+                const tiles = tileContainer.querySelectorAll('img.leaflet-tile');
+                
+                if (tiles.length === 0) {
+                    reject(new Error('沒有找到圖磚'));
+                    return;
+                }
+                
+                let loaded = 0;
+                tiles.forEach(img => {
+                    const imgCopy = new Image();
+                    imgCopy.crossOrigin = 'anonymous';
+                    imgCopy.onload = () => {
+                        const pos = L.DomUtil.getPosition(img);
+                        ctx.drawImage(imgCopy, pos.x, pos.y, 256, 256);
+                        loaded++;
+                        if (loaded === tiles.length) {
+                            resolve({ canvas, ctx });
+                        }
+                    };
+                    imgCopy.onerror = () => {
+                        loaded++;
+                        if (loaded === tiles.length) {
+                            resolve({ canvas, ctx });
+                        }
+                    };
+                    imgCopy.src = img.src;
+                });
+            });
         }
         
-        // 偵測邊界 - 優化版
-        function detectBoundaries(imageData, minArea, cannyLow, cannyHigh) {
-            const src = cv.imread(imageData);
+        // 偵測邊界
+        function detectEdges(ctx, width, height, minArea, cannyLow, cannyHigh) {
+            const src = cv.matFromCanvasData(ctx, cv.CV_8UC4);
             const gray = new cv.Mat();
             const hsv = new cv.Mat();
             const mask = new cv.Mat();
@@ -184,250 +184,144 @@
             const contours = new cv.MatVector();
             const hierarchy = new cv.Mat();
             
-            // 灰階
+            // 轉灰階
             cv.cvtColor(src, gray, cv.COLOR_RGBA2GRAY, 0);
             
-            // 轉 HSV 偵測綠色農地
+            // 轉 HSV 偵測綠色
             cv.cvtColor(src, hsv, cv.COLOR_RGBA2HSV, 0);
             
-            // 綠色範圍 (農地)
-            const lowerGreen = new cv.Mat(1, 3, cv.CV_32F, [25, 30, 30]);
-            const upperGreen = new cv.Mat(1, 3, cv.CV_32F, [85, 255, 200]);
-            cv.inRange(hsv, lowerGreen, upperGreen, mask);
+            // 綠色範圍
+            const lower = new cv.Mat(1, 3, cv.CV_32F, [20, 20, 20]);
+            const upper = new cv.Mat(1, 3, cv.CV_32F, [90, 255, 200]);
+            cv.inRange(hsv, lower, upper, mask);
             
-            // 高斯模糊去噪
+            // 高斯模糊
             const blurred = new cv.Mat();
             cv.GaussianBlur(gray, blurred, new cv.Size(3, 3), 0);
             
-            // Canny 邊緣偵測
+            // Canny
             cv.Canny(blurred, edges, cannyLow, cannyHigh);
             
-            // 合併邊緣和顏色遮罩
+            // 合併
             const combined = new cv.Mat();
             cv.bitwise_or(edges, mask, combined);
             
-            // 膨脹連接邊緣
+            // 形態學
             const kernel = cv.getStructuringElement(cv.MORPH_RECT, new cv.Size(3, 3));
             const dilated = new cv.Mat();
             cv.dilate(combined, dilated, kernel, new cv.Point(-1, -1), 2);
             
-            // 侵蝕去除噪聲
-            const eroded = new cv.Mat();
-            cv.erode(dilated, eroded, kernel, new cv.Point(-1, -1), 1);
-            
             // 找輪廓
-            cv.findContours(eroded, contours, hierarchy, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE);
+            cv.findContours(dilated, contours, hierarchy, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE);
             
-            const validContours = [];
+            const valid = [];
             for (let i = 0; i < contours.size(); i++) {
                 const area = cv.contourArea(contours.get(i));
                 if (area > minArea) {
-                    validContours.push(contours.get(i));
+                    valid.push({ contour: contours.get(i), area });
                 }
             }
             
-            console.log(`偵測到 ${contours.size()} 個輪廓，過濾後 ${validContours.length} 個`);
+            // 清理
+            src.delete(); gray.delete(); hsv.delete(); mask.delete();
+            edges.delete(); blurred.delete(); combined.delete();
+            dilated.delete(); kernel.delete(); hierarchy.delete();
+            lower.delete(); upper.delete();
             
-            src.delete();
-            gray.delete();
-            hsv.delete();
-            mask.delete();
-            edges.delete();
-            blurred.delete();
-            combined.delete();
-            dilated.delete();
-            eroded.delete();
-            kernel.delete();
-            lowerGreen.delete();
-            upperGreen.delete();
-            hierarchy.delete();
-            
-            return validContours;
+            return valid;
         }
         
         // 輪廓轉 GeoJSON
-        function contoursToGeoJSON(contours, imgWidth, imgHeight, bounds) {
-            const features = [];
+        function contoursToGeoJSON(contours, canvas) {
+            const bounds = map.getBounds();
+            const w = canvas.width;
+            const h = canvas.height;
             
-            const minX = bounds.getWest();
-            const maxX = bounds.getEast();
-            const minY = bounds.getSouth();
-            const maxY = bounds.getNorth();
-            
-            const xScale = (maxX - minX) / imgWidth;
-            const yScale = (maxY - minY) / imgHeight;
-            
-            for (let i = 0; i < contours.size(); i++) {
-                const contour = contours.get(i);
+            const features = contours.map((c, i) => {
                 const coords = [];
+                const contour = c.contour;
                 
                 for (let j = 0; j < contour.rows; j++) {
                     const px = contour.data32S[j * 2];
                     const py = contour.data32S[j * 2 + 1];
                     
-                    const lon = minX + px * xScale;
-                    const lat = maxY - py * yScale;
-                    coords.push([lon, lat]);
+                    const lng = bounds.getWest() + (px / w) * (bounds.getEast() - bounds.getWest());
+                    const lat = bounds.getNorth() - (py / h) * (bounds.getNorth() - bounds.getSouth());
+                    coords.push([lng, lat]);
                 }
                 
                 // 閉合
-                if (coords.length > 0 && (coords[0][0] !== coords[coords.length-1][0] || 
-                    coords[0][1] !== coords[coords.length-1][1])) {
+                if (coords.length > 0) {
                     coords.push(coords[0]);
                 }
                 
-                if (coords.length >= 3) {
-                    features.push({
-                        type: "Feature",
-                        geometry: {
-                            type: "Polygon",
-                            coordinates: [coords]
-                        },
-                        properties: {
-                            id: i,
-                            area: cv.contourArea(contour)
-                        }
-                    });
-                }
-            }
+                return {
+                    type: "Feature",
+                    geometry: { type: "Polygon", coordinates: [coords] },
+                    properties: { id: i, area: c.area }
+                };
+            });
             
-            return {
-                type: "FeatureCollection",
-                features: features
-            };
+            return { type: "FeatureCollection", features };
         }
         
         // 開始偵測
         async function startDetection() {
-            if (!cv || typeof cv.imread !== 'function') {
-                alert('OpenCV 尚未載入完成，請稍後再試');
-                return;
-            }
-            
             if (isDetecting) return;
             isDetecting = true;
             
-            const detectBtn = document.getElementById('detectBtn');
-            const progress = document.getElementById('progress');
-            const progressBar = document.getElementById('progress-bar');
-            const status = document.getElementById('status');
+            const btn = document.getElementById('detectBtn');
+            btn.disabled = true;
+            btn.innerText = '偵測中...';
             
-            const minArea = parseInt(document.getElementById('minArea').value);
-            const cannyLow = parseInt(document.getElementById('cannyLow').value);
-            const cannyHigh = parseInt(document.getElementById('cannyHigh').value);
-            
-            detectBtn.disabled = true;
-            detectBtn.innerText = '偵測中...';
-            progress.style.display = 'block';
-            
-            // 取得目前視角的範圍
-            const bounds = map.getBounds();
-            const zoom = map.getZoom();
-            
-            // 計算需要的圖磚
-            const center = map.getCenter();
-            const tileCenter = map.getCenter();
-            
-            // 下載 3x3 圖磚
-            const tilesToDownload = [];
-            const centerTile = map.latLngToContainerPoint(center);
-            
-            // 轉到圖磚座標
-            const centerPoint = map.getCenter();
-            const tileSize = 256;
-            
-            // 簡單版本：下載地圖可視範圍內的圖磚
-            const startTile = map.latLngToContainerPoint(bounds.getNorthWest());
-            const endTile = map.latLngToContainerPoint(bounds.getSouthEast());
-            
-            const minTileX = Math.floor(startTile.x / tileSize);
-            const maxTileX = Math.floor(endTile.x / tileSize);
-            const minTileY = Math.floor(startTile.y / tileSize);
-            const maxTileY = Math.floor(endTile.y / tileSize);
-            
-            status.innerText = `下載圖磚中...`;
-            
-            // 拼接所有圖磚成大圖
-            const tiles = [];
-            let cols = 0;
-            let rows = 0;
-            
-            for (let y = minTileY; y <= maxTileY; y++) {
-                for (let x = minTileX; x <= maxTileX; x++) {
-                    const tilePoint = new L.Point(x * tileSize, y * tileSize);
-                    const latlng = map.containerPointToLatLng(tilePoint);
-                    
-                    const tileCoords = map.latLngToContainerPoint(latlng);
-                    const tz = zoom;
-                    
-                    // 使用 Leaflet 轉圖磚
-                    const tileX = Math.floor((centerPoint.lng + 180) / 360 * Math.pow(2, tz));
-                    const latRad = centerPoint.lat * Math.PI / 180;
-                    const tileY = Math.floor((1 - Math.log(Math.tan(latRad) + 1 / Math.cos(latRad)) / Math.PI) / 2 * Math.pow(2, tz));
-                    
-                    tiles.push({ x: x, y: y, tx: tileX, ty: tileY, zoom: tz });
-                }
+            try {
+                // 確保地圖完全載入
+                setStatus('等待圖磚載入...');
+                await new Promise(r => setTimeout(r, 2000));
+                
+                // 取得 OpenCV
+                await waitForOpenCV();
+                
+                setStatus('取得地圖影像...');
+                const { canvas, ctx } = await getMapImage();
+                
+                const minArea = parseInt(document.getElementById('minArea').value);
+                const cannyLow = parseInt(document.getElementById('cannyLow').value);
+                const cannyHigh = parseInt(document.getElementById('cannyHigh').value);
+                
+                setStatus('偵測邊界...');
+                const contours = detectEdges(ctx, canvas.width, canvas.height, minArea, cannyLow, cannyHigh);
+                
+                setStatus('轉換座標...');
+                const geojson = contoursToGeoJSON(contours, canvas);
+                
+                boundaryLayer.clearLayers();
+                boundaryLayer.addData(geojson);
+                
+                setResult(`偵測到 ${geojson.features.length} 塊`);
+                setStatus('完成');
+                
+                // 清理
+                contours.forEach(c => c.contour.delete());
+                
+            } catch (e) {
+                console.error(e);
+                setStatus('錯誤: ' + e.message);
             }
             
-            // 限制範圍避免太多
-            const limitedTiles = tiles.slice(0, 25); // 最多 25 張
-            
-            status.innerText = `下載 ${limitedTiles.length} 張圖磚...`;
-            
-            // 下載並拼接
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            const tileW = 256, tileH = 256;
-            canvas.width = (maxTileX - minTileX + 1) * tileW;
-            canvas.height = (maxTileY - minTileY + 1) * tileH;
-            
-            let loaded = 0;
-            
-            for (const tile of limitedTiles) {
-                const img = await fetchTileImage(tile.tx, tile.ty, tile.zoom);
-                if (img) {
-                    const dx = (tile.x - minTileX) * tileW;
-                    const dy = (tile.y - minTileY) * tileH;
-                    ctx.drawImage(img, dx, dy);
-                }
-                loaded++;
-                progressBar.style.width = (loaded / limitedTiles.length * 50) + '%';
-            }
-            
-            status.innerText = '偵測邊界中...';
-            
-            // OpenCV 偵測
-            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            const contours = detectBoundaries(imageData, minArea, cannyLow, cannyHigh);
-            
-            // 轉 GeoJSON
-            const mapBounds = map.getBounds();
-            const geojson = contoursToGeoJSON(contours, canvas.width, canvas.height, mapBounds);
-            
-            // 顯示
-            boundaryLayer.clearLayers();
-            boundaryLayer.addData(geojson);
-            
-            progressBar.style.width = '100%';
-            status.innerText = `完成！偵測到 ${geojson.features.length} 塊土地`;
-            
-            detectBtn.disabled = false;
-            detectBtn.innerText = '開始偵測';
+            btn.disabled = false;
+            btn.innerText = '開始偵測';
             isDetecting = false;
-            
-            // 釋放記憶體
-            for (let i = 0; i < contours.size(); i++) {
-                contours.get(i).delete();
-            }
-            contours.delete();
         }
         
-        // 清除邊界
         function clearBoundaries() {
             boundaryLayer.clearLayers();
-            centerLayer.clearLayers();
-            document.getElementById('status').innerText = '已清除';
+            setStatus('已清除');
+            setResult('');
         }
+        
+        // 初始化
+        setStatus('就緒 - 調整地圖後點擊偵測');
     </script>
 </body>
 </html>
