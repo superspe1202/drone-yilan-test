@@ -75,16 +75,29 @@
             attribution: '© OSM'
         });
         
-        // 使用 Google 衛星圖層
+        // 使用 OSM（無 CORS 問題）
+        var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OSM'
+        });
+        
+        // ESRI 衛星
+        var esriSat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            maxZoom: 19,
+            attribution: '© ESRI'
+        });
+        
         var googleSat = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0','mt1','mt2','mt3'],
             attribution: '© Google'
         });
         
-        googleSat.addTo(map);
+        // 預設用 OSM（因為衛星圖有 CORS 限制）
+        osm.addTo(map);
         
         L.control.layers({
+            'ESRI 衛星': esriSat,
             'Google 衛星': googleSat,
             'OSM 地圖': osm
         }).addTo(map);
@@ -120,31 +133,17 @@
             return cv;
         }
         
-        // 從地圖取得影像
+        // 從地圖取得影像 - 使用 Leaflet 的 tilePane
         function getMapImage() {
             return new Promise((resolve, reject) => {
-                // 建立一個 hidden canvas
                 const canvas = document.createElement('canvas');
                 const size = map.getSize();
                 canvas.width = size.x;
                 canvas.height = size.y;
-                
                 const ctx = canvas.getContext('2d');
                 
-                // 取得所有圖層的 DOM 元素
-                const tileContainer = map.getPanes().tilePane;
-                
-                // 使用 Leaflet 的方法渲染到 canvas
-                const overlayImage = L.DomUtil.create('canvas', 'leaflet-overlay-image', map.getPanes().overlayPane);
-                overlayImage.width = size.x;
-                overlayImage.height = size.y;
-                
-                // 另一個方法：直接從 tilePane 複製
-                ctx.fillStyle = '#fff';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-                
-                // 獲取所有 tile 圖片
-                const tiles = tileContainer.querySelectorAll('img.leaflet-tile');
+                // 取得所有 tile 圖片
+                const tiles = map.getPanes().tilePane.querySelectorAll('img.leaflet-tile');
                 
                 if (tiles.length === 0) {
                     reject(new Error('沒有找到圖磚'));
@@ -153,11 +152,14 @@
                 
                 let loaded = 0;
                 tiles.forEach(img => {
+                    // 嘗試從快取或直接載入
                     const imgCopy = new Image();
-                    imgCopy.crossOrigin = 'anonymous';
+                    imgCopy.crossOrigin = 'Anonymous';
                     imgCopy.onload = () => {
                         const pos = L.DomUtil.getPosition(img);
-                        ctx.drawImage(imgCopy, pos.x, pos.y, 256, 256);
+                        if (pos) {
+                            ctx.drawImage(imgCopy, pos.x, pos.y, 256, 256);
+                        }
                         loaded++;
                         if (loaded === tiles.length) {
                             resolve({ canvas, ctx });
@@ -166,6 +168,7 @@
                     imgCopy.onerror = () => {
                         loaded++;
                         if (loaded === tiles.length) {
+                            // 至少有部分載入
                             resolve({ canvas, ctx });
                         }
                     };
