@@ -110,8 +110,10 @@
         function loadBoundaries() {
             document.getElementById('loading').style.display = 'block';
             
-            // 從 GitHub 載入邊界資料
-            fetch('https://raw.githubusercontent.com/superspe1202/drone-yilan-test/main/baxian_boundaries_final.json')
+            // 使用 jsDelivr CDN 載入
+            var boundaryUrl = 'https://cdn.jsdelivr.net/gh/superspe1202/drone-yilan-test@main/baxian_boundaries_final.json';
+            
+            fetch(boundaryUrl)
                 .then(function(response){return response.json();})
                 .then(function(data){
                     boundaryLayer.addData(data);
