@@ -1,5 +1,11 @@
-vector_tiles/
-tiles/
-*.bin
 node_modules/
+.venv/
 .env
+*.bin
+__pycache__/
+*.pyc
+.DS_Store
+drone-app/
+drone-yilan-test/
+soul_backup_staging/
+temp_yilan/
