@@ -77,7 +77,8 @@
         centers.forEach(function(p){
             var area = areaMap[p.land_no];
             var color = area ? '#4CAF50' : '#ccc';
-            var marker = L.circleMarker([p.lat,p.lon],{radius:6,fillColor:color,color:'#333',fillOpacity:0.8});
+            // 用寬長方形（面積約2倍）
+            var marker = L.rectangle([[p.lat-0.00003,p.lon-0.00005],[p.lat+0.00003,p.lon+0.00005]],{fillColor:area?'transparent':'#ccc',color:'#333',fillOpacity:area?0:0.8,weight:0.3});
             marker.landNo=p.land_no;marker.area=area;marker.lat=p.lat;marker.lng=p.lon;
             marker.on('click',function(){toggleLand(this);});
             marker.addTo(landLayer);
@@ -87,11 +88,11 @@
         
         var locationMarker=null,locationCircle=null;
         
-        function toggleLand(marker){var idx=selectedLands.findIndex(function(l){return l.landNo===marker.landNo;});if(idx>=0){selectedLands.splice(idx,1);marker.setStyle({fillColor:marker.area?'#4CAF50':'#ccc',radius:6});}else if(marker.area){selectedLands.push({landNo:marker.landNo,area:marker.area,lat:marker.lat,lng:marker.lng});marker.setStyle({fillColor:'#ff6b35',radius:8});}renderSelectedList();}
+        function toggleLand(marker){var idx=selectedLands.findIndex(function(l){return l.landNo===marker.landNo;});if(idx>=0){selectedLands.splice(idx,1);marker.setStyle({fillColor:marker.area?'transparent':'#ccc',fillOpacity:marker.area?0:0.8});}else if(marker.area){selectedLands.push({landNo:marker.landNo,area:marker.area,lat:marker.lat,lng:marker.lng});marker.setStyle({fillColor:'#ff6b35',fillOpacity:0.8});}renderSelectedList();}
         
-        function removeLand(idx,e){e.stopPropagation();var land=selectedLands[idx];selectedLands.splice(idx,1);landLayer.eachLayer(function(m){if(m.landNo===land.landNo){m.setStyle({fillColor:m.area?'#4CAF50':'#ccc',radius:6});}});renderSelectedList();}
+        function removeLand(idx,e){e.stopPropagation();var land=selectedLands[idx];selectedLands.splice(idx,1);landLayer.eachLayer(function(m){if(m.landNo===land.landNo){m.setStyle({fillColor:m.area?'transparent':'#ccc',fillOpacity:m.area?0:0.8});}});renderSelectedList();}
         
-        function focusLand(idx){var land=selectedLands[idx];map.setView([land.lat,land.lng],18);landLayer.eachLayer(function(m){if(m.landNo===land.landNo){m.setStyle({fillColor:'#ff0000',radius:10});setTimeout(function(){m.setStyle({fillColor:'#ff6b35',radius:8});},500);}});}
+        function focusLand(idx){var land=selectedLands[idx];map.setView([land.lat,land.lng],20);}
         
         function renderSelectedList(){var list=document.getElementById('selectedList');if(selectedLands.length===0){list.innerHTML='<div class="empty-state">👆 點擊地圖選擇土地</div>';document.getElementById('totalPrice').innerText='$0';return;}var html='';var totalFen=0;selectedLands.forEach(function(l,idx){var fen=l.area/293.4;totalFen+=fen;var price=Math.round(fen*300);html+='<div class="selected-item" onclick="focusLand('+idx+')"><div class="info"><div class="land-no">'+l.landNo+' 地號</div><div class="area">'+l.area+' 坪 = '+fen.toFixed(1)+' 分</div><div class="price">$'+price.toLocaleString()+'</div></div><button class="btn-delete" onclick="removeLand('+idx+',event)">×</button></div>';});var totalPrice=Math.round(totalFen*300);html+='<div style="margin-top:10px;padding:10px;background:rgba(255,255,255,0.2);border-radius:8px;"><div>合計: '+totalFen.toFixed(1)+' 分</div><div style="font-size:18px;font-weight:bold;">$'+totalPrice.toLocaleString()+'</div></div>';list.innerHTML=html;document.getElementById('totalPrice').innerText='$'+totalPrice.toLocaleString();}
         
