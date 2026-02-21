@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>八仙段 邊界參數調整</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Microsoft JhengHei', sans-serif; }
+        #controls {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            width: 260px;
+        }
+        #controls h3 { margin-bottom: 10px; font-size: 14px; }
+        .param { margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between; font-size: 13px; }
+        .param label { flex: 1; }
+        .param input { width: 50px; padding: 3px; margin-left: 5px; }
+        button { width: 100%; padding: 8px; background: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer; margin-top: 8px; font-size: 13px; }
+        #status { margin-top: 8px; font-size: 11px; color: #666; }
+        .info { font-size: 11px; color: #888; margin-top: 8px; }
+        #map { height: 100vh; }
+        .legend { position: absolute; bottom: 20px; right: 10px; background: white; padding: 8px; border-radius: 8px; z-index: 1000; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <div id="controls">
+        <h3>⚙️ 邊界偵測參數</h3>
+        
+        <div class="param">
+            <label>Canny Low:</label>
+            <input type="number" id="cannyLow" value="30" min="1" max="255">
+        </div>
+        <div class="param">
+            <label>Canny High:</label>
+            <input type="number" id="cannyHigh" value="80" min="1" max="255">
+        </div>
+        <div class="param">
+            <label>Min Area:</label>
+            <input type="number" id="minArea" value="40" min="1">
+        </div>
+        
+        <button onclick="saveParams()">💾 儲存參數</button>
+        
+        <div id="status">目前使用: Canny 30/80, MinArea 40</div>
+        
+        <div class="info">
+            說明：<br>
+            • Canny Low/High = 邊緣偵測閾值<br>
+            • Min Area = 過濾太小區塊<br>
+            • 相鄰土地不重疊 = 正確
+        </div>
+    </div>
+    
+    <div id="map"></div>
+    <div class="legend">
+        <div>🔴 邊界</div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([24.6615, 121.785], 17);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 22
+        }).addTo(map);
+        
+        // 邊界圖層
+        var boundaryLayer = L.geoJSON(null, {
+            style: { color: "#ff0000", weight: 2, fillOpacity: 0.15 }
+        }).addTo(map);
+        
+        // 載入已儲存的參數
+        var savedParams = JSON.parse(localStorage.getItem('baxianParams') || '{"cannyLow":30,"cannyHigh":80,"minArea":40}');
+        document.getElementById('cannyLow').value = savedParams.cannyLow;
+        document.getElementById('cannyHigh').value = savedParams.cannyHigh;
+        document.getElementById('minArea').value = savedParams.minArea;
+        
+        // 根據參數載入對應的邊界檔案
+        function loadBoundaries() {
+            var cannyLow = savedParams.cannyLow;
+            var cannyHigh = savedParams.cannyHigh;
+            var minArea = savedParams.minArea;
+            
+            // 選擇對應的檔案
+            var fileMap = {
+                '30-80-40': 'baxian_boundaries_40.json',
+                '30-80-50': 'baxian_boundaries_50.json',
+                '30-80-30': 'baxian_boundaries_30.json',
+                '30-80-20': 'baxian_boundaries_20.json',
+                '30-80-100': 'baxian_boundaries_100.json'
+            };
+            
+            var key = cannyLow + '-' + cannyHigh + '-' + minArea;
+            var file = fileMap[key] || 'baxian_boundaries_final.json';
+            
+            document.getElementById('status').innerText = '載入中: ' + file;
+            
+            var url = 'https://cdn.jsdelivr.net/gh/superspe1202/drone-yilan-test@main/' + file;
+            
+            fetch(url)
+                .then(function(r){return r.json();})
+                .then(function(data){
+                    boundaryLayer.clearLayers();
+                    boundaryLayer.addData(data);
+                    document.getElementById('status').innerText = '載入完成！ ' + data.features.length + ' 塊';
+                })
+                .catch(function(e){
+                    document.getElementById('status').innerText = '載入失敗: ' + e.message;
+                });
+        }
+        
+        function saveParams() {
+            savedParams.cannyLow = parseInt(document.getElementById('cannyLow').value);
+            savedParams.cannyHigh = parseInt(document.getElementById('cannyHigh').value);
+            savedParams.minArea = parseInt(document.getElementById('minArea').value);
+            
+            localStorage.setItem('baxianParams', JSON.stringify(savedParams));
+            
+            document.getElementById('status').innerText = '參數已儲存: Canny ' + savedParams.cannyLow + '/' + savedParams.cannyHigh + ', MinArea ' + savedParams.minArea;
+            
+            // 嘗試載入對應的邊界
+            loadBoundaries();
+        }
+        
+        // 初始化載入
+        loadBoundaries();
+    </script>
+</body>
+</html>
