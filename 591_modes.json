@@ -1,0 +1,17 @@
+{
+  "地籍查詢/謄本": {
+    "total_shown": 0,
+    "lands_found": 0,
+    "url": "https://land.591.com.tw/map?region_id=21&mode=tenor"
+  },
+  "在售土地": {
+    "total_shown": 0,
+    "lands_found": 0,
+    "url": "https://land.591.com.tw/map?region_id=21&mode=in-sale"
+  },
+  "實價登錄": {
+    "total_shown": 0,
+    "lands_found": 0,
+    "url": "https://land.591.com.tw/map?region_id=21&mode=real-price"
+  }
+}

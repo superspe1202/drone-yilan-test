@@ -1,0 +1,870 @@
+[
+  {
+    "url": "https://land.591.com.tw/map?region_id=21&mode=tenor",
+    "method": "GET"
+  },
+  {
+    "url": "https://land.591.com.tw/map?region_id=21&mode=tenor",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/entry.CRY-3i4o.css",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/index.BqsGDRHV.css",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/tab-pane.GFeWyg7c.css",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/Card.DqxtP2_G.css",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/useLandTagFilter.B9a0n4L8.css",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/SubwayStation.1xkYuXiV.css",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/index.BqcDPnG1.css",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/Topographic.BbpTow_Z.css",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/index.DcEizTfG.css",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/NavMenu.utn_3YoL.css",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/ByCIhRnZ.js",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/Dwz4-6ot.js",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/C8wvP_at.js",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/CV-9uBi5.js",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/DlAUqK2U.js",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/DOKhRT7g.js",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/CsSxUbVL.js",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/BtZrYU8l.js",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/C6U8J-Yj.js",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/C8xHFft5.js",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/logo.DSu3R5-P.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/lazyloadEmpty.CWn-sJ7Y.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/error-404.CJ53sAce.css",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/anngrDwo.js",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/DGm64TfA.js",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/error-500.DGzEcJdD.css",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/CempuWBH.js",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/guide-map.Dd_0pzLG.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/bg.DEUuzyZB.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/icon-confirm.DFqADt_G.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/bg-pc.BsVerGBw.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/layers-roadmap.qKvtQcyF.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/layers-satellite.D5TnZWsd.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/layers-school.Da7zJsPp.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/layers-store2.BmGGXxuV.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/layers-dev-zone.ExKQM8i2.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/use-partitions.BgFfemdm.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/urban-renewal.Dq2GCjLP.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/layers-hsr-restrictions.kDfbD2-a.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/layers-airport-restrictions.AwBt6mqc.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/layers-industrial.CFCeaceF.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/layers-soil.BqVZA7rI.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/default-avatar.rQ4RrviZ.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/empty-large-list.DpH2mPP4.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/empty-result.CqB1BTBl.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/hot-land-header.Bt4OrIOW.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/hot-house-header.CG8M4dOu.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/hot-house-header-xs.Dk4z3tpF.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/streetview.Di7UP1dy.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/recom-empty-touch.Dls1oRNx.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/purpose-bg-position.CeS3EYZD.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/purpose-bg-situation.CpAFRqjD.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/purpose-bg-map.sqmyIgEB.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/board-bg-3.Cj67kk3Y.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/dailing-bg.CDGcvf4I.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/icon-debut.CPqUFvV_.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/icon-good.BQ0Kruuy.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/tag-special.BnhZppiA.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/devzone-sale-icon.Cxrs8LL1.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/purpose-bg-situation-half.oAaQPWo6.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/purpose-bg-position-half.CWunCZXh.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/purpose-bg-map-half.BgGjOTai.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/purpose-bg-investment.thUOdFa_.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/refresh-time.Dkv6gmhE.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/good-land-banner.Ciyf3UqA.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/board-bg-1.Qoq6Hr4S.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/good-land.DNAGmcxp.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/circle-bg.DkUdJ3Nf.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/icon-8591.CII_8vCl.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/icon-8891.CPUNA9kN.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/icon-518-job.fObdyU9C.svg",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/icon-518-hire.dIzYBm7C.svg",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/icon-8891-car.DXT7vucl.svg",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/icon-job.CaIYDkyE.svg",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/empty.Bskj8ZF_.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/logo.DSu3R5-P.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/index.BqsGDRHV.css",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/entry.CRY-3i4o.css",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/Card.DqxtP2_G.css",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/useLandTagFilter.B9a0n4L8.css",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/tab-pane.GFeWyg7c.css",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/Topographic.BbpTow_Z.css",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/SubwayStation.1xkYuXiV.css",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/NavMenu.utn_3YoL.css",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/index.DcEizTfG.css",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/index.BqcDPnG1.css",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/DlAUqK2U.js",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/Dwz4-6ot.js",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/anngrDwo.js",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/DGm64TfA.js",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/CempuWBH.js",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/C8xHFft5.js",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/C6U8J-Yj.js",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/logo.DSu3R5-P.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/lazyloadEmpty.CWn-sJ7Y.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/layers-dev-zone.ExKQM8i2.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/urban-renewal.Dq2GCjLP.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/layers-hsr-restrictions.kDfbD2-a.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/layers-airport-restrictions.AwBt6mqc.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/layers-industrial.CFCeaceF.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/error-404.CJ53sAce.css",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/default-avatar.rQ4RrviZ.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/layers-soil.BqVZA7rI.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/bg.DEUuzyZB.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/layers-store2.BmGGXxuV.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/layers-school.Da7zJsPp.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/error-500.DGzEcJdD.css",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/bg-pc.BsVerGBw.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/guide-map.Dd_0pzLG.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/use-partitions.BgFfemdm.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/layers-satellite.D5TnZWsd.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/layers-roadmap.qKvtQcyF.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/icon-confirm.DFqADt_G.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/empty-large-list.DpH2mPP4.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/streetview.Di7UP1dy.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/hot-land-header.Bt4OrIOW.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/circle-bg.DkUdJ3Nf.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/logo.DSu3R5-P.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/DOKhRT7g.js",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/purpose-bg-map.sqmyIgEB.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/board-bg-1.Qoq6Hr4S.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/empty-result.CqB1BTBl.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/icon-8891.CPUNA9kN.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/icon-debut.CPqUFvV_.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/icon-good.BQ0Kruuy.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/recom-empty-touch.Dls1oRNx.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/tag-special.BnhZppiA.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/purpose-bg-position-half.CWunCZXh.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/purpose-bg-situation-half.oAaQPWo6.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/dailing-bg.CDGcvf4I.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/purpose-bg-investment.thUOdFa_.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/devzone-sale-icon.Cxrs8LL1.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/hot-house-header.CG8M4dOu.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/good-land-banner.Ciyf3UqA.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/hot-house-header-xs.Dk4z3tpF.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/icon-8591.CII_8vCl.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/BtZrYU8l.js",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/refresh-time.Dkv6gmhE.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/purpose-bg-position.CeS3EYZD.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/purpose-bg-situation.CpAFRqjD.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/board-bg-3.Cj67kk3Y.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/purpose-bg-map-half.BgGjOTai.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/good-land.DNAGmcxp.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/icon-518-job.fObdyU9C.svg",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/icon-job.CaIYDkyE.svg",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/CsSxUbVL.js",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/empty.Bskj8ZF_.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/icon-518-hire.dIzYBm7C.svg",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/icon-8891-car.DXT7vucl.svg",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/ByCIhRnZ.js",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/CV-9uBi5.js",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/C8wvP_at.js",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/iconfont.bSe5INvc.woff2",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/builds/meta/773193a2-45ee-447e-8bcc-1c24c6e544ae.json",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/iconfont.bSe5INvc.woff2",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/builds/meta/773193a2-45ee-447e-8bcc-1c24c6e544ae.json",
+    "status": 200
+  },
+  {
+    "url": "https://bff.591.com.tw/v1/user/oauth",
+    "method": "GET"
+  },
+  {
+    "url": "https://bff.591.com.tw/v2/user/info?login_type=get_user_msg",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/empty-result.CqB1BTBl.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/layers-satellite.D5TnZWsd.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/layers-dev-zone.ExKQM8i2.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/urban-renewal.Dq2GCjLP.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/layers-industrial.CFCeaceF.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/layers-soil.BqVZA7rI.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/empty-result.CqB1BTBl.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/layers-satellite.D5TnZWsd.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/layers-dev-zone.ExKQM8i2.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/urban-renewal.Dq2GCjLP.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/layers-industrial.CFCeaceF.png",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/layers-soil.BqVZA7rI.png",
+    "status": 200
+  },
+  {
+    "url": "https://bff-business.591.com.tw/v2/web/land-transcript/map/list",
+    "method": "POST"
+  },
+  {
+    "url": "https://bff-business.591.com.tw/v2/web/land-transcript/map/list",
+    "method": "POST"
+  },
+  {
+    "url": "https://s.591.com.tw/map/C8bzjQzC.js",
+    "method": "GET"
+  },
+  {
+    "url": "https://bff-business.591.com.tw/v1/web/polygon/regions",
+    "method": "POST"
+  },
+  {
+    "url": "https://s.591.com.tw/map/C8bzjQzC.js",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/map/use-partitions.BgFfemdm.png",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/map/use-partitions.BgFfemdm.png",
+    "status": 200
+  },
+  {
+    "url": "https://bff-business.591.com.tw/v2/web/land-transcript/map/search",
+    "method": "POST"
+  },
+  {
+    "url": "https://bff-business.591.com.tw/v2/web/land-transcript/map/search",
+    "method": "POST"
+  },
+  {
+    "url": "https://bff.591.com.tw/v1/user/oauth",
+    "status": 200
+  },
+  {
+    "url": "https://bff-business.591.com.tw/v2/web/land-transcript/map/list",
+    "status": 200
+  },
+  {
+    "url": "https://bff-business.591.com.tw/v2/web/land-transcript/map/list",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/one-id/ip-handler.js",
+    "method": "GET"
+  },
+  {
+    "url": "https://www.google.com/ccm/collect?frm=0&en=page_view&dl=https%3A%2F%2Fland.591.com.tw%2Fmap&scrsrc=www.googletagmanager.com&rnd=930959335.1771743508&dt=%E5%8F%B0%E5%8C%97%E5%B8%82%E5%9C%9F%E5%9C%B0%E7%99%BB%E8%A8%98%E9%9B%BB%E5%AD%90%E8%AC%84%E6%9C%AC%E6%9F%A5%E8%A9%A2%E5%9C%B0%E5%9C%96%20-%20591%E5%9C%9F%E5%9C%B0&auid=432925527.1771743508&navt=n&npa=0&ep.ads_data_redaction=0&gtm=45He62j0h2v72696400za200zd72696400xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=103116026~103200004~104527906~104528500~104684208~104684211~115616986~115938465~115938468~117455676~117455678~117527080&apve=1&apvf=f&apvc=1&tft=1771743507817&tfd=7343",
+    "method": "POST"
+  },
+  {
+    "url": "https://bff-business.591.com.tw/v2/web/land-transcript/map/search",
+    "status": 200
+  },
+  {
+    "url": "https://www.googletagmanager.com/static/service_worker/6240/sw_iframe.html?origin=https%3A%2F%2Fland.591.com.tw",
+    "method": "GET"
+  },
+  {
+    "url": "https://bff-business.591.com.tw/v2/web/land-transcript/map/search",
+    "method": "POST"
+  },
+  {
+    "url": "https://s.591.com.tw/one-id/ip-handler.js",
+    "status": 200
+  },
+  {
+    "url": "https://bff.591.com.tw/v2/user/info?login_type=get_user_msg",
+    "status": 200
+  },
+  {
+    "url": "https://analytics.google.com/g/collect?v=2&tid=G-HDSPSZ773Q&gtm=45je62j0h2v885574925z872696400za20gzb72696400zd72696400&_p=1771743505049&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&cid=130891450.1771743508&ul=zh-tw&sr=1400x900&uaa=arm&uab=64&uafvl=Chromium%3B145.0.7632.6%7CNot%253AA-Brand%3B99.0.0.0&uamb=0&uam=&uap=macOS&uapv=26.0.1&uaw=0&are=1&frm=0&pscdl=noapi&_eu=AgAAAGA&_s=1&tag_exp=103116026~103200004~104527906~104528501~104573694~104684208~104684211~115616986~115938465~115938469~117455676~117455678&sid=1771743507&sct=1&seg=0&dl=https%3A%2F%2Fland.591.com.tw%2Fmap%3Fregion_id%3D21%26mode%3Dtenor&dt=%E5%8F%B0%E5%8C%97%E5%B8%82%E5%9C%9F%E5%9C%B0%E7%99%BB%E8%A8%98%E9%9B%BB%E5%AD%90%E8%AC%84%E6%9C%AC%E6%9F%A5%E8%A9%A2%E5%9C%B0%E5%9C%96%20-%20591%E5%9C%9F%E5%9C%B0&en=page_view&_fv=1&_nsi=1&_ss=2&ep.module_name=%E5%9C%B0%E5%9C%96%E6%89%BE%E5%9C%B0-%E7%9C%8B%E8%AC%84%E6%9C%AC&ep.device_id=ZhVrUgD1idE_ZxOW11H6V&ep.region_name=%E5%AE%9C%E8%98%AD%E7%B8%A3&ep.device_type=PC&ep.page_previous=%E5%85%B6%E4%BB%96&tfd=7439",
+    "method": "POST"
+  },
+  {
+    "url": "https://analytics.google.com/g/collect?v=2&tid=G-HDSPSZ773Q&gtm=45je62j0h2v885574925za20gzb72696400zd72696400&_p=1771743505049&gcd=13l3l3l3l1l1&npa=0&dma=0&cid=130891450.1771743508&ul=zh-tw&sr=1400x900&uaa=arm&uab=64&uafvl=Chromium%3B145.0.7632.6%7CNot%253AA-Brand%3B99.0.0.0&uamb=0&uam=&uap=macOS&uapv=26.0.1&uaw=0&are=1&frm=0&pscdl=noapi&_eu=AAgAAGQ&_s=2&tag_exp=103116026~103200004~104527906~104528501~104573694~104684208~104684211~115616986~115938465~115938469~117455676~117455678&sid=1771743507&sct=1&seg=0&dl=https%3A%2F%2Fland.591.com.tw%2Fmap%3Fregion_id%3D21%26mode%3Dtenor&dt=%E5%8F%B0%E5%8C%97%E5%B8%82%E5%9C%9F%E5%9C%B0%E7%99%BB%E8%A8%98%E9%9B%BB%E5%AD%90%E8%AC%84%E6%9C%AC%E6%9F%A5%E8%A9%A2%E5%9C%B0%E5%9C%96%20-%20591%E5%9C%9F%E5%9C%B0&en=behavior_2025H2pageview&_c=1&ep.module_name=%E5%9C%B0%E5%9C%96%E6%89%BE%E5%9C%B0-%E7%9C%8B%E8%AC%84%E6%9C%AC&ep.device_id=ZhVrUgD1idE_ZxOW11H6V&ep.region_name=%E5%AE%9C%E8%98%AD%E7%B8%A3&ep.device_type=PC&ep.page_previous=%E5%85%B6%E4%BB%96&_et=17&tfd=7457",
+    "method": "POST"
+  },
+  {
+    "url": "https://tr.line.me/tag.gif?b_id=79d70662-da46-41b6-83fc-07ff7e001130&b_u=https%3A%2F%2Fland.591.com.tw%2Fmap%3Fregion_id%3D21%26mode%3Dtenor&b_d=land.591.com.tw&b_p=%2Fmap&b_q=%3Fregion_id%3D21%26mode%3Dtenor&b_t=%E5%8F%B0%E5%8C%97%E5%B8%82%E5%9C%9F%E5%9C%B0%E7%99%BB%E8%A8%98%E9%9B%BB%E5%AD%90%E8%AC%84%E6%9C%AC%E6%9F%A5%E8%A9%A2%E5%9C%B0%E5%9C%96%20-%20591%E5%9C%9F%E5%9C%B0&c_t=lap&t_id=e59b9e7e-d20b-4635-aae6-2e647ada3203&s_id=cf156a54-45252065&x4=100&e=pv&v=3.6.0&_t=1771743507938",
+    "method": "GET"
+  },
+  {
+    "url": "https://www.googletagmanager.com/static/service_worker/6240/sw_iframe.html?origin=https%3A%2F%2Fland.591.com.tw",
+    "status": 200
+  },
+  {
+    "url": "https://www.google.com/ccm/collect?frm=0&en=page_view&dl=https%3A%2F%2Fland.591.com.tw%2Fmap&scrsrc=www.googletagmanager.com&rnd=930959335.1771743508&dt=%E5%8F%B0%E5%8C%97%E5%B8%82%E5%9C%9F%E5%9C%B0%E7%99%BB%E8%A8%98%E9%9B%BB%E5%AD%90%E8%AC%84%E6%9C%AC%E6%9F%A5%E8%A9%A2%E5%9C%B0%E5%9C%96%20-%20591%E5%9C%9F%E5%9C%B0&auid=432925527.1771743508&navt=n&npa=0&ep.ads_data_redaction=0&gtm=45He62j0h2v72696400za200zd72696400xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=103116026~103200004~104527906~104528500~104684208~104684211~115616986~115938465~115938468~117455676~117455678~117527080&apve=1&apvf=f&apvc=1&tft=1771743507817&tfd=7343",
+    "status": 200
+  },
+  {
+    "url": "https://analytics.google.com/g/collect?v=2&tid=G-HDSPSZ773Q&gtm=45je62j0h2v885574925z872696400za20gzb72696400zd72696400&_p=1771743505049&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&cid=130891450.1771743508&ul=zh-tw&sr=1400x900&uaa=arm&uab=64&uafvl=Chromium%3B145.0.7632.6%7CNot%253AA-Brand%3B99.0.0.0&uamb=0&uam=&uap=macOS&uapv=26.0.1&uaw=0&are=1&frm=0&pscdl=noapi&_eu=AgAAAGA&_s=1&tag_exp=103116026~103200004~104527906~104528501~104573694~104684208~104684211~115616986~115938465~115938469~117455676~117455678&sid=1771743507&sct=1&seg=0&dl=https%3A%2F%2Fland.591.com.tw%2Fmap%3Fregion_id%3D21%26mode%3Dtenor&dt=%E5%8F%B0%E5%8C%97%E5%B8%82%E5%9C%9F%E5%9C%B0%E7%99%BB%E8%A8%98%E9%9B%BB%E5%AD%90%E8%AC%84%E6%9C%AC%E6%9F%A5%E8%A9%A2%E5%9C%B0%E5%9C%96%20-%20591%E5%9C%9F%E5%9C%B0&en=page_view&_fv=1&_nsi=1&_ss=2&ep.module_name=%E5%9C%B0%E5%9C%96%E6%89%BE%E5%9C%B0-%E7%9C%8B%E8%AC%84%E6%9C%AC&ep.device_id=ZhVrUgD1idE_ZxOW11H6V&ep.region_name=%E5%AE%9C%E8%98%AD%E7%B8%A3&ep.device_type=PC&ep.page_previous=%E5%85%B6%E4%BB%96&tfd=7439",
+    "status": 204
+  },
+  {
+    "url": "https://analytics.google.com/g/collect?v=2&tid=G-HDSPSZ773Q&gtm=45je62j0h2v885574925za20gzb72696400zd72696400&_p=1771743505049&gcd=13l3l3l3l1l1&npa=0&dma=0&cid=130891450.1771743508&ul=zh-tw&sr=1400x900&uaa=arm&uab=64&uafvl=Chromium%3B145.0.7632.6%7CNot%253AA-Brand%3B99.0.0.0&uamb=0&uam=&uap=macOS&uapv=26.0.1&uaw=0&are=1&frm=0&pscdl=noapi&_eu=AAgAAGQ&_s=2&tag_exp=103116026~103200004~104527906~104528501~104573694~104684208~104684211~115616986~115938465~115938469~117455676~117455678&sid=1771743507&sct=1&seg=0&dl=https%3A%2F%2Fland.591.com.tw%2Fmap%3Fregion_id%3D21%26mode%3Dtenor&dt=%E5%8F%B0%E5%8C%97%E5%B8%82%E5%9C%9F%E5%9C%B0%E7%99%BB%E8%A8%98%E9%9B%BB%E5%AD%90%E8%AC%84%E6%9C%AC%E6%9F%A5%E8%A9%A2%E5%9C%B0%E5%9C%96%20-%20591%E5%9C%9F%E5%9C%B0&en=behavior_2025H2pageview&_c=1&ep.module_name=%E5%9C%B0%E5%9C%96%E6%89%BE%E5%9C%B0-%E7%9C%8B%E8%AC%84%E6%9C%AC&ep.device_id=ZhVrUgD1idE_ZxOW11H6V&ep.region_name=%E5%AE%9C%E8%98%AD%E7%B8%A3&ep.device_type=PC&ep.page_previous=%E5%85%B6%E4%BB%96&_et=17&tfd=7457",
+    "status": 302
+  },
+  {
+    "url": "https://www.google-analytics.com/privacy-sandbox/register-conversion?_c=1&cid=130891450.1771743508&dma=0&en=behavior_2025H2pageview&gtm=45je62j0h2v885574925za20gzb72696400zd72696400&npa=0&tid=G-HDSPSZ773Q&dl=https%3A%2F%2Fland.591.com.tw%3F",
+    "method": "GET"
+  },
+  {
+    "url": "https://www.google-analytics.com/privacy-sandbox/register-conversion?_c=1&cid=130891450.1771743508&dma=0&en=behavior_2025H2pageview&gtm=45je62j0h2v885574925za20gzb72696400zd72696400&npa=0&tid=G-HDSPSZ773Q&dl=https%3A%2F%2Fland.591.com.tw%3F",
+    "status": 204
+  },
+  {
+    "url": "https://bff-business.591.com.tw/v2/web/land-transcript/map/search",
+    "status": 200
+  },
+  {
+    "url": "https://tr.line.me/tag.gif?b_id=79d70662-da46-41b6-83fc-07ff7e001130&b_u=https%3A%2F%2Fland.591.com.tw%2Fmap%3Fregion_id%3D21%26mode%3Dtenor&b_d=land.591.com.tw&b_p=%2Fmap&b_q=%3Fregion_id%3D21%26mode%3Dtenor&b_t=%E5%8F%B0%E5%8C%97%E5%B8%82%E5%9C%9F%E5%9C%B0%E7%99%BB%E8%A8%98%E9%9B%BB%E5%AD%90%E8%AC%84%E6%9C%AC%E6%9F%A5%E8%A9%A2%E5%9C%B0%E5%9C%96%20-%20591%E5%9C%9F%E5%9C%B0&c_t=lap&t_id=e59b9e7e-d20b-4635-aae6-2e647ada3203&s_id=cf156a54-45252065&x4=100&e=pv&v=3.6.0&_t=1771743507938",
+    "status": 200
+  },
+  {
+    "url": "https://s.591.com.tw/shadow-detect/0.0.7/core.js",
+    "method": "GET"
+  },
+  {
+    "url": "https://s.591.com.tw/shadow-detect/0.0.7/core.js",
+    "status": 200
+  },
+  {
+    "url": "https://bff-business.591.com.tw/v1/web/polygon/regions",
+    "status": 200
+  },
+  {
+    "url": "https://bff-house.591.com.tw/disable-devtool/analyse",
+    "method": "GET"
+  },
+  {
+    "url": "https://bff-business.591.com.tw/v1/web/polygon/regions",
+    "method": "POST"
+  },
+  {
+    "url": "https://bff-business.591.com.tw/v1/web/polygon/regions",
+    "method": "POST"
+  },
+  {
+    "url": "https://bff-house.591.com.tw/disable-devtool/analyse",
+    "status": 200
+  },
+  {
+    "url": "https://bff-business.591.com.tw/v1/web/polygon/regions",
+    "status": 200
+  },
+  {
+    "url": "https://bff-business.591.com.tw/v2/web/land-transcript/map/search",
+    "method": "POST"
+  },
+  {
+    "url": "https://bff-business.591.com.tw/v2/web/land-transcript/map/search",
+    "method": "POST"
+  },
+  {
+    "url": "https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i15!2i27467!3i14066!4i256!2m3!1e0!2sm!3i767531530!3m18!2szh-TW!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjJ8cC52Om9mZg!4e0!5m1!1e3!23i46991212!23i47054750!23i47083502&key=AIzaSyA_T88jtygzK0sDQBqdchovUS9RcPWuP6c&token=59172",
+    "method": "GET"
+  },
+  {
+    "url": "https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i15!2i27467!3i14066!4i256!2m3!1e0!2sm!3i767531530!3m18!2szh-TW!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjJ8cC52Om9mZg!4e0!5m1!1e3!23i46991212!23i47054750!23i47083502&key=AIzaSyA_T88jtygzK0sDQBqdchovUS9RcPWuP6c&token=59172",
+    "status": 200
+  },
+  {
+    "url": "https://bff-business.591.com.tw/v1/web/polygon/regions",
+    "status": 200
+  },
+  {
+    "url": "https://bff-business.591.com.tw/v2/web/land-transcript/map/search",
+    "status": 200
+  },
+  {
+    "url": "https://analytics.google.com/g/collect?v=2&tid=G-HDSPSZ773Q&gtm=45je62j0h2v885574925z872696400za20gzb72696400zd72696400&_p=1771743505049&gcd=13l3l3l3l1l1&npa=0&dma=0&cid=130891450.1771743508&ul=zh-tw&sr=1400x900&uaa=arm&uab=64&uafvl=Chromium%3B145.0.7632.6%7CNot%253AA-Brand%3B99.0.0.0&uamb=0&uam=&uap=macOS&uapv=26.0.1&uaw=0&are=1&frm=0&pscdl=noapi&_eu=AAAAAGQ&tag_exp=103116026~103200004~104527906~104528501~104573694~104684208~104684211~115616986~115938465~115938469~117455676~117455678&sid=1771743507&sct=1&seg=0&dl=https%3A%2F%2Fland.591.com.tw%2Fmap%3Fregion_id%3D21%26mode%3Dtenor&dt=%E5%8F%B0%E5%8C%97%E5%B8%82%E5%9C%9F%E5%9C%B0%E7%99%BB%E8%A8%98%E9%9B%BB%E5%AD%90%E8%AC%84%E6%9C%AC%E6%9F%A5%E8%A9%A2%E5%9C%B0%E5%9C%96%20-%20591%E5%9C%9F%E5%9C%B0&_s=3&tfd=12468",
+    "method": "POST"
+  }
+]

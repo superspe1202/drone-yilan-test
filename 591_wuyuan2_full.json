@@ -1,0 +1,89 @@
+{
+  "section": "武淵二段",
+  "total": 20,
+  "with_coords": 0,
+  "lands": [
+    {
+      "index": 1,
+      "land_number": "武淵二段596地號",
+      "area": "440.03坪",
+      "price": "1.12萬/坪"
+    },
+    {
+      "index": 2,
+      "error": "ElementHandle.click: Element is not attached to the DOM\nCall log:\n  - attempting click action\n    2 "
+    },
+    {
+      "index": 3,
+      "error": "ElementHandle.click: Element is not attached to the DOM\nCall log:\n  - attempting click action\n    - "
+    },
+    {
+      "index": 4,
+      "error": "ElementHandle.click: Element is not attached to the DOM\nCall log:\n  - attempting click action\n    - "
+    },
+    {
+      "index": 5,
+      "error": "ElementHandle.click: Element is not attached to the DOM\nCall log:\n  - attempting click action\n    - "
+    },
+    {
+      "index": 6,
+      "error": "ElementHandle.click: Element is not attached to the DOM\nCall log:\n  - attempting click action\n    - "
+    },
+    {
+      "index": 7,
+      "error": "ElementHandle.click: Element is not attached to the DOM\nCall log:\n  - attempting click action\n    - "
+    },
+    {
+      "index": 8,
+      "error": "ElementHandle.click: Element is not attached to the DOM\nCall log:\n  - attempting click action\n    - "
+    },
+    {
+      "index": 9,
+      "error": "ElementHandle.click: Element is not attached to the DOM\nCall log:\n  - attempting click action\n    - "
+    },
+    {
+      "index": 10,
+      "error": "ElementHandle.click: Element is not attached to the DOM\nCall log:\n  - attempting click action\n    - "
+    },
+    {
+      "index": 11,
+      "error": "ElementHandle.click: Element is not attached to the DOM\nCall log:\n  - attempting click action\n    - "
+    },
+    {
+      "index": 12,
+      "error": "ElementHandle.click: Element is not attached to the DOM\nCall log:\n  - attempting click action\n    - "
+    },
+    {
+      "index": 13,
+      "error": "ElementHandle.click: Element is not attached to the DOM\nCall log:\n  - attempting click action\n    - "
+    },
+    {
+      "index": 14,
+      "error": "ElementHandle.click: Element is not attached to the DOM\nCall log:\n  - attempting click action\n    - "
+    },
+    {
+      "index": 15,
+      "error": "ElementHandle.click: Element is not attached to the DOM\nCall log:\n  - attempting click action\n    - "
+    },
+    {
+      "index": 16,
+      "error": "ElementHandle.click: Element is not attached to the DOM\nCall log:\n  - attempting click action\n    - "
+    },
+    {
+      "index": 17,
+      "error": "ElementHandle.click: Element is not attached to the DOM\nCall log:\n  - attempting click action\n    - "
+    },
+    {
+      "index": 18,
+      "error": "ElementHandle.click: Element is not attached to the DOM\nCall log:\n  - attempting click action\n    - "
+    },
+    {
+      "index": 19,
+      "error": "ElementHandle.click: Element is not attached to the DOM\nCall log:\n  - attempting click action\n    - "
+    },
+    {
+      "index": 20,
+      "error": "ElementHandle.click: Element is not attached to the DOM\nCall log:\n  - attempting click action\n    - "
+    }
+  ]
+}

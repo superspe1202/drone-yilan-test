@@ -1,0 +1,32 @@
+[
+  {
+    "type": "request",
+    "url": "https://bff-business.591.com.tw/v2/web/land-transcript/map/list",
+    "method": "POST",
+    "post_data": null
+  },
+  {
+    "type": "request",
+    "url": "https://bff-business.591.com.tw/v2/web/land-transcript/map/list",
+    "method": "POST",
+    "post_data": null
+  },
+  {
+    "type": "request",
+    "url": "https://bff-business.591.com.tw/v2/web/land-transcript/map/search",
+    "method": "POST",
+    "post_data": null
+  },
+  {
+    "type": "request",
+    "url": "https://bff-business.591.com.tw/v2/web/land-transcript/map/search",
+    "method": "POST",
+    "post_data": null
+  },
+  {
+    "type": "request",
+    "url": "https://bff-business.591.com.tw/v2/web/land-transcript/map/search",
+    "method": "POST",
+    "post_data": null
+  }
+]

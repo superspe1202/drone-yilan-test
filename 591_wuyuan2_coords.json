@@ -1,0 +1,14 @@
+{
+  "methods": {
+    "window_data": {
+      "onsecuritypolicyviolation": "null",
+      "crossOriginIsolated": false,
+      "mapEl": "ic-map map-close-fill",
+      "data-v-2181cd9a": "",
+      "popup": " 重置 ",
+      "url": "https://land.591.com.tw/map?region_id=21&mode=tenor&keyword=%E6%AD%A6%E6%B7%B5%E4%BA%8C%E6%AE%B5"
+    },
+    "regex_coords": [],
+    "dom_coords": []
+  }
+}
